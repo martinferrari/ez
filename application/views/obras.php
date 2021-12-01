@@ -16,8 +16,21 @@
 
 <?php 
 $i = 0;
+$lw = [1,2,5,6,9,10,13,14,17,18,21,22];
 foreach($posts as $post): 
-    $large_width = ($i == 1) ? "large-width" : "";
+    if(in_array($i,$lw)):
+        $large_width = "large-width";
+    else:
+        $large_width = "";
+    endif;
+
+    if($post['tipo'] == 1):
+        $url = base_url()."obras/".$post['id'];
+    elseif($post['tipo'] == 2):
+        $url = base_url()."proyectos/".$post['id'];
+    elseif($post['tipo'] == 3):
+        $url = base_url()."novedades/".$post['id'];
+    endif;
     ?>
         <div class="grid-sizer"></div>
         
@@ -25,14 +38,14 @@ foreach($posts as $post):
             <!-- gallery item -->
             <div class="item">
                 <div class="picframe">
-                    <a href="EZESTUDIO.php">
+                    <a href="<?php echo $url; ?>">
                         <span class="overlay" >
                             <span class="pf_title">
                                 <span class="project-name"><?php echo $post['titulo']; ?></span>
                             </span>
                         </span>
                     </a>
-                    <img src="<?php echo base_url(); ?>_res/<?php echo $post['path']; ?>" alt="EZ Estudio">
+                    <img src="<?php echo base_url(); ?><?php echo $post['path']; ?>" alt="EZ Estudio">
                 </div>
             </div>
             <!-- close gallery item -->
@@ -40,11 +53,7 @@ foreach($posts as $post):
         <!-- FIN RENGLON -->
 
     <?php 
-    if($i == 0):
-        $i = 1;
-    else:
-        $i = 0;
-    endif;
+    $i++;
     endforeach; ?>
 </div>
 </section>

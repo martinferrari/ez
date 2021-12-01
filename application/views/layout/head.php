@@ -54,8 +54,8 @@
                         
                         <!-- logo begin -->
                         <div id="logo">
-                            <a href="index.php">
-                                <img class="logo" src="images/logo.png" with="140px" alt="">
+                            <a href="/">
+                                <img class="logo" src="<?php echo base_url(); ?>_res/assets/images/logo.png" with="140px" alt="">
                             </a>
                         </div>
                         <!-- logo close -->
@@ -66,11 +66,11 @@
                         <nav>
                             <ul id="mainmenu">
 								<li><a href="home">Inicio<span></span></a></li>															
-                                <li><a href="/obras">Obras</a>
-                                <li><a href="/proyectos">Proyectos</a></li>
-                                <li><a href="/nosotros">Sobre Nosotros</a></li>
-                                <li><a href="/novedades">Novedades</a></li>
-                                <li><a href="/contacto">Contacto</a></li>
+                                <li><a href="<?php echo base_url();?>obras">Obras</a>
+                                <li><a href="<?php echo base_url();?>proyectos">Proyectos</a></li>
+                                <li><a href="<?php echo base_url();?>nosotros">Sobre Nosotros</a></li>
+                                <li><a href="<?php echo base_url();?>novedades">Novedades</a></li>
+                                <li><a href="<?php echo base_url();?>contacto">Contacto</a></li>
                             </ul>
                         </nav>
 

@@ -16,8 +16,13 @@
 
 <?php 
 $i = 0;
+$lw = [1,2,5,6,9,10,13,14,17,18,21,22];
 foreach($posts as $post): 
-    $large_width = ($i == 1) ? "large-width" : "";
+    if(in_array($i,$lw)):
+        $large_width = "large-width";
+    else:
+        $large_width = "";
+    endif;
 
     if($post['tipo'] == 1):
         $url = base_url()."obras/".$post['id'];
@@ -48,11 +53,7 @@ foreach($posts as $post):
         <!-- FIN RENGLON -->
 
     <?php 
-    if($i == 0):
-        $i = 1;
-    else:
-        $i = 0;
-    endif;
+    $i++;
     endforeach; ?>
 </div>
 </section>

@@ -30,11 +30,42 @@ class Web extends CI_Controller {
 			if($v['es_destacada'] == 1):
 				$destacada = $v['path'];
 			endif;
+
+			if($v['tipo'] != 3):
+				$imagenes[] = $v['path'];
+			endif;
+			
+			if($v['tipo'] == 3):
+				$videos[] = $v['path'];
+			endif;
+			
 		endforeach;
 
+		$data_adicional['direccion_tecnica'] = $obra[0]['direccion_tecnica'];
+		$data_adicional['asist_tec_obra'] = $obra[0]['asist_tec_obra'];
+		$data_adicional['estructuras'] = $obra[0]['estructuras'];
+		$data_adicional['instalaciones'] = $obra[0]['instalaciones'];
+		$data_adicional['gestion_documentacion'] = $obra[0]['gestion_documentacion'];
+		$data_adicional['sup_terreno'] = $obra[0]['sup_terreno'];
+		$data_adicional['sup_cubierta'] = $obra[0]['sup_cubierta'];
+		$data_adicional['ubicacion'] = $obra[0]['ubicacion'];
+		$data_adicional['anio_finalizacion'] = $obra[0]['anio_finalizacion'];
+		$data_adicional['fotografia'] = $obra[0]['fotografia'];
+		
+		$hay_datos_adicionales = 0;
+		foreach($data_adicional as $k => $v):
+			if($v != ''):
+				$hay_datos_adicionales++;
+			endif;
+		endforeach;
+		
+
 		$data['obra'] = $obra[0];
-		$data['visuales'] = $visuales;
+		$data['imagenes'] = $imagenes;
+		$data['videos'] = $videos;
 		$data['destacada'] = $destacada;
+		$data['data_adicional'] = $data_adicional;
+		$data['hay_datos_adicionales'] = $hay_datos_adicionales;
 
 		
 		$this->load->view('layout/head');

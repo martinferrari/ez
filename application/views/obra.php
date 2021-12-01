@@ -1,9 +1,12 @@
 <!-- subheader -->
+<div class="obras">
+
+
 <section id="subheader"  data-type="background">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Bienvenidos</h1>
+                <h1>Obras</h1>
             </div>
         </div>
     </div>
@@ -31,7 +34,7 @@
                             $active = ($i == 0) ? "active" : "";
                         ?>
                             <div class="item <?php echo $active;?>">
-                                <img src="<?php echo base_url().$visuales[$i]['path']; ?>" alt="Casa CC Ezestudio" />
+                                <img src="<?php echo base_url().$imagenes[$i]; ?>" alt="Casa CC Ezestudio" />
                             </div>
                         <?php endfor; ?>
                     </div>
@@ -42,6 +45,7 @@
                 <h3 class="id-color" ><?php echo utf8_decode($obra['titulo']); ?></h3>
                 <h4 class="id-color" ><?php echo utf8_decode($obra['anio_proyecto']); ?></h4>
                 <p style="padding-right: 3em"><?php echo utf8_decode($obra['descripcion']); ?></p> 
+                
             </div>
         </div>
         <!--   CARROUSEL ABAJO -->
@@ -52,24 +56,29 @@
 
         <div id="gallery-carousel-4" class="owl-slide zoom-gallery zoom-gallery" data-wow-delay=".2s">                                            
             <?php
-                $q = count($visuales);
-                for($i=5; $i<$q;$i++):  ?>
+                $q = count($imagenes);
+                for($i=5; $i<$q;$i++):  
+                ?>
 
                     <div class='carousel-item'>
                         <div class='picframe'>
-                            <a href='<?php echo base_url().$visuales[$i]['path']; ?>' alt=''/>
-                                <img src='<?php echo base_url().$visuales[$i]['path']; ?>' alt='' />
+                            <a href='<?php echo base_url().$imagenes[$i]; ?>' alt=''/>
+                                <img src='<?php echo base_url().$imagenes[$i]; ?>' alt='' />
                             </a>
                     </div>
                 </div>
-                <?php endfor; ?>
+                <?php 
+                endfor; ?>
                 
             
             </div>
              <!--   CARROUSEL ABAJO -->
+             
             <div class="row">
+
+                <?php if($hay_datos_adicionales > 0): ?>
                 <div class="col-sm-6">
-                <img src="<?php echo base_url().$destacada; ?>" width="100%"  alt="Obra Casa CC" />
+                    <img src="<?php echo base_url().$destacada; ?>" width="100%"  alt="Obra Casa CC" />
                 </div>
                 <div class="col-sm-6 mt40">
                     
@@ -133,15 +142,29 @@
                     </ul>  
                   </div>
               </div>
+              <?php endif; ?>
               
               <!-- 16:9 aspect ratio vVIDEO -->
               <div class="embed-responsive embed-responsive-16by9">
-                    <video autoplay loop playsinline muted class="embed-responsive-item" style="max-width:100%; height:auto mt20">
-                            <source src="http://www.ezestudio.com.ar/video/CasaCC.mp4" type="video/mp4">
+                <?php if(isset($videos[0])): ?>
+                    <video controls loop playsinline muted class="embed-responsive-item" style="max-width:100%; height:auto mt20">
+                        <source src="<?php echo base_url().$videos[0]; ?>" type="video/mp4">
                     </video>
+                <?php endif; ?>
               </div> 
              
 
 
         </div>
 </div>
+</div>
+
+
+<section id="view-all-projects" class="call-to-action bg-color text-center text-dark padding20" data-speed="5" data-type="background" aria-label="cta">
+    <div class="container">
+        <div class="row">         
+                <a href="<?php echo base_url(); ?>contacto" class="btn btn-line-black btn-big mt20 wow fadeInUp">CONTACTO</a>
+        </div>
+    </div>
+</section>        
+

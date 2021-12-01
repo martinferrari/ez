@@ -3,10 +3,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="images/logo.png" class="logo-small" alt=""><br><a>
-                        Ezestudio¬Æ A cargo de Pietro Ezio Zucchet, Arquitecto formose√±o graduado en la Universidad Nacional de C√≥rdoba en 2003 Iniciando su experiencia laboral en Italia durante el 2004.
-Form√≥ EZ Estudio en 2005, hasta concretar la construcci√≥n de su nueva sede en 2011, donde actualmente desarrolla, junto a un equipo de profesionales, proyectos residenciales y urbanos, sirvi√©ndose de l√≠neas puras y materiales nobles para el lenguaje de su obra. 
-</a>
+                        <img src="images/logo.png" class="logo-small" alt=""><br>
+                            <a>
+                        EzestudioÆ a cargo de Pietro Ezio Zucchet, Arquitecto formoseÒo graduado en la Universidad Nacional de CÛrdoba en 2003 Iniciando su experiencia laboral en Italia durante el 2004.
+                        FormÛ EZ Estudio en 2005, hasta concretar la construcciÛn de su nueva sede en 2011, donde actualmente desarrolla, junto a un equipo de profesionales, proyectos residenciales y urbanos, sirviÈndose de lÌ≠neas puras y materiales nobles para el lenguaje de su obra. 
+                        </a>
                     </div>
 
                     <div class="col-md-4">
@@ -16,7 +17,7 @@ Form√≥ EZ Estudio en 2005, hasta concretar la construcci√≥n de su nueva sede en 
                     </div>
 
                     <div class="col-md-4">
-                        <h3>Informaci√≥n de Contacto</h3>
+                        <h3>InformaciÛn de Contacto</h3>
                         <div class="widget widget-address">
                             <address>
                                 <span><strong>Telefono:</strong> <a>+54 3704 435913</a> </span>                                
@@ -32,7 +33,7 @@ Form√≥ EZ Estudio en 2005, hasta concretar la construcci√≥n de su nueva sede en 
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
-                            &copy; Copyright 2020 - Ezestudio Formosa <span class="id-color">Jump Dise√±o</span>
+                            &copy; Copyright <?php echo date("Y"); ?> - Ezestudio Formosa <span class="id-color"></span>
                         </div>
                         <div class="col-md-6 text-right">
                             <div class="social-icons">
