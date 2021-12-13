@@ -58,6 +58,38 @@ class Proyectos_model extends CI_Model {
 		return ($baja == 1) ? 1 : 0;
 	}
 
+	function get_configuracion(){
+		$sql = "SELECT valor FROM configuracion WHERE campo = 'proyectos en pagina'";
+		$query1 = $this->db->query($sql);
+		$cantidad = $query1->result_array();
+
+		$sql = "SELECT valor FROM configuracion WHERE campo = 'orden proyectos'";
+		$query2 = $this->db->query($sql);
+		$orden = $query2->result_array();
+
+		$conf['cantidad'] = $cantidad[0];
+		$conf['orden'] = $orden[0];
+		return $conf;
+	}
+
+	function guardar_configuracion($cantidad, $orden){
+		$sql = "UPDATE configuracion SET valor = '$cantidad' WHERE campo = 'proyectos en pagina' ";
+		$query = $this->db->query($sql);
+
+		$sql = "UPDATE configuracion SET valor = '$orden' WHERE campo = 'orden proyectos' ";
+		$query = $this->db->query($sql);
+	}
+
+
+	public function obtener_cantidad_publicados(){
+		$sql = "SELECT 
+				count(*) as cantidad
+			FROM post
+			WHERE estado = 1
+			AND tipo = 2";
+		$res = $this->db->query($sql);
+		return $res->result_array();
+	}
 
 
 	public function modificacionProyecto($id, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_modif, $fecha_modif, $estado){

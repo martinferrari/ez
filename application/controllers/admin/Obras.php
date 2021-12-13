@@ -140,6 +140,17 @@ class Obras extends CI_Controller {
 	}
 
 
+	function guardar_configuracion(){
+		$data['logged_user'] = $this->session->all_userdata();
+		$this->sesiones->valida_sesion();
+
+		$cantidad = $this->input->post('cant_obras');
+		$orden = $this->input->post('orden_obras');
+
+		$update_conf = $this->obras_model->guardar_configuracion($cantidad, $orden);
+		redirect("admin/home");
+	}
+
 
 	function modificacion_imagenes_obra(){
 		
@@ -215,7 +226,7 @@ class Obras extends CI_Controller {
 	}
 
 	function modificacion_videos_obra(){
-		$id_obra = $this->input->post('mev_id');
+		echo $id_obra = $this->input->post('mev_id');
 		$imagenes = $_FILES['mev_videos'];
 
 		if(isset($_POST['eo_borrar_video'])):
@@ -253,7 +264,7 @@ class Obras extends CI_Controller {
 					$_FILES['imagen']['size'] = $imagenes['size'][$i];
 				
 					$config['upload_path'] = $upload_path;
-					$config['allowed_types'] = 'avi|mp4|mpeg';
+					$config['allowed_types'] = 'avi|mp4|mpeg|mov';
 					$config['max_size'] = '0';
 					
 					$config['file_name'] = $nombre_imagen;

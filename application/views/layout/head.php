@@ -41,6 +41,8 @@
     <!-- youtube background -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>_res/assets/css/jquery.mb.YTPlayer.min.css" type="text/css">
 
+    <link rel="stylesheet" href="<?php echo base_url(); ?>_res/assets/css/ez.css" type="text/css">
+
 </head>
 
 <body id="homepage">
@@ -65,7 +67,7 @@
                         <!-- mainmenu begin -->
                         <nav>
                             <ul id="mainmenu">
-								<li><a href="home">Inicio<span></span></a></li>															
+								<li><a href="<?php echo base_url();?>home">Inicio<span></span></a></li>															
                                 <li><a href="<?php echo base_url();?>obras">Obras</a>
                                 <li><a href="<?php echo base_url();?>proyectos">Proyectos</a></li>
                                 <li><a href="<?php echo base_url();?>nosotros">Sobre Nosotros</a></li>

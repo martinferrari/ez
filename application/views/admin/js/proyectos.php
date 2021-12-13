@@ -140,7 +140,6 @@ $(".acciones").on('click', function(){
 				
 					contenido += '</div>';
 
-					
 					$("#contenedor_videos").append(contenido);
 
 				});

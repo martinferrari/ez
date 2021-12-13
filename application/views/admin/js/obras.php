@@ -137,7 +137,7 @@
 	function cargar_videos_en_modal(id_obra){
 		//$(".cargando_ajax").fadeIn(200);
 		$("#contenedor_videos").html("");
-		
+		console.log(id_obra);
 		var url = "<?php echo base_url(); ?>admin/Obras/VisualesObra";
 
 		$.ajax({
@@ -168,15 +168,13 @@
 				
 					contenido += '</div>';
 
-					
 					$("#contenedor_videos").append(contenido);
 
 				});
 				
-				$('.cargando_ajax').fadeOut(200, function() {}); //oculta animacion cargando
+				//$('.cargando_ajax').fadeOut(200, function() {}); //oculta animacion cargando
 			},
 			
-			//Funcion que se ejecuta si el request da error. (Opcional)
 			error: function(data) {
 				console.log("ERROR");
 			},

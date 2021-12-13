@@ -2,9 +2,16 @@ body{
     /*font-family:"Source Sans Pro", sans-serif !important;*/
     font-family: 'Roboto', sans-serif !important;
 }
+body.login{
+    background-color: #2d2d2d;
+}
+
+.right_col{min-height: 600px;}
 .mtop20{margin-top:20px !important;}
 
-
+.login_wrapper{
+    margin-top: 20px;
+}
 .login_form{
     background:#e8e8e8;
     padding:20px;
@@ -27,7 +34,10 @@ body{
     text-shadow:none;
     color:#000;
 }
-
+.site_title .logo{
+    width: 115px;
+    display: inline-block;
+}
 .title_right{
     float: right !important;
 
@@ -36,6 +46,21 @@ body{
     width: initial !important;
     display: inherit !important;
     float: right !important;
+}
+
+h5.card-title{
+    font-size: 35px;
+    text-align: center;
+}
+h6.card-subtitle{
+    text-align: center;
+}
+a.card-link{
+    display: block;
+    text-align: center;
+}
+a.card-link:hover{
+    text-decoration: underline;
 }
 
 h4{
@@ -85,9 +110,10 @@ i.fas{
 .eo_image_thumb .eo_foto{
     display: none;
 }
-.eo_video_thumb{height: 165px;}
+.eo_video_thumb{height: 180px;}
 .eo_video_thumb video{
     width: 150px;
+    height: 100px;
 }
 .clear_thumb_image,
 .clear_thumb_video{
@@ -111,3 +137,24 @@ label.destacada input{margin-right: 5px;}
 .borrador{color:#9a9a9a;}
 .publicada{color:#3dcc00;}
 .sin_destacada{color:#ff0000;}
+
+.media .date{
+    margin-bottom: 5px;
+}
+
+.media.event.configuracion select{
+    margin-bottom: 15px;
+}
+
+.main_menu span.fas{
+    float:right;
+}
+.active a span.fas{
+    text-align:right !important;
+    margin-right:4px;
+}
+.modal-body.contacto h4{
+    color:#000;
+}
+.modal-body.contacto .fas.green{color:green;}
+.modal-body.contacto .fas.red{color:red;}

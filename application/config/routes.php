@@ -46,6 +46,10 @@ $route['nosotros'] = "Web/ver_nosotros";
 $route['novedades'] = "Web/ver_novedades";
 $route['contacto'] = "Web/ver_contacto";
 
+$route['web/Contacto/Entrevista'] = "Contacto/entrevista";
+$route['web/Contacto/Trabaja'] = "Contacto/trabaja";
+
+
 $route['obras/:num'] = "Web/ver_obra";
 $route['proyectos/:num'] = "Web/ver_proyecto";
 $route['novedades/:num'] = "Web/ver_novedad";
@@ -69,6 +73,23 @@ $route['admin/Proyectos/modificacionImagenesProyecto'] = "admin/Proyectos/modifi
 $route['admin/Proyectos/modificacionVideosProyecto'] = "admin/Proyectos/modificacion_videos_Proyecto";
 
 $route['admin/novedades'] = "admin/Novedades/ver_novedades";
+$route['admin/Novedades'] = "admin/Novedades/ver_novedades";
+$route['admin/Novedades/VisualesNovedad'] = "admin/Novedades/get_visuales_by_id_novedad";
+$route['admin/Novedades/borrar_novedad'] = "admin/Novedades/borrar_novedades";
+$route['admin/Novedades/modificacion_novedad'] = "admin/Novedades/modificacion_novedad";
+$route['admin/Novedades/modificacionImagenesNovedad'] = "admin/Novedades/modificacion_imagenes_novedad";
+$route['admin/Novedades/modificacionVideosNovedad'] = "admin/Novedades/modificacion_videos_novedad";
+
+$route['admin/nosotros'] = "admin/Nosotros/ver_nosotros";
+$route['admin/nosotros/VisualesNosotros'] = "admin/Nosotros/get_visuales_by_id_nosotros";
+
+$route['admin/usuarios'] = "admin/Usuario/ver_usuarios";
+
+$route['admin/entrevista'] = "admin/Contacto/ver_entrevistas";
+$route['admin/trabaja'] = "admin/Contacto/ver_trabaja_con_nosotros";
+
+
+
 
 
 

@@ -286,8 +286,8 @@
 						</div> <?php //panel-body ?>
 					</div> <?php //panel ?>
 					<div class="modal-footer">
-						<button type="button" id="" class="btn btn-sm btn-dark" data-dismiss="modal">Cerrar</button>
-						<button type="submit" id="guardar_corte" class="btn btn-sm btn-success">Guardar</button>
+						<button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-sm btn-success">Guardar</button>
 					</div>
 				</form>
 			</div> <?php //modal-body ?>
@@ -399,8 +399,6 @@
 									<input type="text" class="form-control" name="me_fotografia" id="me_fotografia">
 								</div>
 
-
-						
 								
 								<div class="col-md-12">
 									<h4>Ubicación</h4>
@@ -419,8 +417,8 @@
 					</div> <?php //panel ?>
 					<div class="modal-footer">
 						<a href="#" id="btn_borrar" class="btn btn-sm btn-danger btn-borrar">Borrar obra</a>
-						<button type="button" id="" class="btn btn-sm btn-dark" data-dismiss="modal">Cerrar</button>
-						<button type="submit" id="guardar_corte" class="btn btn-sm btn-success">Guardar</button>
+						<button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-sm btn-success">Guardar</button>
 					</div>
 				</form>
 			</div> <?php //modal-body ?>
@@ -495,7 +493,7 @@
 									
 									<div id="contenedor_videos"></div>
 
-									<input type="file" class="form-control" id="mev_videos" name="mev_videos[]" class="mev_videos" multiple>
+									<input type="file" class="form-control" id="mev_videos" name="mev_videos[]" class="mev_videos">
 									<label 
 										for="mev_videos" 
 										id="lbl_mev_videos"

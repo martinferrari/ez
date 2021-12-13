@@ -17,26 +17,30 @@
 
      <!-- VISIBLE PC TABLET -->
      <div class="hidden-xs">
-        <div class="row ">
+        <div class="row mbottom20">
             <div class="col-sm-6"> 
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <?php /*<ol class="carousel-indicators">
+                    <ol class="carousel-indicators">
                         <li data-target="myCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="myCarousel" data-slide-to="1"></li>
                         <li data-target="myCarousel" data-slide-to="2"></li>
                         <li data-target="myCarousel" data-slide-to="3"></li>
                         <li data-target="myCarousel" data-slide-to="4"></li>
-                    </ol> */ ?>
+                    </ol> 
                     
                     <div class="carousel-inner" role="listbox">
                         <?php  
+                        if(isset($imagenes)):
                         for($i=0; $i<5;$i++): 
                             $active = ($i == 0) ? "active" : "";
                         ?>
                             <div class="item <?php echo $active;?>">
-                                <img src="<?php echo base_url().$imagenes[$i]; ?>" alt="Casa CC Ezestudio" />
+                                <img src="<?php echo base_url().$imagenes[$i]; ?>" alt="" />
                             </div>
-                        <?php endfor; ?>
+                            <?php 
+                            endfor; 
+                        endif;
+                        ?>
                     </div>
                 </div>                                  
             </div>
@@ -46,37 +50,53 @@
                 <h4 class="id-color" ><?php echo utf8_decode($obra['anio_proyecto']); ?></h4>
                 <p style="padding-right: 3em"><?php echo utf8_decode($obra['descripcion']); ?></p> 
                 
+                <?php if(isset($videos)):
+                    $qty_videos = count($videos);
+                    $hasta = ($qty_videos >= 3) ? 3 : $qty_videos;
+
+                    for($i=0;$i<$hasta;$i++): ?>
+                    <div class="col-md-4">
+                        <div class="wrapper_thumbnail_video btn_video" data-toggle="modal" data-target="#modalVideo" data-video="<?php echo base_url().$videos[$i]; ?>">
+                            <i class="far fa-play-circle"></i>
+                            <span>Ver video</span>
+                        </div>
+                        <?php /*if(isset($videos[$i])): ?>
+                        <video controls loop playsinline muted class="embed-responsive-item video_post" style="max-width:100%; height:auto mt20">
+                        <source src="<?php echo base_url().$videos[$i]; ?>" type="video/mp4">
+                        </video>
+                        <?php endif;*/ ?>
+                    </div>
+
+                    <?php endfor; ?>
+                <?php endif; ?>
             </div>
         </div>
         <!--   CARROUSEL ABAJO -->
+        <?php $q = count($imagenes); 
+        if($q > 5): ?>
         <div class="owl-custom-nav">
             <a class="btn-next"></a>
             <a class="btn-prev"></a>
         </div>
 
         <div id="gallery-carousel-4" class="owl-slide zoom-gallery zoom-gallery" data-wow-delay=".2s">                                            
-            <?php
-                $q = count($imagenes);
-                for($i=5; $i<$q;$i++):  
-                ?>
-
-                    <div class='carousel-item'>
-                        <div class='picframe'>
-                            <a href='<?php echo base_url().$imagenes[$i]; ?>' alt=''/>
-                                <img src='<?php echo base_url().$imagenes[$i]; ?>' alt='' />
-                            </a>
+            <?php for($i=5; $i<$q;$i++):  ?>
+                <div class='carousel-item'>
+                    <div class='picframe'>
+                        <a href='<?php echo base_url().$imagenes[$i]; ?>' alt=''/>
+                            <img src='<?php echo base_url().$imagenes[$i]; ?>' alt='' />
+                        </a>
                     </div>
                 </div>
-                <?php 
-                endfor; ?>
-                
-            
-            </div>
-             <!--   CARROUSEL ABAJO -->
+            <?php endfor; ?>
+        </div>
+        <?php endif; ?>
+        <?php //   CARROUSEL ABAJO ?>
              
+        <?php if($hay_datos_adicionales > 0): ?>
             <div class="row">
 
-                <?php if($hay_datos_adicionales > 0): ?>
+                
                 <div class="col-sm-6">
                     <img src="<?php echo base_url().$destacada; ?>" width="100%"  alt="Obra Casa CC" />
                 </div>
@@ -142,8 +162,8 @@
                     </ul>  
                   </div>
               </div>
-              <?php endif; ?>
               
+              <?php /*
               <!-- 16:9 aspect ratio vVIDEO -->
               <div class="embed-responsive embed-responsive-16by9">
                 <?php if(isset($videos[0])): ?>
@@ -152,8 +172,9 @@
                     </video>
                 <?php endif; ?>
               </div> 
+              */ ?>
              
-
+              <?php endif; ?>
 
         </div>
 </div>
@@ -167,4 +188,5 @@
         </div>
     </div>
 </section>        
+
 

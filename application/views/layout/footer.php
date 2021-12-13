@@ -52,6 +52,38 @@
 
 
 
+
+
+
+
+
+<?php //MODAL Video ?>
+<div class="modal fade" id="modalVideo" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-video">
+		<div class="modal-content">
+			<div class="modal-body">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="row">
+                                <div id="contenedor_video"></div>
+                                <!-- <video controls loop playsinline muted class="embed-responsive-item video_post" id="video_post">
+                                <source id="src_video" src="" type="video/mp4">
+                                </video> -->
+							</div>
+						</div> <?php //panel-body ?>
+					</div> <?php //panel ?>
+			</div> <?php //modal-body ?>
+		</div> <?php //modal-content ?>
+	</div>  <?php //modal-dialog ?>
+</div>  <?php //modal ?>
+
+
+
+
+
+
+
+
     <!-- Javascript Files
     ================================================== -->
     <!-- jQuery library -->
@@ -83,6 +115,49 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>_res/assets/js/validar.js"></script>
     <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
     <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+
+
+
+    <script>
+
+        $(document).on("click", '.btn_video', function(event) { 
+            let vid = $(this).data("video");
+
+                let video_tag = '<video controls loop playsinline muted class="embed-responsive-item video_post" id="video_post"><source id="src_video" src="'+vid+'" type="video/mp4"></video>';
+
+                $("#contenedor_video").append(video_tag);
+
+                var video = document.getElementById('video_post');
+                video.requestFullscreen();
+                video.play();
+        });
+        
+        document.addEventListener("fullscreenchange", function () {
+            let fullsc = document.fullscreen;
+            if(fullsc === false){
+                $('#modalVideo').modal('toggle');
+                $("#contenedor_video").html('');
+            }
+        }, false);
+        document.addEventListener("mozfullscreenchange", function () {
+            let fullsc = document.fullscreen;
+            if(fullsc === false){
+                $('#modalVideo').modal('toggle');
+                $("#contenedor_video").html('');
+            }
+        }, false);
+        document.addEventListener("webkitfullscreenchange", function () {
+            let fullsc = document.fullscreen;
+            if(fullsc === false){
+                $('#modalVideo').modal('toggle');
+                $("#contenedor_video").html('');
+            }
+        }, false);
+
+
+    </script>
+
 
 </body>
 </html>

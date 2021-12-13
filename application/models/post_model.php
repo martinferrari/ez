@@ -9,6 +9,25 @@ class Post_model extends CI_Model {
 
 	}
 
+
+	public function obtener_novedades($cantidad, $orden){
+		$sql = "SELECT 
+				p.id,
+				p.tipo,
+				p.titulo,
+				v.path 
+			FROM post p
+			JOIN visuales v on v.id_post = p.id
+			WHERE p.estado = 1 
+			and p.tipo = 3
+			AND v.es_destacada = 1
+			ORDER BY $orden
+			LIMIT $cantidad ";
+		$res = $this->db->query($sql);
+		return $res->result_array();
+	}
+
+
 	public function obtener_obra($id){
 		$sql = "SELECT 
 				* 
@@ -22,7 +41,7 @@ class Post_model extends CI_Model {
 
 
 
-	public function obtener_obras($cantidad){
+	public function obtener_obras($cantidad, $orden){
 		$sql = "SELECT 
 				p.id,
 				p.tipo,
@@ -33,8 +52,9 @@ class Post_model extends CI_Model {
 			WHERE p.estado = 1 
 			and p.tipo = 1
 			AND v.es_destacada = 1
-			ORDER BY p.fecha_alta DESC
+			ORDER BY $orden
 			LIMIT $cantidad ";
+
 		$res = $this->db->query($sql);
 		return $res->result_array();
 	}
@@ -60,7 +80,7 @@ class Post_model extends CI_Model {
 
 
 
-	public function obtener_proyectos($cantidad){
+	public function obtener_proyectos($cantidad, $orden){
 		$sql = "SELECT 
 				p.id,
 				p.tipo,
@@ -71,11 +91,23 @@ class Post_model extends CI_Model {
 			WHERE p.estado = 1 
 			and p.tipo = 2
 			AND v.es_destacada = 1
-			ORDER BY p.fecha_alta DESC
+			ORDER BY $orden
 			LIMIT $cantidad ";
 		$res = $this->db->query($sql);
 		return $res->result_array();
 	}
+
+	public function obtener_proyecto($id){
+		$sql = "SELECT 
+				* 
+			FROM post p
+			WHERE p.estado = 1 
+			and p.id = $id
+			ORDER BY p.fecha_alta DESC";
+		$res = $this->db->query($sql);
+		return $res->result_array();
+	}
+
 
 	public function obtener_visuales($id_post){
 		$sql = "SELECT 
@@ -86,6 +118,15 @@ class Post_model extends CI_Model {
 		return $res->result_array();
 	}
 
+
+	public function obtener_visuales_nosotros($id_nosotros){
+		$sql = "SELECT 
+				id, path
+			FROM nosotros_visuales v 
+			WHERE v.id_post = $id_nosotros";
+		$res = $this->db->query($sql);
+		return $res->result_array();
+	}
 
 
 }//eof

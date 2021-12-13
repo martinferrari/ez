@@ -1,0 +1,95 @@
+
+.mbottom20{margin-bottom: 20px !important;}
+
+.panel-body{
+    background-color: #fff !important;
+    border: 0 !important;
+}
+.modal-title{
+    color:#000 !important;
+}
+.panel-body{
+    color:#000 !important;
+}
+
+.modal-content h4{
+    color:#9d3c34;
+}
+
+
+.nosotros.c1{
+    padding-top:0em;padding-left:0em; padding-right:0em;
+}
+.nosotros.c2 p{
+    padding-left: 3em; padding-top: 6em; 
+}
+.nosotros.c2 .p1{
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.nosotros.c2 .p2{
+    padding-top: 0;
+}
+.nosotros.c3{
+    padding-top:0em;padding-left:0em; padding-right:0em;
+}
+.nosotros.c4{
+    padding-top:0em;padding-left:0em; padding-right:0em;
+}
+
+.nosotros.cg1{
+    padding-top: 0em; padding-left: 0em; padding-right: 0em;
+}
+.nosotros.cg2{
+    padding-top: 0em; padding-left: 0em; padding-right: 0em; background-size: cover;
+}
+.nosotros.cg3{
+    padding-top: 0em; padding-left: 0em; padding-right: 0em; background-size: cover;
+}
+.nosotros.cg4{
+    padding-top: 0em; padding-left: 0em; padding-right: 0em; background-size: cover;
+}
+.nosotros.cg5{
+    padding-top: 0em; padding-left: 0em; padding-right: 0em; background-size: cover;
+}
+
+.nosotros.cg5 p{padding-left: 3em; padding-top: 6em; }
+.nosotros.cg5 .p1{
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.nosotros.cg5 .p2{padding-top: 0;}
+
+.nosotros.cg6{
+    padding-top: 0em; padding-left: 0em; padding-right: 0em; background-size: cover;
+}
+.nosotros.cg7{
+    padding-top: 0em; padding-left: 0em; padding-right: 0em; background-size: cover;
+}
+
+
+.wrapper_thumbnail_video{
+    width:100%;
+    height:100px;
+    background:#000; 
+    text-align:center;
+    font-size:40px;
+    padding-top:22px;
+    cursor: pointer;
+}
+.wrapper_thumbnail_video i,
+.wrapper_thumbnail_video span{
+    opacity: 0.65;
+}
+.wrapper_thumbnail_video:hover i,
+.wrapper_thumbnail_video:hover span{
+    opacity: 1;
+}
+.wrapper_thumbnail_video span{
+    font-size: 10px;
+    display: block;
+}
+.modal-lg.modal-video{
+    width: 100% !important;
+}
+.video_post{width: 100%;}

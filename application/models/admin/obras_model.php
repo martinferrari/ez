@@ -75,6 +75,28 @@ class Obras_model extends CI_Model {
 		return ($baja == 1) ? 1 : 0;
 	}
 
+	function get_configuracion(){
+		$sql = "SELECT valor FROM configuracion WHERE campo = 'obras en pagina'";
+		$query1 = $this->db->query($sql);
+		$cantidad = $query1->result_array();
+
+		$sql = "SELECT valor FROM configuracion WHERE campo = 'orden obras'";
+		$query2 = $this->db->query($sql);
+		$orden = $query2->result_array();
+
+		$conf['cantidad'] = $cantidad[0];
+		$conf['orden'] = $orden[0];
+		return $conf;
+	}
+
+	function guardar_configuracion($cantidad, $orden){
+		$sql = "UPDATE configuracion SET valor = '$cantidad' WHERE campo = 'obras en pagina' ";
+		$query = $this->db->query($sql);
+
+		$sql = "UPDATE configuracion SET valor = '$orden' WHERE campo = 'orden obras' ";
+		$query = $this->db->query($sql);
+	}
+
 	
 
 	public function modificacionObra($id, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_modif, $fecha_modif, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia){
@@ -110,6 +132,16 @@ class Obras_model extends CI_Model {
 		return ($update != 1) ? 0 : 1;
 	}
 
+
+	public function obtener_cantidad_publicados(){
+		$sql = "SELECT 
+				count(*) as cantidad
+			FROM post
+			WHERE estado = 1
+			AND tipo = 1";
+		$res = $this->db->query($sql);
+		return $res->result_array();
+	}
 
 	public function obtener_obras($cantidad = null){
         $cantidad = ($cantidad == null) ? 9999999 : $cantidad;

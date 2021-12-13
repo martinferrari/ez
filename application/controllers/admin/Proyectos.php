@@ -126,8 +126,17 @@ class Proyectos extends CI_Controller {
 	
 		header('Content-Type: application/json');
 		echo json_encode( $visuales  , JSON_UNESCAPED_UNICODE);
-		//echo json_encode( $tipo  , JSON_UNESCAPED_UNICODE);
 		return;
+	}
+
+	function guardar_configuracion(){
+		$this->sesiones->valida_sesion();
+
+		$cantidad = $this->input->post('cant_proyectos');
+		$orden = $this->input->post('orden_proyectos');
+
+		$update_conf = $this->proyectos_model->guardar_configuracion($cantidad, $orden);
+		redirect("admin/home");
 	}
 
 	function modificacion_imagenes_proyecto(){
@@ -242,7 +251,7 @@ class Proyectos extends CI_Controller {
 					$_FILES['imagen']['size'] = $imagenes['size'][$i];
 				
 					$config['upload_path'] = $upload_path;
-					$config['allowed_types'] = 'avi|mp4|mpeg';
+					$config['allowed_types'] = 'avi|mp4|mpeg|mov';
 					$config['max_size'] = '0';
 					
 					$config['file_name'] = $nombre_imagen;

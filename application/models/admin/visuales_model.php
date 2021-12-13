@@ -27,8 +27,28 @@ class Visuales_model extends CI_Model {
         return ($insert == 1) ? 1 : 0;
 	}
 
-        function borrar_foto($id_post, $imagen){
+	public function alta_visual_nosotros($id_post, $path){
+        
+		$sql = "
+        INSERT INTO `nosotros_visuales`
+            (`id_post`,
+             `path`)
+        VALUES ('$id_post',
+                '$path')";
+
+        $query = $this->db->query($sql);
+        $insert = $this->db->affected_rows();
+
+        return ($insert == 1) ? 1 : 0;
+	}
+
+    function borrar_foto($id_post, $imagen){
 		$sql = "DELETE FROM visuales WHERE id_post = $id_post AND path = '$imagen'";
+		$query = $this->db->query($sql);
+	}
+
+	function borrar_foto_nosotros($id_post, $imagen){
+		$sql = "DELETE FROM nosotros_visuales WHERE id_post = $id_post AND path = '$imagen'";
 		$query = $this->db->query($sql);
 	}
 
@@ -43,6 +63,19 @@ class Visuales_model extends CI_Model {
 	  FROM visuales
 	  WHERE id_post = $id_post
 	  AND tipo = $tipo";
+	  $query = $this->db->query($sql);
+	  return $query->result_array();
+
+	} //get_imagenes_by_id_post
+
+	function get_nosotros_visuales_by_id_post($id_post){
+		$sql = "SELECT
+		id,
+		id_post,
+		path
+	  FROM nosotros_visuales
+	  WHERE id_post = $id_post
+";
 	  $query = $this->db->query($sql);
 	  return $query->result_array();
 
