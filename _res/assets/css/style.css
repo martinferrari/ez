@@ -571,12 +571,12 @@ overflow:visible;
 	#mainmenu ul li:hover > a{
 	color:#222;
 	}
-	
+/* 	
 	header.header-mobile #mainmenu li ul {
 	visibility: visible;
 	opacity:1;
 	margin-top:0px;
-	}
+	} */
 	
 	#mainmenu li ul ul {
 	left: 100%;
@@ -652,13 +652,13 @@ overflow:visible;
 		background:#222327;
 		padding:30px;
 	}
-	header.header-mobile #mainmenu > li ul.mega{
+	/* header.header-mobile #mainmenu > li ul.mega{
 	visibility: visible;
 	opacity: 1;
 }
 	header:not(.header-mobile) #mainmenu > li:hover ul.mega{
 		height:auto;
-	}
+	} */
 	/* menu toggle for mobile */
 	#menu-btn{
 	display:none;
@@ -5458,9 +5458,9 @@ display:table;
 	padding-right:5px;
 	}
 	
-	#mainmenu li a:after{
-	margin-left:15px;
-	}
+	#mainmenu li a:after{margin-left:15px;}
+
+	img.post_destacada{display: block;}
 	
 	}
 
@@ -5468,15 +5468,20 @@ display:table;
 	design for 768px
 	/* ================================================== */
 	@media (min-width: 768px) and (max-width: 979px) {
-	.slider_text {
-	padding-top: 0px;
-	}
-	
-	}
-	
-	
-	@media only screen and (max-width: 992px) {
+		.slider_text {
+			padding-top: 0px;
+		}
 		
+	
+	}
+	
+	@media only screen and (max-width: 768px) {
+
+		img.post_destacada{display: none;}
+	}
+
+	@media only screen and (max-width: 992px) {
+
 	#menu-btn{
 	display:block;
 	position:relative;
@@ -5484,10 +5489,10 @@ display:table;
 	}
 	
 	
-	header{
+	/* header{
 	display:none;
 	}
-	
+	 */
 	header .info{
 	display:none !important;
 	}
@@ -5588,9 +5593,9 @@ display:table;
 	background:none !important;
 	}
 	
-	header.header-mobile-sticky{
+	/* header.header-mobile-sticky{
 	position:fixed;
-	}
+	} */
 	
 	header.de_header_2{
 	height:auto;
@@ -5651,7 +5656,15 @@ display:table;
 	}
 	
 	nav{
-	width:100%;
+		width:100%;
+		position:absolute;
+		top:65px;
+		left: 0;
+		padding-left:20px;
+		z-index:99;
+	}
+	.contenido h3, .contenido h4, .contenido p{
+		margin-left: 20px;
 	}
 	
 	#mainmenu{
@@ -5744,7 +5757,7 @@ display:table;
 	}
 	
 	
-	header.header-mobile #mainmenu{
+	/* header.header-mobile #mainmenu{
 	display:none;
 	float:none;
 	z-index:200;
@@ -5920,7 +5933,7 @@ display:table;
 	
 	header.header-mobile #mainmenu li ul.mega ul {
 		height: auto;
-	}
+	} */
 	
 	#mainmenu li ul.mega{
 	position:fixed;
@@ -5951,7 +5964,7 @@ display:table;
 		padding:30px;
 	}
 	
-	header.header-mobile #mainmenu ul.mega li{
+	/* header.header-mobile #mainmenu ul.mega li{
 		border-bottom:solid 1px #333;
 		padding-left:0 !important;
 	}
@@ -5962,7 +5975,7 @@ display:table;
 	
 	header.header-mobile #mainmenu ul.mega li:first-child{
 		border:none;
-	}
+	} */
 	
 	.de_tab.tab_steps  .de_nav{
 	text-align:center;

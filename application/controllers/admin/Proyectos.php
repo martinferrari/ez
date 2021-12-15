@@ -14,20 +14,18 @@ class Proyectos extends CI_Controller {
 
 		$logged_user = $this->session->all_userdata();
 
-		$titulo = $this->input->post('titulo');
-		$descripcion = $this->input->post('descripcion');
-		$descripcion = preg_replace("/[^a-zA-Z0-9áéíóúñÁÉÍÓÚÑ \n !#%()$.-@\"\']+/", "", $descripcion);
-		$descripcion = utf8_encode($descripcion);
-		$anio_proyecto = $this->input->post('anio_proyecto');
-		$area = $this->input->post('area');
-		$proyecto = $this->input->post('proyecto');
-		$ejecucion = $this->input->post('ejecucion');
-		$construccion_direccion = $this->input->post('construccion');
-		$disenio_dim_estruc = $this->input->post('disenio_dim_est');
-		$tipologia = $this->input->post('tipologia');
-		$disenio_dim_clim = $this->input->post('disenio_dim_clim');
-		$ubicacion = $this->input->post('ubicacion');
-		$estado = $this->input->post('estado');
+		$titulo = reg_expresion($this->input->post('titulo'));
+		$descripcion = reg_expresion($this->input->post('descripcion'));
+		$anio_proyecto = reg_expresion($this->input->post('anio_proyecto'));
+		$area = reg_expresion($this->input->post('area'));
+		$proyecto = reg_expresion($this->input->post('proyecto'));
+		$ejecucion = reg_expresion($this->input->post('ejecucion'));
+		$construccion_direccion = reg_expresion($this->input->post('construccion'));
+		$disenio_dim_estruc = reg_expresion($this->input->post('disenio_dim_est'));
+		$tipologia = reg_expresion($this->input->post('tipologia'));
+		$disenio_dim_clim = reg_expresion($this->input->post('disenio_dim_clim'));
+		$ubicacion = reg_expresion($this->input->post('ubicacion'));
+		$estado = reg_expresion($this->input->post('estado'));
 
 		$usuario_alta = $logged_user['logged_user_id'];
 		$fecha_alta = date("Y-m-d H:i:s");
@@ -79,12 +77,12 @@ class Proyectos extends CI_Controller {
 					
 					$insert_visual = $this->visuales_model->alta_visual($id_proyecto, $imagen_subida, $destacada, 1);
 					if($insert_visual == 0):
-						establecer_mensaje_emergente("Ocurrió un error al intentar cargar la imagen.", "error");
+						establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar la imagen.", "error");
 						$errores++;
 					endif;
 				else:
 					$imageError =  $this->upload->display_errors();
-					establecer_mensaje_emergente("Ocurrió un error al intentar cargar la imagen. Error: ".$imageError, "error");
+					establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar la imagen. Error: ".$imageError, "error");
 					redirect("admin/proyectos");
 				endif;				
 			endif;	
@@ -96,7 +94,7 @@ class Proyectos extends CI_Controller {
 
 
 		if($errores == 0):
-			establecer_mensaje_emergente("Proyecto agregado con éxito", "success");
+			establecer_mensaje_emergente("Proyecto agregado con ï¿½xito", "success");
 		endif;
 		redirect("admin/proyectos");
 
@@ -192,12 +190,12 @@ class Proyectos extends CI_Controller {
 
 						$insert_visual = $this->visuales_model->alta_visual($id_proyecto, $imagen_subida, 0, 1);
 						if($insert_visual == 0):
-							establecer_mensaje_emergente("Ocurrió un error al intentar cargar la imagen.", "error");
+							establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar la imagen.", "error");
 							$errores++;
 						endif;
 					else:
 						$imageError =  $this->upload->display_errors();
-						establecer_mensaje_emergente("Ocurrió un error al intentar cargar la imagen. Error: ".$imageError, "error");
+						establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar la imagen. Error: ".$imageError, "error");
 						redirect("admin/proyectos");
 					endif;
 				endif;
@@ -263,12 +261,12 @@ class Proyectos extends CI_Controller {
 
 						$insert_visual = $this->visuales_model->alta_visual($id_proyecto, $imagen_subida, 0, 3);
 						if($insert_visual == 0):
-							establecer_mensaje_emergente("Ocurrió un error al intentar cargar el video.", "error");
+							establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar el video.", "error");
 							$errores++;
 						endif;
 					else:
 						$imageError =  $this->upload->display_errors();
-						establecer_mensaje_emergente("Ocurrió un error al intentar cargar elvideo. Error: ".$imageError, "error");
+						establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar elvideo. Error: ".$imageError, "error");
 						redirect("admin/proyectos");
 					endif;
 				endif;
@@ -287,24 +285,23 @@ class Proyectos extends CI_Controller {
 		$logged_user = $this->session->all_userdata();
 
 		$id = $this->input->post("me_id");
-		$titulo = $this->input->post("me_titulo");
-		$descripcion = $this->input->post("me_descripcion");
-		$descripcion = preg_replace("/[^a-zA-Z0-9áéíóúñÁÉÍÓÚÑ \n !#%()$.-@\"\']+/", "", $descripcion);
-		$descripcion = utf8_encode($descripcion);
-		$anio_proyecto = $this->input->post('me_anio_proyecto');
-		$area = $this->input->post('me_area');
-		$proyecto = $this->input->post('me_proyecto');
-		$ejecucion = $this->input->post('me_ejecucion');
-		$construccion_direccion = $this->input->post('me_construccion_direccion');
-		$disenio_dim_estruc = $this->input->post('me_disenio_dim_estruc');
-		$tipologia = $this->input->post('me_tipologia');
-		$disenio_dim_clim = $this->input->post('me_disenio_dim_clim');
-		$ubicacion = $this->input->post('me_ubicacion');
-		$estado = $this->input->post('me_estado');
+		$titulo = reg_expresion($this->input->post("me_titulo"));
+		$descripcion = reg_expresion($this->input->post("me_descripcion"));
+		$anio_proyecto = reg_expresion($this->input->post('me_anio_proyecto'));
+		$area = reg_expresion($this->input->post('me_area'));
+		$proyecto = reg_expresion($this->input->post('me_proyecto'));
+		$ejecucion = utf8_decode(reg_expresion($this->input->post('me_ejecucion')));
+		$construccion_direccion = reg_expresion($this->input->post('me_construccion_direccion'));
+		$disenio_dim_estruc = reg_expresion($this->input->post('me_disenio_dim_estruc'));
+		$tipologia = reg_expresion($this->input->post('me_tipologia'));
+		$disenio_dim_clim = reg_expresion($this->input->post('me_disenio_dim_clim'));
+		$ubicacion = reg_expresion($this->input->post('me_ubicacion'));
+		$estado = reg_expresion($this->input->post('me_estado'));
 
 		$usuario_modif = $logged_user['logged_user_id'];
 		$fecha_modif = date("Y-m-d H:i:s");
 
+		
 		$editado = $this->proyectos_model->modificacionProyecto($id, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_modif, $fecha_modif, $estado);
 
 	

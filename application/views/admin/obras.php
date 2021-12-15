@@ -190,7 +190,7 @@
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripcion</h4>
+									<h4>Descripción</h4>
                                     <textarea class="form-control" name="descripcion"></textarea>
 								</div>
 
@@ -322,7 +322,7 @@
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripcion</h4>
+									<h4>Descripción</h4>
 									<textarea class="form-control" name="me_descripcion" id="me_descripcion"></textarea>
 								</div>
 

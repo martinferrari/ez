@@ -112,14 +112,19 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> -->
 
     <!-- SLIDER REVOLUTION SCRIPTS  -->
-    <script type="text/javascript" src="<?php echo base_url(); ?>_res/assets/js/validar.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+    <?php /*<script type="text/javascript" src="<?php echo base_url(); ?>_res/assets/js/validar.js"></script>*/ ?>
+
 
 
 
 
     <script>
+
+        <?php //carousel detalle de obras, proyectos ?>
+        $("#myCarousel").carousel({
+            interval: 3000
+        })
 
         $(document).on("click", '.btn_video', function(event) { 
             let vid = $(this).data("video");
@@ -155,6 +160,12 @@
             }
         }, false);
 
+
+
+        $("#menu-btn").on("click", function(){
+            $("nav").css("background","#000");
+            $("#mainmenu").toggle();
+        });
 
     </script>
 

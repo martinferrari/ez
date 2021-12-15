@@ -16,7 +16,7 @@
  <div id="content" class="no-top no-bottom">
 
      <!-- VISIBLE PC TABLET -->
-     <div class="hidden-xs">
+     <div class="hidden-xs1">
         <div class="row ">
             <div class="col-sm-6"> 
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -45,7 +45,7 @@
                 </div>                                  
             </div>
 
-            <div class="col-sm-6 mt40 wow fadeInRight" data-wow-delay=".5s">
+            <div class="col-sm-6 mt40 wow fadeInRight contenido" data-wow-delay=".5s">
                 <h3 class="id-color" ><?php echo utf8_decode($proyecto['titulo']); ?></h3>
                 <h4 class="id-color" ><?php echo utf8_decode($proyecto['anio_proyecto']); ?></h4>
                 <p style="padding-right: 3em"><?php echo utf8_decode($proyecto['descripcion']); ?></p> 

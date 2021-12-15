@@ -48,6 +48,11 @@ body.login{
     float: right !important;
 }
 
+.nav.side-menu>li.active>a{
+    background: linear-gradient(#5b5b5b, #555555),#2d2d2d;
+}
+
+
 h5.card-title{
     font-size: 35px;
     text-align: center;

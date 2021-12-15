@@ -1,3 +1,4 @@
+<div class="nosotros">
 <!-- subheader -->
 <section id="subheader"  data-type="background">
     <div class="container">
@@ -12,8 +13,8 @@
 <!-- subheader -->
 <div id="content" class="no-top no-bottom">
      <!-- section Foto + Info version tablet pc-->
-     <div class="hidden-sm">
-         <div class="hidden-xs">
+     <div class="hidden-sm1">
+         <div class="hidden-xs1">
              <div class="containter">
 
                  <div class="row">
@@ -121,3 +122,4 @@
                 <?php endforeach; ?>
 
             
+</div>

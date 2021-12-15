@@ -1,7 +1,5 @@
 <!-- subheader -->
 <div class="obras">
-
-
 <section id="subheader"  data-type="background">
     <div class="container">
         <div class="row">
@@ -16,17 +14,18 @@
  <div id="content" class="no-top no-bottom">
 
      <!-- VISIBLE PC TABLET -->
-     <div class="hidden-xs">
+     <div class="hidden-xs1">
         <div class="row mbottom20">
             <div class="col-sm-6"> 
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
+                    <?php /*<ol class="carousel-indicators">
                         <li data-target="myCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="myCarousel" data-slide-to="1"></li>
                         <li data-target="myCarousel" data-slide-to="2"></li>
                         <li data-target="myCarousel" data-slide-to="3"></li>
                         <li data-target="myCarousel" data-slide-to="4"></li>
                     </ol> 
+                    */ ?>
                     
                     <div class="carousel-inner" role="listbox">
                         <?php  
@@ -41,11 +40,13 @@
                             endfor; 
                         endif;
                         ?>
+                        
                     </div>
+                    
                 </div>                                  
             </div>
 
-            <div class="col-sm-6 mt40 wow fadeInRight" data-wow-delay=".5s">
+            <div class="col-sm-6 mt40 wow fadeInRight contenido" data-wow-delay=".5s">
                 <h3 class="id-color" ><?php echo utf8_decode($obra['titulo']); ?></h3>
                 <h4 class="id-color" ><?php echo utf8_decode($obra['anio_proyecto']); ?></h4>
                 <p style="padding-right: 3em"><?php echo utf8_decode($obra['descripcion']); ?></p> 
@@ -96,11 +97,10 @@
         <?php if($hay_datos_adicionales > 0): ?>
             <div class="row">
 
-                
                 <div class="col-sm-6">
-                    <img src="<?php echo base_url().$destacada; ?>" width="100%"  alt="Obra Casa CC" />
+                    <img src="<?php echo base_url().$destacada; ?>" width="100%"  alt="" class="post_destacada" />
                 </div>
-                <div class="col-sm-6 mt40">
+                <div class="col-sm-6 mt40 contenido">
                     
                     <p><strong>Proyecto Coordinación General</strong></p>
                     <ul style="list-style:none;">

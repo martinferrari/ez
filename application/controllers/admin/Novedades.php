@@ -276,8 +276,8 @@ class Novedades extends CI_Controller {
 		$logged_user = $this->session->all_userdata();
 
 		$id = $this->input->post("en_id");
-		$titulo = $this->input->post("en_titulo");
-		$descripcion = $this->input->post("en_descripcion");
+		$titulo = reg_expresion($this->input->post("en_titulo"));
+		$descripcion = reg_expresion($this->input->post("en_descripcion"));
 		$categoria = $this->input->post("en_categoria");
 		$estado = $this->input->post("en_estado");
 

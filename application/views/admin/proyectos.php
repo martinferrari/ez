@@ -48,32 +48,32 @@
                                                 value="<?php echo $p['id']; ?>">
 
                                                 <input type="hidden" name="titulo" class="titulo" 
-                                                value="<?php echo $p['titulo']; ?>">
+                                                value="<?php echo utf8_decode($p['titulo']); ?>">
 
                                                 <input type="hidden" name="descripcion" class="descripcion" 
-                                                value="<?php echo $p['descripcion']; ?>">
+                                                value="<?php echo utf8_decode($p['descripcion']); ?>">
 
 												<input type="hidden" name="anio_proyecto" class="anio_proyecto" 
                                                 value="<?php echo $p['anio_proyecto']; ?>">
 												<input type="hidden" name="proyecto" class="proyecto" 
-                                                value="<?php echo $p['proyecto']; ?>">
+                                                value="<?php echo utf8_decode($p['proyecto']); ?>">
 												<input type="hidden" name="ejecucion" class="ejecucion" 
-                                                value="<?php echo $p['ejecucion']; ?>">
+                                                value="<?php echo utf8_decode($p['ejecucion']); ?>">
 
 												<input type="hidden" name="construccion_direccion" class="construccion_direccion" 
-                                                value="<?php echo $p['construccion_direccion']; ?>">
+                                                value="<?php echo utf8_decode($p['construccion_direccion']); ?>">
 
 												<input type="hidden" name="disenio_dim_estruc" class="disenio_dim_estruc" 
-                                                value="<?php echo $p['disenio_dim_estruc']; ?>">
+                                                value="<?php echo utf8_decode($p['disenio_dim_estruc']); ?>">
 
 												<input type="hidden" name="tipologia" class="tipologia" 
-                                                value="<?php echo $p['tipologia']; ?>">
+                                                value="<?php echo utf8_decode($p['tipologia']); ?>">
 												<input type="hidden" name="disenio_dim_clim" class="disenio_dim_clim" 
-                                                value="<?php echo $p['disenio_dim_clim']; ?>">
+                                                value="<?php echo utf8_decode($p['disenio_dim_clim']); ?>">
 												<input type="hidden" name="area" class="area" 
-                                                value="<?php echo $p['area']; ?>">
+                                                value="<?php echo utf8_decode($p['area']); ?>">
 												<input type="hidden" name="ubicacion" class="ubicacion" 
-                                                value="<?php echo $p['ubicacion']; ?>">
+                                                value="<?php echo utf8_decode($p['ubicacion']); ?>">
 												<input type="hidden" name="estado" class="estado" 
                                                 value="<?php echo $p['estado']; ?>">
 
@@ -82,7 +82,7 @@
 
 
                                                 <td><?php echo $p['id']; ?></td>
-                                                <td><?php echo $p['titulo']; ?></td>
+                                                <td><?php echo utf8_decode($p['titulo']); ?></td>
                                                 <td><?php echo $p['fecha_alta']; ?></td>
 												<td><?php echo $estado; ?> <?php echo $destacada; ?></td>
                                                 <td>
@@ -169,7 +169,7 @@
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripcion</h4>
+									<h4>Descripción</h4>
                                     <textarea class="form-control" name="descripcion"></textarea>
 								</div>
 
@@ -262,7 +262,7 @@
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripcion</h4>
+									<h4>Descripción</h4>
 									<textarea class="form-control" name="me_descripcion" id="me_descripcion"></textarea>
 								</div>
 								

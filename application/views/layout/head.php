@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <title>Ezestudio - Formosa - Proyectos residenciales y Urbanos </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="El Estudio se especializa en proyectos residenciales y urbanos sirviÃ©ndose de lÃ­neas puras y materiales nobles. ">
+    <meta name="description" content="El Estudio se especializa en proyectos residenciales y urbanos sirviéndose de líneas puras y materiales nobles. ">
     <meta name="keywords" content="architecture,building,arquitectura,Laboratorio de materiales,estructuras,materiales nobles, proyectos formosa, residenciales Formosa, EZ Estudio, Ez Estudio Formosa,Urbanos,Obras">
-    <meta name="author" content="ActualizaciÃ³n constante en materiales y tecnologÃ­as aplicadas a la Arquitectura">
+    <meta name="author" content="Actualización constante en materiales y tecnologías aplicadas a la Arquitectura">
     <!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<![endif]-->
     <!-- CSS Files
     ================================================== -->
-    <linkÂ rel="icon"Â Â  href="http://ezestudio.com.ar/images/favicon.png" type="image/png" />
+    <link rel="icon"  href="http://ezestudio.com.ar/images/favicon.png" type="image/png" />
     <link rel="Shortcut Icon" href="http://ezestudio.com.ar/images/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>_res/assets/css/bootstrap.css" type="text/css">

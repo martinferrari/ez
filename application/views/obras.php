@@ -1,3 +1,4 @@
+<div class="obras">
 <!-- subheader -->
 <section id="subheader"  data-type="background">
     <div class="container">
@@ -57,3 +58,4 @@ foreach($posts as $post):
     endforeach; ?>
 </div>
 </section>
+</div>
