@@ -38,6 +38,10 @@
 |
 */
 
+
+
+$route['pagina_no_encontrada'] = "Web/pagina_no_encontrada";
+
 $route['/'] = "Web/index";
 $route['home'] = "Web/index";
 $route['obras'] = "Web/ver_obras";
@@ -53,6 +57,10 @@ $route['web/Contacto/Trabaja'] = "Contacto/trabaja";
 $route['obras/:num'] = "Web/ver_obra";
 $route['proyectos/:num'] = "Web/ver_proyecto";
 $route['novedades/:num'] = "Web/ver_novedad";
+
+$route['obras/:num/vista_previa'] = "Web/ver_obra";
+$route['proyectos/:num/vista_previa'] = "Web/ver_proyecto";
+$route['novedades/:num/vista_previa'] = "Web/ver_novedad";
 
 
 $route['admin'] = "admin/Usuario/ver_login";

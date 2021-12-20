@@ -10,6 +10,19 @@ class Post_model extends CI_Model {
 	}
 
 
+	public function obtener_novedad($id, $estado){
+		$sql = "SELECT 
+				p.id,
+				p.tipo,
+				p.titulo,
+				v.path 
+			FROM post p
+			WHERE p.estado = $estado 
+			and p.id = $id";
+		$res = $this->db->query($sql);
+		return $res->result_array();
+	}
+
 	public function obtener_novedades($cantidad, $orden){
 		$sql = "SELECT 
 				p.id,
@@ -28,11 +41,12 @@ class Post_model extends CI_Model {
 	}
 
 
-	public function obtener_obra($id){
+	public function obtener_obra($id, $estado){
+
 		$sql = "SELECT 
 				* 
 			FROM post p
-			WHERE p.estado = 1 
+			WHERE p.estado = $estado 
 			and p.id = $id
 			ORDER BY p.fecha_alta DESC";
 		$res = $this->db->query($sql);
@@ -97,11 +111,11 @@ class Post_model extends CI_Model {
 		return $res->result_array();
 	}
 
-	public function obtener_proyecto($id){
+	public function obtener_proyecto($id, $estado){
 		$sql = "SELECT 
 				* 
 			FROM post p
-			WHERE p.estado = 1 
+			WHERE p.estado = $estado
 			and p.id = $id
 			ORDER BY p.fecha_alta DESC";
 		$res = $this->db->query($sql);

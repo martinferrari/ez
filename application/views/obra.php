@@ -105,6 +105,14 @@
                     <p><strong>Proyecto Coordinación General</strong></p>
                     <ul style="list-style:none;">
                         <?php 
+                        $proyecto = '';
+                        $ejecucion = '';
+                        $construccion_direccion = '';
+                        $disenio_dim_estruc = '';
+                        $tipologia = '';
+                        $disenio_dim_clim = '';
+                        $area = '';
+
                         $direccion_tecnica = '';
                         $asist_tec_obra = '';
                         $estructuras = '';
@@ -115,6 +123,28 @@
                         $ubicacion = '';
                         $anio_finalizacion = '';
                         $fotografia = '';
+
+                        if($data_adicional['proyecto'] != ''):
+                            $proyecto = '<li><i class="fas fa-drafting-compass"></i><strong>  Proyecto: </strong>'.utf8_decode($data_adicional['proyecto']).'  </li>'; 
+                        endif;
+                        if($data_adicional['ejecucion'] != ''):
+                            $ejecucion = '<li><i class="fas fa-hard-hat"></i><strong>  Ejecución: </strong>'.utf8_decode($data_adicional['ejecucion']).'  </li>'; 
+                        endif;
+                        if($data_adicional['construccion_direccion'] != ''):
+                            $construccion_direccion = '<li><i class="fas fa-compass"></i></i><strong>  Dirección de la Construcción: </strong>'.utf8_decode($data_adicional['construccion_direccion']).'  </li>'; 
+                        endif;
+                        if($data_adicional['disenio_dim_estruc'] != ''):
+                            $disenio_dim_estruc = '<li><i class="fas fa-pencil-ruler"></i><strong>  Diseño y Dimensionado Estructural: </strong>'.utf8_decode($data_adicional['disenio_dim_estruc']).'  </li>'; 
+                        endif;
+                        if($data_adicional['tipologia'] != ''):
+                            $tipologia = '<li><i class="fas fa-hard-hat"></i><strong>  Tipología: </strong>'.utf8_decode($data_adicional['tipologia']).'  </li>'; 
+                        endif;
+                        if($data_adicional['disenio_dim_clim'] != ''):
+                            $disenio_dim_clim = '<li><i class="fas fa-wind"></i><strong>  Diseño y Dimensionado de Climatización: </strong>'.utf8_decode($data_adicional['disenio_dim_clim']).'  </li>'; 
+                        endif;
+                        if($data_adicional['area'] != ''):
+                            $area = '<li><i class="fas fa-ruler-combined"></i><strong>  Area: </strong>'.utf8_decode($data_adicional['area']).'  </li>'; 
+                        endif;
 
                         if($obra['direccion_tecnica'] != ''):
                             $direccion_tecnica = '<li><i class="fas fa-hard-hat"></i><strong>  Dirección Técnica: </strong>'.utf8_decode($obra['direccion_tecnica']).'  </li>'; 
@@ -146,6 +176,14 @@
                         if($obra['fotografia'] != ''):
                             $fotografia = '<li><i class="fas fa-camera"></i><strong>   Fotografia: </strong>'.utf8_decode($obra['fotografia']).'  </li>';
                         endif;
+                        
+                        echo $proyecto;
+                        echo $ejecucion;
+                        echo $construccion_direccion;
+                        echo $disenio_dim_estruc;
+                        echo $tipologia;
+                        echo $disenio_dim_clim;
+                        echo $area;
                         
                         echo $direccion_tecnica;
                         echo $asist_tec_obra; 

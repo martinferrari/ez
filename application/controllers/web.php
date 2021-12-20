@@ -49,8 +49,10 @@ class Web extends CI_Controller {
 
 	function ver_novedad(){
 		$id_novedad = $this->uri->segment(2);
+		$vp = $this->uri->segment(3);
+		$estado = ($vp == 'vista_previa' ) ? 0 : 1;
 
-		$novedad = $this->post_model->obtener_proyecto($id_novedad);
+		$novedad = $this->post_model->obtener_novedad($id_novedad,$estado);
 		$visuales = $this->post_model->obtener_visuales($id_novedad);
 
 		$destacada = '';
@@ -96,12 +98,24 @@ class Web extends CI_Controller {
 	}
 
 	
-
+	function pagina_no_encontrada(){
+		$this->load->view('layout/head');
+		$this->load->view('pagina_no_encontrada');
+		$this->load->view('layout/footer');
+	}
 
 
 	function ver_obra(){
 		$id_obra = $this->uri->segment(2);
-		$obra = $this->post_model->obtener_obra($id_obra);
+		$vp = $this->uri->segment(3);
+		$estado = ($vp == 'vista_previa' ) ? 0 : 1;
+		
+		$obra = $this->post_model->obtener_obra($id_obra,$estado);
+		
+		if(count($obra)==0):
+			redirect('pagina_no_encontrada');
+		endif;
+
 		$visuales = $this->post_model->obtener_visuales($id_obra);
 
 		$destacada = '';
@@ -119,6 +133,14 @@ class Web extends CI_Controller {
 			endif;
 			
 		endforeach;
+
+		$data_adicional['proyecto'] = $obra[0]['proyecto'];
+		$data_adicional['ejecucion'] = $obra[0]['ejecucion'];
+		$data_adicional['construccion_direccion'] = $obra[0]['construccion_direccion'];
+		$data_adicional['disenio_dim_estruc'] = $obra[0]['disenio_dim_estruc'];
+		$data_adicional['tipologia'] = $obra[0]['tipologia'];
+		$data_adicional['disenio_dim_clim'] = $obra[0]['disenio_dim_clim'];
+		$data_adicional['area'] = $obra[0]['area'];
 
 		$data_adicional['direccion_tecnica'] = $obra[0]['direccion_tecnica'];
 		$data_adicional['asist_tec_obra'] = $obra[0]['asist_tec_obra'];
@@ -170,8 +192,15 @@ class Web extends CI_Controller {
 
 	function ver_proyecto(){
 		$id_proyecto = $this->uri->segment(2);
+		$vp = $this->uri->segment(3);
+		$estado = ($vp == 'vista_previa' ) ? 0 : 1;
+		
+		$proyecto = $this->post_model->obtener_proyecto($id_proyecto,$estado);
 
-		$proyecto = $this->post_model->obtener_proyecto($id_proyecto);
+		if(count($proyecto)==0):
+			redirect('pagina_no_encontrada');
+		endif;
+
 		$visuales = $this->post_model->obtener_visuales($id_proyecto);
 
 		$destacada = '';
@@ -189,6 +218,14 @@ class Web extends CI_Controller {
 			endif;
 			
 		endforeach;
+
+		$data_adicional['proyecto'] = $proyecto[0]['proyecto'];
+		$data_adicional['ejecucion'] = $proyecto[0]['ejecucion'];
+		$data_adicional['construccion_direccion'] = $proyecto[0]['construccion_direccion'];
+		$data_adicional['disenio_dim_estruc'] = $proyecto[0]['disenio_dim_estruc'];
+		$data_adicional['tipologia'] = $proyecto[0]['tipologia'];
+		$data_adicional['disenio_dim_clim'] = $proyecto[0]['disenio_dim_clim'];
+		$data_adicional['area'] = $proyecto[0]['area'];
 
 		$data_adicional['direccion_tecnica'] = $proyecto[0]['direccion_tecnica'];
 		$data_adicional['asist_tec_obra'] = $proyecto[0]['asist_tec_obra'];

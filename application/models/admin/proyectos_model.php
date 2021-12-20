@@ -96,7 +96,7 @@ class Proyectos_model extends CI_Model {
 		$sql = "UPDATE post  SET
 		`titulo` = '$titulo',
 		`descripcion` = '$descripcion',
-		`anio_proyecto` = $anio_proyecto,
+		`anio_proyecto` = '$anio_proyecto',
 		`proyecto` = '$proyecto',
 		`ejecucion` = '$ejecucion',
 		`construccion_direccion` = '$construccion_direccion',

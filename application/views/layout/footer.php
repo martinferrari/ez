@@ -37,8 +37,8 @@
                         </div>
                         <div class="col-md-6 text-right">
                             <div class="social-icons">
-                                <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                                <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+                                <a href="https://www.facebook.com/ezestudioformosa/" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
+                                <a href="https://www.instagram.com/ezestudio_fma/" target="_blank"><i class="fa fa-instagram fa-lg"></i></a>
                             </div>
                         </div>
                     </div>
@@ -66,9 +66,6 @@
 						<div class="panel-body">
 							<div class="row">
                                 <div id="contenedor_video"></div>
-                                <!-- <video controls loop playsinline muted class="embed-responsive-item video_post" id="video_post">
-                                <source id="src_video" src="" type="video/mp4">
-                                </video> -->
 							</div>
 						</div> <?php //panel-body ?>
 					</div> <?php //panel ?>

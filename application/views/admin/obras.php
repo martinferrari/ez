@@ -146,6 +146,17 @@
 															data-placement="Top" title="Videos"></i>
 													</a>
 
+													<a 
+                                                        href="<?php echo base_url(); ?>obras/<?php echo $o['id']; ?>/vista_previa" 
+														target="_blank">
+												
+															<i class="fas fa-eye"
+															data-toggle="tooltip" 
+															data-placement="Top" title="Vista Previa"
+															></i>
+															
+													</a>
+
 													
 													
                                                 </td>
