@@ -1,3 +1,5 @@
+<?php $titulo_pagina = ($idioma == 'es') ? ES_NOVEDADES : EN_NOVEDADES; ?>
+
 <!-- subheader -->
 <div class="novedads">
 
@@ -6,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Novedades</h1>
+                <h1><?php echo $titulo_pagina; ?></h1>
             </div>
         </div>
     </div>
@@ -18,13 +20,6 @@
         <div class="row ">
             <div class="col-sm-6"> 
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <?php /*<ol class="carousel-indicators">
-                        <li data-target="myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="myCarousel" data-slide-to="1"></li>
-                        <li data-target="myCarousel" data-slide-to="2"></li>
-                        <li data-target="myCarousel" data-slide-to="3"></li>
-                        <li data-target="myCarousel" data-slide-to="4"></li>
-                    </ol> */ ?>
                     
                     <div class="carousel-inner" role="listbox">
                         <?php  
@@ -45,7 +40,6 @@
 
             <div class="col-sm-6 mt40 wow fadeInRight contenido" data-wow-delay=".5s">
                 <h3 class="id-color" ><?php echo utf8_decode($novedad['titulo']); ?></h3>
-                <h4 class="id-color" ><?php echo utf8_decode($novedad['anio_proyecto']); ?></h4>
                 <p style="padding-right: 3em"><?php echo utf8_decode($novedad['descripcion']); ?></p> 
                 
             </div>
@@ -71,9 +65,7 @@
         </div>
         <?php endif; ?>
         <?php //   CARROUSEL ABAJO ?>
-             
         
-
         </div>
 </div>
 </div>

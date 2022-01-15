@@ -36,6 +36,56 @@ define('FOPEN_READ_WRITE_CREATE',				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
+define('ES_PROYECTO', "Proyecto");
+define('EN_PROYECTO', "Project");
+define('ES_UBICACION', "Ubicación");
+define('EN_UBICACION', "Location");
+
+define('ES_EJECUCION', "Ejecución");
+define('EN_EJECUCION', "Execution");
+define('ES_DIR_CONSTRUC', "Dirección de la Construcción");
+define('EN_DIR_CONSTRUC', "Construction Direction");
+define('ES_DIS_DIM_EST', "Diseño y Dimensionado Estructural");
+define('EN_DIS_DIM_EST', "Structural Design and Dimensioning");
+define('ES_TIPOLOGIA', "Tipología");
+define('EN_TIPOLOGIA', "Typology");
+define('ES_DIS_DIM_CLI', "Diseño y Dimensionado de Climatización");
+define('EN_DIS_DIM_CLI', "Design and Dimensioning of Air Conditioning");
+define('ES_AREA', "Area");
+define('EN_AREA', "Area");
+define('ES_DIR_TECNICA', "Dirección Técnica");
+define('EN_DIR_TECNICA', "Technical direction");
+define('ES_ASIST_TECT_OBRA', "Asistencia Técnica en Obra");
+define('EN_ASIST_TECT_OBRA', "Technical Assistance on Site");
+define('ES_ESTRUCTURAS', "Estructuras");
+define('EN_ESTRUCTURAS', "Structures");
+define('ES_INSTALACIONES', "Instalaciones");
+define('EN_INSTALACIONES', "Facilities");
+define('ES_GEST_DOCUMENTACION', "Gestión de Documentación");
+define('EN_GEST_DOCUMENTACION', "Documentation Management");
+define('ES_SUP_TERRENO', "Superficie del Terreno");
+define('EN_SUP_TERRENO', "Land's Surface");
+define('ES_SUP_CUBIERTA', "Superficie Cubierta");
+define('EN_SUP_CUBIERTA', "Covered Area");
+define('ES_ANIO_FINALIZ', "Año de finalización");
+define('EN_ANIO_FINALIZ', "Ending year");
+define('ES_FOTOGRAFIA', "Fotografía");
+define('EN_FOTOGRAFIA', "Photography");
+
+define('ES_INICIO', "Inicio");
+define('EN_INICIO', "Home");
+define('ES_OBRAS', "Obras");
+define('EN_OBRAS', "Constructions");
+define('ES_PROYECTOS', "Proyectos");
+define('EN_PROYECTOS', "Projects");
+define('ES_NOSOTROS', "Sobre Nosotros");
+define('EN_NOSOTROS', "About Us");
+define('ES_NOVEDADES', "Novedades");
+define('EN_NOVEDADES', "News");
+define('ES_CONTACTO', "Contacto");
+define('EN_CONTACTO', "Contact");
+
+
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

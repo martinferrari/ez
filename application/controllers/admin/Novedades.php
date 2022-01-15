@@ -67,12 +67,12 @@ class Novedades extends CI_Controller {
 					
 					$insert_visual = $this->visuales_model->alta_visual($id_novedad, $imagen_subida, $destacada, 1);
 					if($insert_visual == 0):
-						establecer_mensaje_emergente("Ocurrió un error al intentar cargar la imagen.", "error");
+						establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar la imagen.", "error");
 						$errores++;
 					endif;
 				else:
 					$imageError =  $this->upload->display_errors();
-					establecer_mensaje_emergente("Ocurrió un error al intentar cargar la imagen. Error: ".$imageError, "error");
+					establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar la imagen. Error: ".$imageError, "error");
 					redirect("admin/novedades");
 				endif;				
 			endif;	
@@ -84,8 +84,11 @@ class Novedades extends CI_Controller {
 
 
 		if($errores == 0):
-			establecer_mensaje_emergente("Novedad agregada con éxito", "success");
+			establecer_mensaje_emergente("Novedad agregada con ï¿½xito", "success");
 		endif;
+
+		$this->novedades_model->alta_traduccion($id_novedad, null, null);
+
 		redirect("admin/novedades");
 
 
@@ -182,12 +185,12 @@ class Novedades extends CI_Controller {
 
 						$insert_visual = $this->visuales_model->alta_visual($id_novedad, $imagen_subida, 0, 1);
 						if($insert_visual == 0):
-							establecer_mensaje_emergente("Ocurrió un error al intentar cargar la imagen.", "error");
+							establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar la imagen.", "error");
 							$errores++;
 						endif;
 					else:
 						$imageError =  $this->upload->display_errors();
-						establecer_mensaje_emergente("Ocurrió un error al intentar cargar la imagen. Error: ".$imageError, "error");
+						establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar la imagen. Error: ".$imageError, "error");
 						redirect("admin/novedades");
 					endif;
 				endif;
@@ -201,6 +204,26 @@ class Novedades extends CI_Controller {
 			redirect("admin/novedades");
 		endif;
 	}
+
+
+
+	function modificacion_traduccion(){
+		$id = $this->input->post('id');
+		$titulo = $this->input->post('titulo');
+		$descripcion = $this->input->post('descripcion');
+
+		$editado = $this->novedades_model->modificacion_traduccion($id, $titulo, $descripcion);
+
+		if($editado == 1):
+			establecer_mensaje_emergente("TraducciÃ³n modificada", "success");
+		else:
+			establecer_mensaje_emergente("La TraducciÃ³n no pudo modificarse", "error");
+		endif;
+		redirect("admin/novedades");
+	}
+
+
+
 
 	function modificacion_videos_novedad(){
 		$id_novedad = $this->input->post('mev_id');
@@ -253,12 +276,12 @@ class Novedades extends CI_Controller {
 
 						$insert_visual = $this->visuales_model->alta_visual($id_novedad, $imagen_subida, 0, 3);
 						if($insert_visual == 0):
-							establecer_mensaje_emergente("Ocurrió un error al intentar cargar el video.", "error");
+							establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar el video.", "error");
 							$errores++;
 						endif;
 					else:
 						$imageError =  $this->upload->display_errors();
-						establecer_mensaje_emergente("Ocurrió un error al intentar cargar elvideo. Error: ".$imageError, "error");
+						establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar elvideo. Error: ".$imageError, "error");
 						redirect("admin/novedades");
 					endif;
 				endif;
@@ -293,6 +316,17 @@ class Novedades extends CI_Controller {
 		endif;
 		redirect("admin/novedades");
 
+	}
+
+
+
+	function obtener_traduccion(){
+		$id = $this->input->post('id');
+		$traduccion = $this->novedades_model->obtener_traduccion($id);
+
+		header('Content-Type: application/json');
+		echo json_encode( $traduccion  , JSON_UNESCAPED_UNICODE);
+		return;
 	}
 
 

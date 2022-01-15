@@ -51,8 +51,10 @@ $(".acciones").on('click', function(){
 			cargar_videos_en_modal(id);
 		}
 
-		
-		
+		if(accion == "traduccion"){
+			$("#me_idioma_id").val(id);
+			cargar_traducciones(id);
+		}
 		
 	});
 	
@@ -104,6 +106,38 @@ $(".acciones").on('click', function(){
 
 		}); //ajax
 	} //cargar_fotos_en_modal
+
+
+
+	function cargar_traducciones(id){
+		//$(".cargando_ajax").fadeIn(200);
+		
+		var url = "<?php echo base_url(); ?>admin/Proyectos/TraduccionProyecto";
+		$("#modalTraduccion input.form-control").val('');
+		
+		$.ajax({
+			data: { id:id},
+			type: "POST",
+			url: url,
+			success: function (data) {
+
+				 $.each(data, function(index, element) {
+					$("#mt_titulo").val(element.titulo);
+					$("#mt_descripcion").val(element.descripcion);
+					$("#mt_proyecto").val(element.proyecto);
+					$("#mt_ubicacion").val(element.ubicacion);
+					$("#mt_tipologia").val(element.tipologia);
+				});
+				
+				//$('.cargando_ajax').fadeOut(200, function() {});
+			},
+			error: function(data) {
+				console.log("ERROR");
+			},
+
+		}); //ajax
+	}
+
 
 
 	function cargar_videos_en_modal(id_proyecto){

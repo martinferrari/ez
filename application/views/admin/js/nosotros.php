@@ -6,6 +6,7 @@ $(".acciones").on('click', function(){
 		var nombre = $(this).parent().siblings(".nombre").val();
 		var apellido = $(this).parent().siblings(".apellido").val();
 		var cargo = $(this).parent().siblings(".cargo").val();
+		var cargo_traducido = $(this).parent().siblings(".cargo_traducido").val();
 		var estado = $(this).parent().siblings(".estado").val();
 
 		if(accion == "detalle"){
@@ -23,7 +24,11 @@ $(".acciones").on('click', function(){
 			$("#mei_id").val(id);
 			cargar_fotos_en_modal(id);
 		}
-		
+
+		if(accion == "traduccion"){
+			$("#me_idioma_id").val(id);
+			$("#mt_cargo").val(cargo_traducido);
+		}
 		
 	});
 
@@ -77,6 +82,7 @@ $(".acciones").on('click', function(){
 
 		}); //ajax
 	} //cargar_fotos_en_modal
+
 
 
 	<?php //Boton para eliminar imagen ?>

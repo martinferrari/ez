@@ -32,8 +32,23 @@ class Novedades_model extends CI_Model {
 		$insert = $this->db->affected_rows();
 
 		return ($insert == 1) ? $this->db->insert_id() : 0;
-
 	}
+
+
+	function alta_traduccion($id, $titulo = null, $descripcion = null){
+		$sql = "INSERT INTO post_traducciones
+				(id_post,
+				titulo,
+				descripcion)
+			VALUES (
+				$id,
+				'$titulo',
+				'$descripcion')";
+		$query = $this->db->query($sql);
+		$insert = $this->db->affected_rows();
+		return ($insert == 1) ? $this->db->insert_id() : 0;
+	}
+
 
 
 	function baja_novedad($id){
@@ -81,6 +96,38 @@ class Novedades_model extends CI_Model {
 		
 		return ($update != 1) ? 0 : 1;
 	}
+
+
+	function modificacion_traduccion($id, $titulo = null, $descripcion = null, $proyecto = null, $ubicacion = null, $tipologia = null){
+
+		$sql = "SELECT * FROM post_traducciones WHERE id_post = $id";
+		$query = $this->db->query($sql);
+		$existe = $query->result();
+		
+		if(!empty($existe)):
+			$sql = "UPDATE post_traducciones
+			SET 
+			titulo = '$titulo',
+			descripcion = '$descripcion'
+			WHERE id_post = $id";
+			$query = $this->db->query($sql);
+			$update = $this->db->affected_rows();
+			return ($update != 1) ? 0 : 1;
+		else:
+			$sql = "INSERT INTO post_traducciones
+				(id_post,
+				titulo,
+				descripcion)
+			VALUES (
+				$id,
+				'$titulo',
+				'$descripcion')";
+			$query = $this->db->query($sql);
+			$insert = $this->db->affected_rows();
+			return ($insert == 1) ? 1 : 0;
+		endif;
+	}
+
 
 
 	public function obtener_cantidad_publicados(){
@@ -139,6 +186,12 @@ class Novedades_model extends CI_Model {
 		return $res->result_array();
 	}
 
+
+	function obtener_traduccion($id){
+		$sql = "SELECT * FROM post_traducciones WHERE id_post = $id";
+		$res = $this->db->query($sql);
+		return $res->result();
+	}
 
 
 

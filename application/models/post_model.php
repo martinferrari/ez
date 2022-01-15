@@ -10,67 +10,147 @@ class Post_model extends CI_Model {
 	}
 
 
-	public function obtener_novedad($id, $estado){
-		$sql = "SELECT 
+	public function obtener_novedad($id, $estado, $idioma){
+		if($idioma == "es"):
+			$sql = "SELECT 
+					p.id,
+					p.tipo,
+					p.titulo,
+					p.descripcion
+				FROM post p
+				WHERE p.estado = $estado 
+				and p.id = $id";
+			$res = $this->db->query($sql);
+			return $res->result_array();
+		endif;
+
+		if($idioma == "en"):
+			$sql = "SELECT 
 				p.id,
 				p.tipo,
 				p.titulo,
-				v.path 
+				p.descripcion,
+				t.titulo AS trad_titulo,
+				t.descripcion AS trad_descripcion
 			FROM post p
+			LEFT JOIN post_traducciones t ON t.id_post = p.id
 			WHERE p.estado = $estado 
-			and p.id = $id";
-		$res = $this->db->query($sql);
-		return $res->result_array();
+			AND p.id = $id";
+			$res = $this->db->query($sql);
+			return $res->result_array();
+		endif;
 	}
 
-	public function obtener_novedades($cantidad, $orden){
-		$sql = "SELECT 
+	public function obtener_novedades($cantidad, $orden, $idioma){
+		if($idioma == "es"):
+			$sql = "SELECT 
+					p.id,
+					p.tipo,
+					p.titulo,
+					v.path 
+				FROM post p
+				JOIN visuales v on v.id_post = p.id
+				WHERE p.estado = 1 
+				and p.tipo = 3
+				AND v.es_destacada = 1
+				ORDER BY $orden
+				LIMIT $cantidad ";
+			$res = $this->db->query($sql);
+			return $res->result_array();
+		endif;
+
+		if($idioma == "en"):
+			$sql = "SELECT 
 				p.id,
 				p.tipo,
 				p.titulo,
-				v.path 
+				v.path,
+				t.titulo AS trad_titulo
 			FROM post p
 			JOIN visuales v on v.id_post = p.id
+			LEFT JOIN post_traducciones t ON t.id_post = p.id
 			WHERE p.estado = 1 
 			and p.tipo = 3
 			AND v.es_destacada = 1
 			ORDER BY $orden
 			LIMIT $cantidad ";
-		$res = $this->db->query($sql);
-		return $res->result_array();
+			$res = $this->db->query($sql);
+			return $res->result_array();
+		endif;
+
 	}
 
 
-	public function obtener_obra($id, $estado){
+	public function obtener_obra($id, $estado, $idioma){
+		if($idioma == "es"):
+			$sql = "SELECT 
+					* 
+				FROM post p
+				WHERE p.estado = $estado 
+				and p.id = $id
+				ORDER BY p.fecha_alta DESC";
+			$res = $this->db->query($sql);
+			return $res->result_array();
+		endif;
 
-		$sql = "SELECT 
-				* 
-			FROM post p
-			WHERE p.estado = $estado 
-			and p.id = $id
-			ORDER BY p.fecha_alta DESC";
-		$res = $this->db->query($sql);
-		return $res->result_array();
+		if($idioma == "en"):
+			$sql = "SELECT 
+					p.*,
+					t.titulo as trad_titulo,
+					t.descripcion as trad_descripcion,
+					t.proyecto as trad_proyecto,
+					t.ubicacion as trad_ubicacion,
+					t.tipologia as trad_tipologia
+				FROM post p
+				LEFT JOIN post_traducciones t on t.id_post = p.id
+				WHERE p.estado = $estado 
+				and p.id = $id
+				ORDER BY p.fecha_alta DESC";
+			$res = $this->db->query($sql);
+			return $res->result_array();
+		endif;
 	}
 
 
 
-	public function obtener_obras($cantidad, $orden){
-		$sql = "SELECT 
+	public function obtener_obras($cantidad, $orden, $idioma){
+		if($idioma == "es"):
+			$sql = "SELECT 
+					p.id,
+					p.tipo,
+					p.titulo,
+					v.path,
+					null AS trad_titulo
+				FROM post p
+				JOIN visuales v on v.id_post = p.id
+				WHERE p.estado = 1 
+				and p.tipo = 1
+				AND v.es_destacada = 1
+				ORDER BY $orden
+				LIMIT $cantidad ";
+
+			$res = $this->db->query($sql);
+			return $res->result_array();
+		endif;
+
+		if($idioma == "en"):
+			$sql = "SELECT 
 				p.id,
 				p.tipo,
 				p.titulo,
-				v.path 
+				v.path,
+				t.titulo AS trad_titulo
 			FROM post p
 			JOIN visuales v on v.id_post = p.id
+			LEFT JOIN post_traducciones t ON t.id_post = p.id
 			WHERE p.estado = 1 
 			and p.tipo = 1
 			AND v.es_destacada = 1
 			ORDER BY $orden
 			LIMIT $cantidad ";
-
-		$res = $this->db->query($sql);
-		return $res->result_array();
+			$res = $this->db->query($sql);
+			return $res->result_array();
+		endif;
 	}
 
 
@@ -94,32 +174,72 @@ class Post_model extends CI_Model {
 
 
 
-	public function obtener_proyectos($cantidad, $orden){
-		$sql = "SELECT 
+	public function obtener_proyectos($cantidad, $orden, $idioma){
+		if($idioma == "es"):
+			$sql = "SELECT 
+					p.id,
+					p.tipo,
+					p.titulo,
+					v.path 
+				FROM post p
+				JOIN visuales v on v.id_post = p.id
+				WHERE p.estado = 1 
+				and p.tipo = 2
+				AND v.es_destacada = 1
+				ORDER BY $orden
+				LIMIT $cantidad ";
+			$res = $this->db->query($sql);
+			return $res->result_array();
+		endif;
+
+		if($idioma == "en"):
+			$sql = "SELECT 
 				p.id,
 				p.tipo,
 				p.titulo,
-				v.path 
+				v.path,
+				t.titulo AS trad_titulo
 			FROM post p
 			JOIN visuales v on v.id_post = p.id
+			LEFT JOIN post_traducciones t ON t.id_post = p.id
 			WHERE p.estado = 1 
 			and p.tipo = 2
 			AND v.es_destacada = 1
 			ORDER BY $orden
 			LIMIT $cantidad ";
-		$res = $this->db->query($sql);
-		return $res->result_array();
+			$res = $this->db->query($sql);
+			return $res->result_array();
+		endif;
 	}
 
-	public function obtener_proyecto($id, $estado){
-		$sql = "SELECT 
-				* 
-			FROM post p
-			WHERE p.estado = $estado
-			and p.id = $id
-			ORDER BY p.fecha_alta DESC";
-		$res = $this->db->query($sql);
-		return $res->result_array();
+	public function obtener_proyecto($id, $estado, $idioma){
+		if($idioma == "es"):
+			$sql = "SELECT 
+					* 
+				FROM post p
+				WHERE p.estado = $estado
+				and p.id = $id
+				ORDER BY p.fecha_alta DESC";
+			$res = $this->db->query($sql);
+			return $res->result_array();
+		endif;
+
+		if($idioma == "en"):
+			$sql = "SELECT 
+					p.*,
+					t.titulo as trad_titulo,
+					t.descripcion as trad_descripcion,
+					t.proyecto as trad_proyecto,
+					t.ubicacion as trad_ubicacion,
+					t.tipologia as trad_tipologia
+				FROM post p
+				LEFT JOIN post_traducciones t on t.id_post = p.id
+				WHERE p.estado = $estado 
+				and p.id = $id
+				ORDER BY p.fecha_alta DESC";
+			$res = $this->db->query($sql);
+			return $res->result_array();
+		endif;
 	}
 
 

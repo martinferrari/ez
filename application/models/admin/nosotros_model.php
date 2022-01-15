@@ -53,6 +53,20 @@ class Nosotros_model extends CI_Model {
 		return ($update != 1) ? 0 : 1;
 	}
 
+	function modificacion_traduccion($id, $cargo){
+
+			$sql = "UPDATE nosotros
+			SET 
+			cargo_traducido = '$cargo'
+			WHERE id = $id";
+			$query = $this->db->query($sql);
+			$update = $this->db->affected_rows();
+			return ($update != 1) ? 0 : 1;
+	}
+
+
+
+
 	public function obtener_cantidad_publicados(){
 		$sql = "SELECT 
 				count(*) as cantidad
@@ -75,7 +89,8 @@ class Nosotros_model extends CI_Model {
                 foto1,
 				foto2,
 				foto3,
-                estado
+                estado,
+				cargo_traducido
 			FROM nosotros
 			WHERE 1=1
 			$where_estado
@@ -85,6 +100,12 @@ class Nosotros_model extends CI_Model {
 		return $res->result_array();
 	}
 
+
+	function obtener_traduccion($id){
+		$sql = "SELECT cargo_traducido FROM nosotros WHERE id = $id";
+		$res = $this->db->query($sql);
+		return $res->result();
+	}
 
 
 

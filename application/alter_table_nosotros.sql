@@ -1,0 +1,1 @@
+ALTER TABLE nosotros ADD cargo_traducido VARCHAR(255)

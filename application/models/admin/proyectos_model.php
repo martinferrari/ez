@@ -51,6 +51,28 @@ class Proyectos_model extends CI_Model {
 	}
 
 
+
+	function alta_traduccion($id, $titulo = null, $descripcion = null, $proyecto = null, $ubicacion = null){
+		$sql = "INSERT INTO post_traducciones
+				(id_post,
+				titulo,
+				descripcion,
+				proyecto,
+				ubicacion)
+			VALUES (
+				$id,
+				'$titulo',
+				'$descripcion',
+				'$proyecto',
+				'$ubicacion')";
+		$query = $this->db->query($sql);
+		$insert = $this->db->affected_rows();
+		return ($insert == 1) ? $this->db->insert_id() : 0;
+	}
+
+
+
+
 	function baja_proyecto($id){
 		$sql = "DELETE FROM post WHERE id = $id";
 		$query = $this->db->query($sql);
@@ -117,6 +139,44 @@ class Proyectos_model extends CI_Model {
 	}
 
 	
+	function modificacion_traduccion($id, $titulo = null, $descripcion = null, $proyecto = null, $ubicacion = null, $tipologia = null){
+
+		$sql = "SELECT * FROM post_traducciones WHERE id_post = $id";
+		$query = $this->db->query($sql);
+		$existe = $query->result();
+		
+		if(!empty($existe)):
+			$sql = "UPDATE post_traducciones
+			SET 
+			titulo = '$titulo',
+			descripcion = '$descripcion',
+			proyecto = '$proyecto',
+			ubicacion = '$ubicacion',
+			tipologia = '$tipologia'
+			WHERE id_post = $id";
+			$query = $this->db->query($sql);
+			$update = $this->db->affected_rows();
+			return ($update != 1) ? 0 : 1;
+		else:
+			$sql = "INSERT INTO post_traducciones
+				(id_post,
+				titulo,
+				descripcion,
+				proyecto,
+				ubicacion)
+			VALUES (
+				$id,
+				'$titulo',
+				'$descripcion',
+				'$proyecto',
+				'$ubicacion')";
+			$query = $this->db->query($sql);
+			$insert = $this->db->affected_rows();
+			return ($insert == 1) ? 1 : 0;
+			
+		endif;
+
+	}
 
 
 	public function obtener_proyectos($cantidad = null){
@@ -150,6 +210,12 @@ class Proyectos_model extends CI_Model {
 		return $res->result_array();
 	}
 
+
+	function obtener_traduccion($id){
+		$sql = "SELECT * FROM post_traducciones WHERE id_post = $id";
+		$res = $this->db->query($sql);
+		return $res->result();
+	}
 
 
 }//eof

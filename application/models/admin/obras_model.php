@@ -68,6 +68,26 @@ class Obras_model extends CI_Model {
 	}
 
 
+	function alta_traduccion($id_obra, $titulo = null, $descripcion = null, $proyecto = null, $ubicacion = null){
+		$sql = "INSERT INTO post_traducciones
+				(id_post,
+				titulo,
+				descripcion,
+				proyecto,
+				ubicacion)
+			VALUES (
+				$id_obra,
+				'$titulo',
+				'$descripcion',
+				'$proyecto',
+				'$ubicacion')";
+		$query = $this->db->query($sql);
+		$insert = $this->db->affected_rows();
+		return ($insert == 1) ? $this->db->insert_id() : 0;
+	}
+
+
+
 	function baja_obra($id){
 		$sql = "DELETE FROM post WHERE id = $id";
 		$query = $this->db->query($sql);
@@ -98,6 +118,44 @@ class Obras_model extends CI_Model {
 	}
 
 	
+	function modificacion_traduccion($id, $titulo = null, $descripcion = null, $proyecto = null, $ubicacion = null, $tipologia = null){
+
+		$sql = "SELECT * FROM post_traducciones WHERE id_post = $id";
+		$query = $this->db->query($sql);
+		$existe = $query->result();
+		
+		if(!empty($existe)):
+			$sql = "UPDATE post_traducciones
+			SET 
+			titulo = '$titulo',
+			descripcion = '$descripcion',
+			proyecto = '$proyecto',
+			ubicacion = '$ubicacion',
+			tipologia = '$tipologia'
+			WHERE id_post = $id";
+			$query = $this->db->query($sql);
+			$update = $this->db->affected_rows();
+			return ($update != 1) ? 0 : 1;
+		else:
+			$sql = "INSERT INTO post_traducciones
+				(id_post,
+				titulo,
+				descripcion,
+				proyecto,
+				ubicacion)
+			VALUES (
+				$id,
+				'$titulo',
+				'$descripcion',
+				'$proyecto',
+				'$ubicacion')";
+			$query = $this->db->query($sql);
+			$insert = $this->db->affected_rows();
+			return ($insert == 1) ? 1 : 0;
+			
+		endif;
+	}
+
 
 	public function modificacionObra($id, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_modif, $fecha_modif, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia){
 		$sql = "UPDATE post  SET
@@ -125,7 +183,7 @@ class Obras_model extends CI_Model {
 		`anio_finalizacion` = '$anio_finalizacion',
 		`fotografia` = '$fotografia'
 		WHERE `id` = $id";
-		echo $sql;
+		
 		$query = $this->db->query($sql);
 		$update = $this->db->affected_rows();
 		
@@ -184,6 +242,11 @@ class Obras_model extends CI_Model {
 	}
 
 
+	function obtener_traduccion($id){
+		$sql = "SELECT * FROM post_traducciones WHERE id_post = $id";
+		$res = $this->db->query($sql);
+		return $res->result();
+	}
 
 
 }//eof

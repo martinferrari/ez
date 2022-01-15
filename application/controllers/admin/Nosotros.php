@@ -65,12 +65,12 @@ class Nosotros extends CI_Controller {
 					
 					$insert_visual = $this->visuales_model->alta_visual_nosotros($id_nosotros, $imagen_subida);
 					if($insert_visual == 0):
-						establecer_mensaje_emergente("OcurriÛ un error al intentar cargar la imagen.", "error");
+						establecer_mensaje_emergente("OcurriÔøΩ un error al intentar cargar la imagen.", "error");
 						$errores++;
 					endif;
 				else:
 					$imageError =  $this->upload->display_errors();
-					establecer_mensaje_emergente("OcurriÛ un error al intentar cargar la imagen. Error: ".$imageError, "error");
+					establecer_mensaje_emergente("OcurriÔøΩ un error al intentar cargar la imagen. Error: ".$imageError, "error");
 					redirect("admin/nosotros");
 				endif;				
 			endif;	
@@ -82,7 +82,7 @@ class Nosotros extends CI_Controller {
 
 
 		if($errores == 0):
-			establecer_mensaje_emergente("Persona agregada con Èxito", "success");
+			establecer_mensaje_emergente("Persona agregada con ÔøΩxito", "success");
 		endif;
 		redirect("admin/nosotros");
 	}
@@ -167,12 +167,12 @@ class Nosotros extends CI_Controller {
 
 						$insert_visual = $this->visuales_model->alta_visual_nosotros($id_nosotros, $imagen_subida);
 						if($insert_visual == 0):
-							establecer_mensaje_emergente("OcurriÛ un error al intentar cargar la imagen.", "error");
+							establecer_mensaje_emergente("OcurriÔøΩ un error al intentar cargar la imagen.", "error");
 							$errores++;
 						endif;
 					else:
 						$imageError =  $this->upload->display_errors();
-						establecer_mensaje_emergente("OcurriÛ un error al intentar cargar la imagen. Error: ".$imageError, "error");
+						establecer_mensaje_emergente("OcurriÔøΩ un error al intentar cargar la imagen. Error: ".$imageError, "error");
 						redirect("admin/nosotros");
 					endif;
 				endif;
@@ -209,6 +209,21 @@ class Nosotros extends CI_Controller {
 		endif;
 		redirect("admin/nosotros");
 
+	}
+
+
+	function modificacion_traduccion(){
+		$id = $this->input->post('id');
+		$cargo = $this->input->post('cargo');
+
+		$editado = $this->nosotros_model->modificacion_traduccion($id, $cargo);
+
+		if($editado == 1):
+			establecer_mensaje_emergente("Traducci√≥n modificada", "success");
+		else:
+			establecer_mensaje_emergente("La Traducci√≥n no pudo modificarse", "error");
+		endif;
+		redirect("admin/nosotros");
 	}
 
 

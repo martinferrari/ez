@@ -92,6 +92,8 @@ class Proyectos extends CI_Controller {
 			$this->borrar_proyecto($id_proyecto);
 		endif;
 
+		$this->proyectos_model->alta_traduccion($id_proyecto, null, null, null, null, null);
+
 
 		if($errores == 0):
 			establecer_mensaje_emergente("Proyecto agregado con �xito", "success");
@@ -313,6 +315,36 @@ class Proyectos extends CI_Controller {
 		redirect("admin/proyectos");
 
 	} //modificacionProyecto
+
+
+	function modificacion_traduccion(){
+		$id = $this->input->post('id');
+		$titulo = $this->input->post('titulo');
+		$descripcion = $this->input->post('descripcion');
+		$proyecto = $this->input->post('proyecto');
+		$ubicacion = $this->input->post('ubicacion');
+		$tipologia = $this->input->post('tipologia');
+
+		$editado = $this->proyectos_model->modificacion_traduccion($id, $titulo, $descripcion, $proyecto, $ubicacion, $tipologia);
+
+		if($editado == 1):
+			establecer_mensaje_emergente("Traducción modificada", "success");
+		else:
+			establecer_mensaje_emergente("La Traducción no pudo modificarse", "error");
+		endif;
+		redirect("admin/proyectos");
+	}
+
+
+
+	function obtener_traduccion(){
+		$id = $this->input->post('id');
+		$traduccion = $this->proyectos_model->obtener_traduccion($id);
+
+		header('Content-Type: application/json');
+		echo json_encode( $traduccion  , JSON_UNESCAPED_UNICODE);
+		return;
+	}
 
 
 

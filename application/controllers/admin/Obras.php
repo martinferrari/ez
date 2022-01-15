@@ -87,12 +87,12 @@ class Obras extends CI_Controller {
 					
 					$insert_visual = $this->visuales_model->alta_visual($id_obra, $imagen_subida, $destacada, 1);
 					if($insert_visual == 0):
-						establecer_mensaje_emergente("Ocurrió un error al intentar cargar la imagen.", "error");
+						establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar la imagen.", "error");
 						$errores++;
 					endif;
 				else:
 					$imageError =  $this->upload->display_errors();
-					establecer_mensaje_emergente("Ocurrió un error al intentar cargar la imagen. Error: ".$imageError, "error");
+					establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar la imagen. Error: ".$imageError, "error");
 					redirect("admin/obras");
 				endif;				
 			endif;	
@@ -102,9 +102,10 @@ class Obras extends CI_Controller {
 			$this->borrar_obra($id_obra);
 		endif;
 
+		$this->obras_model->alta_traduccion($id_obra, null, null, null, null, null);
 
 		if($errores == 0):
-			establecer_mensaje_emergente("Obra agregada con éxito", "success");
+			establecer_mensaje_emergente("Obra agregada con ï¿½xito", "success");
 		endif;
 		redirect("admin/obras");
 
@@ -150,6 +151,29 @@ class Obras extends CI_Controller {
 		$update_conf = $this->obras_model->guardar_configuracion($cantidad, $orden);
 		redirect("admin/home");
 	}
+
+
+
+	function modificacion_idioma(){
+		$id_obra = $this->input->post('id');
+		$titulo = reg_expresion($this->input->post('titulo'));
+		$descripcion = reg_expresion($this->input->post('descripcion'));
+		$tipologia = reg_expresion($this->input->post('tipologia'));
+		$proyecto = reg_expresion($this->input->post('proyecto'));
+		$ubicacion = reg_expresion($this->input->post('ubicacion'));
+
+		$editado = $this->obras_model->modificacion_idioma($id_obra, $titulo, $descripcion, $proyecto, $ubicacion, $tipologia);
+
+		if($editado == 1):
+			establecer_mensaje_emergente("Obra modificada", "success");
+		else:
+			establecer_mensaje_emergente("La obra no pudo modificarse", "error");
+		endif;
+		redirect("admin/obras");
+
+
+	}
+
 
 
 	function modificacion_imagenes_obra(){
@@ -205,12 +229,12 @@ class Obras extends CI_Controller {
 
 						$insert_visual = $this->visuales_model->alta_visual($id_obra, $imagen_subida, 0, 1);
 						if($insert_visual == 0):
-							establecer_mensaje_emergente("Ocurrió un error al intentar cargar la imagen.", "error");
+							establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar la imagen.", "error");
 							$errores++;
 						endif;
 					else:
 						$imageError =  $this->upload->display_errors();
-						establecer_mensaje_emergente("Ocurrió un error al intentar cargar la imagen. Error: ".$imageError, "error");
+						establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar la imagen. Error: ".$imageError, "error");
 						redirect("admin/obras");
 					endif;
 				endif;
@@ -226,7 +250,7 @@ class Obras extends CI_Controller {
 	}
 
 	function modificacion_videos_obra(){
-		echo $id_obra = $this->input->post('mev_id');
+		$id_obra = $this->input->post('mev_id');
 		$imagenes = $_FILES['mev_videos'];
 
 		if(isset($_POST['eo_borrar_video'])):
@@ -276,12 +300,12 @@ class Obras extends CI_Controller {
 
 						$insert_visual = $this->visuales_model->alta_visual($id_obra, $imagen_subida, 0, 3);
 						if($insert_visual == 0):
-							establecer_mensaje_emergente("Ocurrió un error al intentar cargar el video.", "error");
+							establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar el video.", "error");
 							$errores++;
 						endif;
 					else:
 						$imageError =  $this->upload->display_errors();
-						establecer_mensaje_emergente("Ocurrió un error al intentar cargar elvideo. Error: ".$imageError, "error");
+						establecer_mensaje_emergente("Ocurriï¿½ un error al intentar cargar elvideo. Error: ".$imageError, "error");
 						redirect("admin/obras");
 					endif;
 				endif;
@@ -338,6 +362,33 @@ class Obras extends CI_Controller {
 	} //modificacionObra
 
 
+	function modificacion_traduccion(){
+		$id = $this->input->post('id');
+		$titulo = $this->input->post('titulo');
+		$descripcion = $this->input->post('descripcion');
+		$proyecto = $this->input->post('proyecto');
+		$ubicacion = $this->input->post('ubicacion');
+		$tipologia = $this->input->post('tipologia');
+
+		$editado = $this->obras_model->modificacion_traduccion($id, $titulo, $descripcion, $proyecto, $ubicacion, $tipologia);
+
+		if($editado == 1):
+			establecer_mensaje_emergente("TraducciÃ³n modificada", "success");
+		else:
+			establecer_mensaje_emergente("La TraducciÃ³n no pudo modificarse", "error");
+		endif;
+		redirect("admin/obras");
+	}
+
+
+	function obtener_traduccion(){
+		$id = $this->input->post('id');
+		$traduccion = $this->obras_model->obtener_traduccion($id);
+
+		header('Content-Type: application/json');
+		echo json_encode( $traduccion  , JSON_UNESCAPED_UNICODE);
+		return;
+	}
 
 	public function ver_obras(){
 		$data['logged_user'] = $this->session->all_userdata();

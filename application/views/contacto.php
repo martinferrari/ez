@@ -1,10 +1,11 @@
+<?php $titulo_pagina = ($idioma == 'es') ? ES_CONTACTO : EN_CONTACTO; ?>
 <!-- subheader -->
 <div class="contacto">
 <section id="subheader"  data-type="background">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Contacto</h1>
+                <h1><?php echo $titulo_pagina; ?></h1>
             </div>
         </div>
     </div>
@@ -85,7 +86,7 @@
                                             Reforma
                                         </label>
                                     </div>
-                                    <label for="inputMessage">Descripción</label>
+                                    <label for="inputMessage">DescripciÃ³n</label>
                                     <textarea class="form-control" id="inputMessage" name="inputMessage" placeholder="Redacte brevemente el motivo de su consulta"></textarea>
                                 </div>
                                 <h4>Como nos Conocio</h4>
@@ -95,7 +96,7 @@
                                     <option value="Redes Sociales">Redes Sociales</option>
                                     <option value="Web">Web</option>
                                     <option value="Publicaciones">Publicaciones</option>
-                                    <option value="Recomendacion">Recomendación</option>
+                                    <option value="Recomendacion">RecomendaciÃ³n</option>
                                     <option value="Otro">Otro</option>
                                 </select>
 
@@ -159,7 +160,7 @@
                              
                                 <h4>Datos Laborales</h4>
                                 <div class="form-group">
-                                    <label for="primertrabajo">¿Es su Primer Trabajo? si no fuera especifique trabajo anterior</label>
+                                    <label for="primertrabajo"> Es su Primer Trabajo? si no fuera especifique trabajo anterior</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="primertrabajo" name="primertrabajo" value="SI">
                                         <label class="form-check-label">
@@ -171,7 +172,7 @@
                                         </label>
                                     </div>
                                     <input type="text" class="form-control" id="inputTrabajoAnterior" placeholder="Descripcion Trabajo Anterior" />
-                                    <label for="TituloOtorgado">¿Posee Titulo Universitario Otorgado?</label>
+                                    <label for="TituloOtorgado">Posee Titulo Universitario Otorgado?</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="tituloOtorgado" id="tituloOtorgado" value="SI">
                                         <label class="form-check-label">
@@ -182,7 +183,7 @@
                                             NO
                                         </label>
                                     </div>
-                                    <label for="matricula">¿Posee matricula del Colegio de Arquitecos de Formosa vigente?</label>
+                                    <label for="matricula">Posee matricula del Colegio de Arquitecos de Formosa vigente?</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="matricula" name="matricula" value="SI">
                                         <label class="form-check-label">
@@ -193,7 +194,7 @@
                                             NO
                                         </label>
                                     </div>
-                                    <label for="movilidad">¿Posee medio de movilidad? Especificar tipo</label>
+                                    <label for="movilidad"> Posee medio de movilidad? Especificar tipo</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="movilidad" name="movilidad" value="SI">
                                         <label class="form-check-label">
@@ -205,7 +206,7 @@
                                         </label>
                                     </div>
                                     <input type="text" class="form-control" id="tipodemedio" name="tipodemedio" placeholder="Medio de Transporte" />
-                                    <label for="inputDireccion">¿Posee licencia de Conducir? Especificar tipo</label>
+                                    <label for="inputDireccion"> Posee licencia de Conducir? Especificar tipo</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="licencia" name="licencia" value="SI">
                                         <label class="form-check-label">
@@ -221,9 +222,9 @@
                                 <h4>Dipobinilidad Horaria</h4>
                                 <div class="form-group">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="DispoHoraria" name="DispoHoraria" value="Por la mañana" checked>
+                                        <input class="form-check-input" type="radio" id="DispoHoraria" name="DispoHoraria" value="Por la maÃ±ana" checked>
                                         <label class="form-check-label" for="DispoHoraria">
-                                            Por la Mañana
+                                            Por la MaÃ±ana
                                         </label></br>
                                         <input class="form-check-input" type="radio" id="DispoHoraria" name="DispoHoraria" value="Por la Tarde" checked>
                                         <label class="form-check-label" for="DispoHoraria">
@@ -236,7 +237,7 @@
                                     </div>
                                 </div>
                                 <h4>Datos Complementarios</h4>
-                                <label for="nosconoce">¿Conoce el Estudio?</label>
+                                <label for="nosconoce"> Conoce el Estudio?</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="nosconoce" name="nosconoce" value="SI">
                                     <label class="form-check-label">
@@ -247,7 +248,7 @@
                                         NO
                                     </label>
                                 </div>
-                                <label for="conoceobras">¿Conoce las Obras del Estudio? ¿tiene alguna identificada?</label>
+                                <label for="conoceobras"> Conoce las Obras del Estudio?  tiene alguna identificada?</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="conoceobras" name="conoceobras" value="SI">
                                     <label class="form-check-label">
@@ -259,9 +260,9 @@
                                     </label>
                                 </div>
                                 <input type="text" class="form-control" id="ObraIdentificada" name="obraidentificada" placeholder="Obra Identificada" />
-                                <label for="InformoVacante">¿Como se informo de la Vacante?</label>
+                                <label for="InformoVacante"> Como se informo de la Vacante?</label>
                                 <input type="text" class="form-control" id="InformoVacante" name="InformoVacante" placeholder="" />
-                                <label for="inputDireccion">¿Sigue nuestra Fan Page de Facebook?</label>
+                                <label for="inputDireccion"> Sigue nuestra Fan Page de Facebook?</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="sigueFacebook" name="sigueFacebook" value="SI">
                                     <label class="form-check-label">
@@ -272,7 +273,7 @@
                                         NO
                                     </label>
                                 </div>
-                                <label for="sigueInstagram">¿Sigue nuestra Fan Page de Instagram?</label>
+                                <label for="sigueInstagram"> Sigue nuestra Fan Page de Instagram?</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="sigueInstagram" name="sigueInstagram" value="SI">
                                     <label class="form-check-label">

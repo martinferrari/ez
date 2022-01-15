@@ -1,5 +1,6 @@
 
 .mbottom20{margin-bottom: 20px !important;}
+.pleft0{padding-left:0 !important;}
 
 .panel-body{
     background-color: #fff !important;
@@ -16,6 +17,9 @@
     color:#9d3c34;
 }
 
+.flag_lang{
+    width:20px;
+}
 
 
 

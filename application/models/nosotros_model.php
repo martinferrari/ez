@@ -17,15 +17,13 @@ class Nosotros_model extends CI_Model {
                     nombre,
                     apellido,
                     cargo,
-                    foto,
-                    foto2,
-                    foto3,
                     estado
                 FROM nosotros
                 WHERE 1=1
                 $where_estado
-                ORDER BY nombre DESC
+                ORDER BY id ASC
                 LIMIT $cantidad ";
+                
             $res = $this->db->query($sql);
             return $res->result_array();
         }

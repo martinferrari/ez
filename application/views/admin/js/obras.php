@@ -61,13 +61,9 @@
 			$("#modalEdicion #me_sup_terreno").val(sup_terreno);
 			$("#modalEdicion #me_sup_cubierta").val(sup_cubierta);
 			$("#modalEdicion #me_anio_finalizacion").val(anio_finalizacion);
-			$("#modalEdicion #me_fotografia").val(fotografia);
-
-			
+			$("#modalEdicion #me_fotografia").val(fotografia);		
 			
 			$("#btn_borrar").attr("href", "<?php echo base_url(); ?>admin/Obras/borrar_obra/"+parseInt(id));
-
-			
 
 		} //detalle	
 
@@ -80,10 +76,42 @@
 			cargar_videos_en_modal(id);
 		}
 
-		
-		
-		
+
+		if(accion == "traduccion"){
+			$("#me_idioma_id").val(id);
+			cargar_traducciones(id);
+		}
+
 	});
+
+
+	function cargar_traducciones(id_obra){
+		//$(".cargando_ajax").fadeIn(200);
+		$("#modalTraduccion input.form-control").val('');
+		
+		var url = "<?php echo base_url(); ?>admin/Obras/TraduccionObra";
+
+		$.ajax({
+			data: { id:id_obra},
+			type: "POST",
+			url: url,
+			success: function (data) {
+				 $.each(data, function(index, element) {
+					$("#mt_titulo").val(element.titulo);
+					$("#mt_descripcion").val(element.descripcion);
+					$("#mt_proyecto").val(element.proyecto);
+					$("#mt_ubicacion").val(element.ubicacion);
+					$("#mt_tipologia").val(element.tipologia);
+				});
+				
+				//$('.cargando_ajax').fadeOut(200, function() {});
+			},
+			error: function(data) {
+				console.log("ERROR");
+			},
+
+		}); //ajax
+	}
 	
 
 	function cargar_fotos_en_modal(id_obra){
@@ -121,10 +149,9 @@
 
 				});
 				
-				$('.cargando_ajax').fadeOut(200, function() {}); //oculta animacion cargando
+				$('.cargando_ajax').fadeOut(200, function() {});
 			},
 			
-			//Funcion que se ejecuta si el request da error. (Opcional)
 			error: function(data) {
 				console.log("ERROR");
 				console.log(data);
@@ -172,7 +199,7 @@
 
 				});
 				
-				//$('.cargando_ajax').fadeOut(200, function() {}); //oculta animacion cargando
+				//$('.cargando_ajax').fadeOut(200, function() {});
 			},
 			
 			error: function(data) {

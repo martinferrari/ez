@@ -61,6 +61,9 @@
                                                 <input type="hidden" name="cargo" class="cargo" 
                                                 value="<?php echo utf8_decode($n['cargo']); ?>">
 
+												<input type="hidden" name="cargo_traducido" class="cargo_traducido" 
+                                                value="<?php echo utf8_decode($n['cargo_traducido']); ?>">
+
 												<input type="hidden" name="foto" class="foto1" 
                                                 value="<?php echo utf8_decode($n['foto1']); ?>">
 												<input type="hidden" name="foto" class="foto2" 
@@ -97,6 +100,28 @@
 															<i class="fas fa-images"
 															data-toggle="tooltip" 
 															data-placement="Top" title="Foto"></i>	
+													</a>
+
+													<a 
+                                                        class="acciones" 
+                                                        href="#" 
+                                                        data-accion="traduccion" 
+                                                        data-toggle="modal" 
+                                                        data-target="#modalTraduccion">
+                                                        
+															<i class="fas fa-globe-americas"
+															data-toggle="tooltip" 
+															data-placement="Top" title="TraducciÃ³n"></i>
+													</a>
+
+													<a 
+                                                        href="<?php echo base_url(); ?>nosotros/vista_previa" 
+														target="_blank">
+															<i class="fas fa-eye"
+															data-toggle="tooltip" 
+															data-placement="Top" title="Vista Previa"
+															></i>
+															
 													</a>
 
                                                 </td>
@@ -237,7 +262,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Galería de Imagenes</h4>	
+			  <h4 class="modal-title">Galerï¿½a de Imagenes</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -272,4 +297,42 @@
 	</div>  <?php //modal-dialog ?>
 </div>  <?php //modal ?>
 
+
+
+
+<?php //MODAL Traduccion ?>
+<div class="modal fade" id="modalTraduccion" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Agregar Idioma</h4>	
+        		<button type="button" class="close" data-dismiss="modal">
+					<span><i class="fas fa-times"></i></span>
+					<span class="sr-only">Cerrar</span>
+				</button>
+				
+			</div>
+			<div class="modal-body">				
+				<form class="disable_on_submit form" action="<?php echo base_url(); ?>admin/nosotros/modificacionTraduccion" method="POST">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="row">
+								<input type="hidden" name="id" id="me_idioma_id">
+								
+								<div class="col-md-12">
+									<h4>Cargo</h4>
+									<input type="text" class="form-control cargo" name="cargo" id="mt_cargo">
+								</div>
+							</div>
+						</div> <?php //panel-body ?>
+					</div> <?php //panel ?>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-sm btn-success">Guardar</button>
+					</div>
+				</form>
+			</div> <?php //modal-body ?>
+		</div> <?php //modal-content ?>
+	</div>  <?php //modal-dialog ?>
+</div>  <?php //modal ?>
 

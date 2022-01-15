@@ -4,10 +4,17 @@
                 <div class="row">
                     <div class="col-md-4">
                         <img src="images/logo.png" class="logo-small" alt=""><br>
-                            <a>
-                        Ezestudio® a cargo de Pietro Ezio Zucchet, Arquitecto formoseño graduado en la Universidad Nacional de Córdoba en 2003 Iniciando su experiencia laboral en Italia durante el 2004.
-                        Formó EZ Estudio en 2005, hasta concretar la construcción de su nueva sede en 2011, donde actualmente desarrolla, junto a un equipo de profesionales, proyectos residenciales y urbanos, sirviéndose de lí­neas puras y materiales nobles para el lenguaje de su obra. 
-                        </a>
+                        
+                        <?php if($idioma =="es"): ?>
+                        Ezestudio a cargo de Pietro Ezio Zucchet, Arquitecto formoseÃ±o graduado en la Universidad Nacional de CÃ³rdoba en 2003 Iniciando su experiencia laboral en Italia durante el 2004.
+                        FormÃ³ EZ Estudio en 2005, hasta concretar la construcciÃ³n de su nueva sede en 2011, donde actualmente desarrolla, junto a un equipo de profesionales, proyectos residenciales y urbanos, sirviÃ©ndose de lÃ­neas puras y materiales nobles para el lenguaje de su obra. 
+                        <?php endif; ?>
+
+                        <?php if($idioma =="en"): ?>
+                            Ezestudio in charge of Pietro Ezio Zucchet, Formosan architect graduated at the National University of Cordoba in 2003, beginning his work experience in Italy during 2004.
+                        He formed EZ Estudio in 2005, until completing the construction of its new headquarters in 2011, where he currently develops, together with a team of professionals, residential and urban projects, using pure lines and noble materials for the language of his work.
+                        <?php endif; ?>
+                        
                     </div>
 
                     <div class="col-md-4">
@@ -17,10 +24,23 @@
                     </div>
 
                     <div class="col-md-4">
-                        <h3>Información de Contacto</h3>
+                        <?php if($idioma =="es"): ?>
+                            <h3>InformaciÃ³n de Contacto</h3>
+                        <?php endif; ?>
+                        <?php if($idioma =="en"): ?>
+                            <h3>Contact Info</h3>
+                        <?php endif; ?>
+                        
+                        
                         <div class="widget widget-address">
                             <address>
-                                <span><strong>Telefono:</strong> <a>+54 3704 435913</a> </span>                                
+                                <?php if($idioma =="es"):
+                                    $tel = "TelÃ©fono: ";
+                                endif; ?>
+                                <?php if($idioma =="en"):
+                                    $tel = "Telephone: ";
+                                endif; ?>
+                                <span><strong><?php echo $tel; ?></strong> <a>+54 3704 435913</a> </span>                                
                                 <span><strong>Email:</strong><a href="mailto:ezestudio.com.ar">info@ezestudio.com.ar</a></span>
                                 <span><strong>Web:</strong><a href="http://www.ezestudio.com.ar">http://www.ezestudio.com.ar</a></span>
                             </address>

@@ -24,7 +24,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Título</th>
+                                        <th>Tï¿½tulo</th>
                                         <th>Fecha de Alta</th>
                                         <th>Estado</th>
 										<th></th>
@@ -96,12 +96,35 @@
 													<a 
                                                         class="acciones" 
                                                         href="#" 
+                                                        data-accion="traduccion" 
+                                                        data-toggle="modal" 
+                                                        data-target="#modalTraduccion">
+                                                        
+															<i class="fas fa-globe-americas"
+															data-toggle="tooltip" 
+															data-placement="Top" title="TraducciÃ³n"></i>
+													</a>
+
+													<a 
+                                                        class="acciones" 
+                                                        href="#" 
                                                         data-accion="videos" 
                                                         data-toggle="modal" 
                                                         data-target="#modalEdicionVideos">
 															<i class="fas fa-video"
 															data-toggle="tooltip" 
 															data-placement="Top" title="Videos"></i>
+													</a>
+
+													<a 
+                                                        href="<?php echo base_url(); ?>novedades/<?php echo $n['id']; ?>/vista_previa" 
+														target="_blank">
+												
+															<i class="fas fa-eye"
+															data-toggle="tooltip" 
+															data-placement="Top" title="Vista Previa"
+															></i>
+															
 													</a>
 
 													
@@ -140,17 +163,17 @@
 							<div class="row">
 								
 								<div class="col-md-12">
-									<h4>Tí­tulo</h4>
+									<h4>Tï¿½ï¿½tulo</h4>
 									<input type="text" class="form-control titulo" name="titulo">
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripción</h4>
+									<h4>Descripciï¿½n</h4>
                                     <textarea class="form-control" name="descripcion"></textarea>
 								</div>
 
                                 <div class="col-md-6">
-									<h4>Categoría</h4>
+									<h4>Categorï¿½a</h4>
 									<select name="categoria" class="form-control">
                                         <?php foreach($categorias as $c):
                                             echo '<option value="'.$c['id'].'">'.$c['descripcion'].'</option>';
@@ -205,17 +228,17 @@
 							<input type="hidden" name="en_id" id="en_id">
 
 								<div class="col-md-12">
-									<h4>Tí­tulo</h4>
+									<h4>Tï¿½ï¿½tulo</h4>
 									<input type="text" class="form-control titulo" name="en_titulo" id="en_titulo">
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripción</h4>
+									<h4>Descripciï¿½n</h4>
                                     <textarea class="form-control" name="en_descripcion"></textarea>
 								</div>
 
                                 <div class="col-md-6">
-									<h4>Categoría</h4>
+									<h4>Categorï¿½a</h4>
 									<select name="en_categoria" class="form-control">
                                         <?php foreach($categorias as $c):
                                             echo '<option value="'.$c['id'].'">'.$c['descripcion'].'</option>';
@@ -250,7 +273,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Galería de Imagenes</h4>	
+			  <h4 class="modal-title">Galerï¿½a de Imagenes</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -292,7 +315,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Galería de Videos</h4>	
+			  <h4 class="modal-title">Galerï¿½a de Videos</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -328,3 +351,46 @@
 		</div> <?php //modal-content ?>
 	</div>  <?php //modal-dialog ?>
 </div>  <?php //modal ?>
+
+
+<?php //MODAL Traduccion ?>
+<div class="modal fade" id="modalTraduccion" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Agregar Idioma</h4>	
+        		<button type="button" class="close" data-dismiss="modal">
+					<span><i class="fas fa-times"></i></span>
+					<span class="sr-only">Cerrar</span>
+				</button>
+				
+			</div>
+			<div class="modal-body">				
+				<form class="disable_on_submit form" action="<?php echo base_url(); ?>admin/Novedades/modificacionIdiomaNovedad" method="POST">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="row">
+								<input type="hidden" name="id" id="me_idioma_id">
+								
+								<div class="col-md-12">
+									<h4>Tï¿½ï¿½tulo</h4>
+									<input type="text" class="form-control titulo" name="titulo" id="mt_titulo">
+								</div>
+								
+								<div class="col-md-12">
+									<h4>Descripciï¿½n</h4>
+                                    <textarea class="form-control" name="descripcion" id="mt_descripcion"></textarea>
+								</div>
+							</div>
+						</div> <?php //panel-body ?>
+					</div> <?php //panel ?>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-sm btn-success">Guardar</button>
+					</div>
+				</form>
+			</div> <?php //modal-body ?>
+		</div> <?php //modal-content ?>
+	</div>  <?php //modal-dialog ?>
+</div>  <?php //modal ?>
+

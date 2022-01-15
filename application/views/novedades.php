@@ -1,9 +1,10 @@
+<?php $titulo_pagina = ($idioma == 'es') ? ES_NOVEDADES : EN_NOVEDADES; ?>
 <!-- subheader -->
 <section id="subheader"  data-type="background">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Novedades</h1>
+                <h1><?php echo $titulo_pagina; ?></h1>
             </div>
         </div>
     </div>
@@ -31,6 +32,11 @@ foreach($posts as $post):
     elseif($post['tipo'] == 3):
         $url = base_url()."novedades/".$post['id'];
     endif;
+
+    $titulo = $post['titulo'];
+    if($idioma == 'en'):
+        $titulo = ($post['trad_titulo']) ? $post['trad_titulo'] : $post['titulo'];
+    endif;
     ?>
         <div class="grid-sizer"></div>
         
@@ -41,7 +47,7 @@ foreach($posts as $post):
                     <a href="<?php echo $url; ?>">
                         <span class="overlay" >
                             <span class="pf_title">
-                                <span class="project-name"><?php echo $post['titulo']; ?></span>
+                                <span class="project-name"><?php echo $titulo; ?></span>
                             </span>
                         </span>
                     </a>

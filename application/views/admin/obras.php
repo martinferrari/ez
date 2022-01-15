@@ -147,6 +147,18 @@
 													</a>
 
 													<a 
+                                                        class="acciones" 
+                                                        href="#" 
+                                                        data-accion="traduccion" 
+                                                        data-toggle="modal" 
+                                                        data-target="#modalTraduccion">
+                                                        
+															<i class="fas fa-globe-americas"
+															data-toggle="tooltip" 
+															data-placement="Top" title="TraducciÃ³n"></i>
+													</a>
+
+													<a 
                                                         href="<?php echo base_url(); ?>obras/<?php echo $o['id']; ?>/vista_previa" 
 														target="_blank">
 												
@@ -156,6 +168,9 @@
 															></i>
 															
 													</a>
+
+											
+
 
 													
 													
@@ -196,21 +211,21 @@
 								<input type="hidden" class="form-control" name="me_id" id="id">
 								
 								<div class="col-md-12">
-									<h4>Tí­tulo</h4>
+									<h4>Tï¿½ï¿½tulo</h4>
 									<input type="text" class="form-control titulo" name="titulo">
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripción</h4>
+									<h4>Descripciï¿½n</h4>
                                     <textarea class="form-control" name="descripcion"></textarea>
 								</div>
 
                                 <div class="col-md-6">
-									<h4>Año del proyecto</h4>
+									<h4>Aï¿½o del proyecto</h4>
 									<input type="number" class="form-control" name="anio_proyecto">
 								</div>
 								<div class="col-md-6">
-									<h4>Año de finalización del proyecto</h4>
+									<h4>Aï¿½o de finalizaciï¿½n del proyecto</h4>
 									<input type="number" class="form-control" name="anio_finalizacion">
 								</div>
                                 <div class="col-md-6">
@@ -218,7 +233,7 @@
 									<input type="text" class="form-control" name="area">
 								</div>
 								<div class="col-md-6">
-									<h4>Tipología</h4>
+									<h4>Tipologï¿½a</h4>
 									<input type="text" class="form-control" name="tipologia">
 								</div>
                                 <div class="col-md-12">
@@ -226,28 +241,28 @@
 									<input type="text" class="form-control" name="proyecto">
 								</div>
                                 <div class="col-md-12">
-									<h4>Ejecución</h4>
+									<h4>Ejecuciï¿½n</h4>
 									<input type="text" class="form-control" name="ejecucion">
 								</div>
                                 <div class="col-md-12">
-									<h4>Construcción</h4>
+									<h4>Construcciï¿½n</h4>
 									<input type="text" class="form-control" name="construccion">
 								</div>
                                 <div class="col-md-12">
-									<h4>Diseño y Dimensionado Estructural</h4>
+									<h4>Diseï¿½o y Dimensionado Estructural</h4>
 									<input type="text" class="form-control" name="disenio_dim_est">
 								</div>
                                 
                                 <div class="col-md-12">
-									<h4>Diseño y Dimensionado de Climatización</h4>
+									<h4>Diseï¿½o y Dimensionado de Climatizaciï¿½n</h4>
 									<input type="text" class="form-control" name="disenio_dim_clim">
 								</div>
 								<div class="col-md-6">
-									<h4>Dirección Técnica</h4>
+									<h4>Direcciï¿½n Tï¿½cnica</h4>
 									<input type="text" class="form-control" name="direccion_tecnica">
 								</div>
 								<div class="col-md-6">
-									<h4>Asistencia Técnica en Obra</h4>
+									<h4>Asistencia Tï¿½cnica en Obra</h4>
 									<input type="text" class="form-control" name="asist_tec_obra">
 								</div>
 								<div class="col-md-6">
@@ -268,16 +283,16 @@
 									<input type="text" class="form-control" name="sup_cubierta">
 								</div>
 								<div class="col-md-6">
-									<h4>Gestión de Documentación</h4>
+									<h4>Gestiï¿½n de Documentaciï¿½n</h4>
 									<input type="text" class="form-control" name="gestion_documentacion">
 								</div>
 								<div class="col-md-6">
-									<h4>Fotografía</h4>
+									<h4>Fotografï¿½a</h4>
 									<input type="text" class="form-control" name="fotografia">
 								</div>
 								
                                 <div class="col-md-6">
-									<h4>Ubicación</h4>
+									<h4>Ubicaciï¿½n</h4>
 									<input type="text" class="form-control" name="ubicacion">
 								</div>
                                 <div class="col-md-6">
@@ -328,21 +343,21 @@
 								<input type="hidden" class="form-control" name="me_id" id="me_id">
 								
 								<div class="col-md-12">
-									<h4>Título</h4>
+									<h4>Tï¿½tulo</h4>
 									<input type="text" class="form-control titulo" name="me_titulo" id="me_titulo">
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripción</h4>
+									<h4>Descripciï¿½n</h4>
 									<textarea class="form-control" name="me_descripcion" id="me_descripcion"></textarea>
 								</div>
 
 								<div class="col-md-6">
-									<h4>Año del Proyecto</h4>
+									<h4>Aï¿½o del Proyecto</h4>
 									<input type="text" class="form-control" name="me_anio_proyecto" id="me_anio_proyecto">
 								</div>
 								<div class="col-md-6">
-									<h4>Año de finalización del Proyecto</h4>
+									<h4>Aï¿½o de finalizaciï¿½n del Proyecto</h4>
 									<input type="text" class="form-control" name="me_anio_finalizacion" id="me_anio_finalizacion">
 								</div>
 								<div class="col-md-6">
@@ -350,7 +365,7 @@
 									<input type="text" class="form-control" name="me_area" id="me_area">
 								</div>
 								<div class="col-md-6">
-									<h4>Tipología</h4>
+									<h4>Tipologï¿½a</h4>
 									<input type="text" class="form-control" name="me_tipologia" id="me_tipologia">
 								</div>
 								
@@ -359,29 +374,29 @@
 									<input type="text" class="form-control" name="me_proyecto" id="me_proyecto">
 								</div>
 								<div class="col-md-12">
-									<h4>Ejecución</h4>
+									<h4>Ejecuciï¿½n</h4>
 									<input type="text" class="form-control" name="me_ejecucion" id="me_ejecucion">
 								</div>
 								<div class="col-md-12">
-									<h4>Construcción</h4>
+									<h4>Construcciï¿½n</h4>
 									<input type="text" class="form-control" name="me_construccion_direccion" id="me_construccion_direccion">
 								</div>
 								<div class="col-md-12">
-									<h4>Diseño y Dimensionado Estructural</h4>
+									<h4>Diseï¿½o y Dimensionado Estructural</h4>
 									<input type="text" class="form-control" name="me_disenio_dim_estruc" id="me_disenio_dim_estruc">
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Diseño y Dimensionado de Climatización</h4>
+									<h4>Diseï¿½o y Dimensionado de Climatizaciï¿½n</h4>
 									<input type="text" class="form-control" name="me_disenio_dim_clim" id="me_disenio_dim_clim">
 								</div>
 
 								<div class="col-md-6">
-									<h4>Dirección Técnica</h4>
+									<h4>Direcciï¿½n Tï¿½cnica</h4>
 									<input type="text" class="form-control" name="me_direccion_tecnica" id="me_direccion_tecnica">
 								</div>
 								<div class="col-md-6">
-									<h4>Asistencia Técnica en Obra</h4>
+									<h4>Asistencia Tï¿½cnica en Obra</h4>
 									<input type="text" class="form-control" name="me_asist_tec_obra" id="me_asist_tec_obra">
 								</div>
 								<div class="col-md-6">
@@ -402,17 +417,17 @@
 									<input type="text" class="form-control" name="me_sup_cubierta" id="me_sup_cubierta">
 								</div>
 								<div class="col-md-6">
-									<h4>Gestión de Documentación</h4>
+									<h4>Gestiï¿½n de Documentaciï¿½n</h4>
 									<input type="text" class="form-control" name="me_gestion_documentacion" id="me_gestion_documentacion">
 								</div>
 								<div class="col-md-6">
-									<h4>Fotografía</h4>
+									<h4>Fotografï¿½a</h4>
 									<input type="text" class="form-control" name="me_fotografia" id="me_fotografia">
 								</div>
 
 								
 								<div class="col-md-12">
-									<h4>Ubicación</h4>
+									<h4>Ubicaciï¿½n</h4>
 									<input type="text" class="form-control" name="me_ubicacion" id="me_ubicacion">
 								</div>
 								<div class="col-md-12">
@@ -444,7 +459,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Galería de Imagenes de la Obra</h4>	
+			  <h4 class="modal-title">Galerï¿½a de Imagenes de la Obra</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -487,7 +502,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Galería de Videos de la Obra</h4>	
+			  <h4 class="modal-title">Galerï¿½a de Videos de la Obra</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -523,3 +538,61 @@
 		</div> <?php //modal-content ?>
 	</div>  <?php //modal-dialog ?>
 </div>  <?php //modal ?>
+
+
+
+
+
+<?php //MODAL Traduccion ?>
+<div class="modal fade" id="modalTraduccion" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Agregar Idioma</h4>	
+        		<button type="button" class="close" data-dismiss="modal">
+					<span><i class="fas fa-times"></i></span>
+					<span class="sr-only">Cerrar</span>
+				</button>
+				
+			</div>
+			<div class="modal-body">				
+				<form class="disable_on_submit form" action="<?php echo base_url(); ?>admin/Obras/modificacionIdiomaObra" method="POST">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="row">
+								<input type="hidden" name="id" id="me_idioma_id">
+								
+								<div class="col-md-12">
+									<h4>Tï¿½ï¿½tulo</h4>
+									<input type="text" class="form-control titulo" name="titulo" id="mt_titulo">
+								</div>
+								
+								<div class="col-md-12">
+									<h4>Descripciï¿½n</h4>
+                                    <textarea class="form-control" name="descripcion" id="mt_descripcion"></textarea>
+								</div>
+								<div class="col-md-6">
+									<h4>Tipologï¿½a</h4>
+									<input type="text" class="form-control" name="tipologia" id="mt_tipologia">
+								</div>
+                                <div class="col-md-12">
+									<h4>Proyecto</h4>
+									<input type="text" class="form-control" name="proyecto" id="mt_proyecto">
+								</div>
+								<div class="col-md-12">
+									<h4>Ubicaciï¿½n</h4>
+									<input type="text" class="form-control" name="ubicacion" id="mt_ubicacion">
+								</div>
+							</div>
+						</div> <?php //panel-body ?>
+					</div> <?php //panel ?>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-sm btn-success">Guardar</button>
+					</div>
+				</form>
+			</div> <?php //modal-body ?>
+		</div> <?php //modal-content ?>
+	</div>  <?php //modal-dialog ?>
+</div>  <?php //modal ?>
+

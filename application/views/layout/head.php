@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <title>Ezestudio - Formosa - Proyectos residenciales y Urbanos </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="El Estudio se especializa en proyectos residenciales y urbanos sirviéndose de líneas puras y materiales nobles. ">
+    <meta name="description" content="El Estudio se especializa en proyectos residenciales y urbanos sirviï¿½ndose de lï¿½neas puras y materiales nobles. ">
     <meta name="keywords" content="architecture,building,arquitectura,Laboratorio de materiales,estructuras,materiales nobles, proyectos formosa, residenciales Formosa, EZ Estudio, Ez Estudio Formosa,Urbanos,Obras">
-    <meta name="author" content="Actualización constante en materiales y tecnologías aplicadas a la Arquitectura">
+    <meta name="author" content="Actualizaciï¿½n constante en materiales y tecnologï¿½as aplicadas a la Arquitectura">
     <!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<![endif]-->
@@ -67,12 +67,53 @@
                         <!-- mainmenu begin -->
                         <nav>
                             <ul id="mainmenu">
-								<li><a href="<?php echo base_url();?>home">Inicio<span></span></a></li>															
-                                <li><a href="<?php echo base_url();?>obras">Obras</a>
-                                <li><a href="<?php echo base_url();?>proyectos">Proyectos</a></li>
-                                <li><a href="<?php echo base_url();?>nosotros">Sobre Nosotros</a></li>
-                                <li><a href="<?php echo base_url();?>novedades">Novedades</a></li>
-                                <li><a href="<?php echo base_url();?>contacto">Contacto</a></li>
+                                <?php 
+                                    $inicio_label = ($idioma == "es") ? ES_INICIO : EN_INICIO;
+                                    $obras_label = ($idioma == "es") ? ES_OBRAS : EN_OBRAS;
+                                    $proyectos_label = ($idioma == "es") ? ES_PROYECTOS : EN_PROYECTOS;
+                                    $nosotros_label = ($idioma == "es") ? ES_NOSOTROS : EN_NOSOTROS;
+                                    $novedades_label = ($idioma == "es") ? ES_NOVEDADES : EN_NOVEDADES;
+                                    $contacto_label = ($idioma == "es") ? ES_CONTACTO : EN_CONTACTO;
+                                 ?>
+
+								<li>
+                                    <a href="<?php echo base_url();?>home">
+                                        <?php echo $inicio_label; ?>
+                                    </a>
+                                </li>															
+                                <li>
+                                    <a href="<?php echo base_url();?>obras">
+                                        <?php echo $obras_label; ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>proyectos">
+                                        <?php echo $proyectos_label; ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>nosotros">
+                                        <?php echo $nosotros_label; ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>novedades">
+                                        <?php echo $novedades_label; ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>contacto">
+                                        <?php echo $contacto_label; ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>idioma/es">
+                                        <img class="flag_lang" src="<?php echo base_url();?>_res/assets/images/esp.png">
+                                    </a>
+                                    <a href="<?php echo base_url();?>idioma/en" class="pleft0">
+                                        <img class="flag_lang" src="<?php echo base_url();?>_res/assets/images/eng.png">
+                                    </a>
+                                </li>
                             </ul>
                         </nav>
 

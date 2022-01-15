@@ -6,31 +6,74 @@ class Web extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('post_model');
+		$this->load->library('session');
+	}
+
+	//Setea el idioma al clickear en una bandera
+	function idioma(){
+		$idioma = $this->uri->segment(2);
+		if($idioma == "es"):
+			$this->session->set_userdata("idioma","es");
+		endif;
+
+		if($idioma == "en"):
+			$this->session->set_userdata("idioma","en");
+		endif;
+
+		if($idioma == ""):
+			$this->session->set_userdata("idioma","es");
+		endif;
+
+		redirect($this->agent->referrer());
+	}
+	
+	//obtiene el idioma
+	function ver_idioma(){
+		if($this->session->userdata("idioma") == "es"):
+			$this->session->set_userdata("idioma","es");
+		endif;
+
+		if($this->session->userdata("idioma") == "en"):
+			$this->session->set_userdata("idioma","en");
+		endif;
+
+		if($this->session->userdata("idioma") == ""):
+			$this->session->set_userdata("idioma","es");
+		endif;
+		return $this->session->userdata("idioma");
+	}
+	
+
+	public function index()
+	{
+		$idioma = $this->ver_idioma();
+		$data['idioma'] = $idioma;
+
+		$data['posts'] = array();
+		$data['posts'] = $this->post_model->obtener_post_home(10);
+		
+		$this->load->view('layout/head', $data);
+		$this->load->view('home', $data);
+		$this->load->view('layout/footer', $data);
 	}
 
 
 	public function ver_contacto()
 	{
-		$this->load->view('layout/head');
+		$idioma = $this->ver_idioma();
+		$data['idioma'] = $idioma;
+
+		$this->load->view('layout/head', $data);
 		$this->load->view('contacto');
-		$this->load->view('layout/footer');
+		$this->load->view('layout/footer', $data);
 	}
 
-	
-
-	public function index()
-	{
-		$data['posts'] = array();
-		$data['posts'] = $this->post_model->obtener_post_home(10);
-		
-		$this->load->view('layout/head');
-		$this->load->view('home', $data);
-		$this->load->view('layout/footer');
-	}
 
 
 	public function ver_nosotros()
 	{
+		$idioma = $this->ver_idioma();
+		
 		$this->load->model('admin/nosotros_model');
 		$nosotros = $this->nosotros_model->obtener_nosotros(null, 1, 'id asc');
 
@@ -40,14 +83,36 @@ class Web extends CI_Controller {
 		endforeach;
 		
 		$data['nosotros'] = $nosotros;
+		$data['idioma'] = $idioma;
 
-		$this->load->view('layout/head');
+		$this->load->view('layout/head', $data);
 		$this->load->view('nosotros', $data);
-		$this->load->view('layout/footer');
+		$this->load->view('layout/footer', $data);
+	}
+
+	function ver_nosotros_vista_previa(){
+		$idioma = $this->ver_idioma();
+
+		$this->load->model('nosotros_model');
+		$nosotros = $this->nosotros_model->obtener_nosotros(null, null);
+
+		foreach($nosotros as $k => $v):
+			$visuales = $this->post_model->obtener_visuales_nosotros($v['id']);
+			$nosotros[$k]['visuales'] = $visuales;
+		endforeach;
+		
+		$data['nosotros'] = $nosotros;
+		$data['idioma'] = $idioma;
+
+		$this->load->view('layout/head', $data);
+		$this->load->view('nosotros', $data);
+		$this->load->view('layout/footer', $data);
 	}
 
 
 	function ver_novedad(){
+		$idioma = $this->ver_idioma();
+
 		$id_novedad = $this->uri->segment(2);
 		$vp = $this->uri->segment(3);
 		$estado = ($vp == 'vista_previa' ) ? 0 : 1;
@@ -75,33 +140,40 @@ class Web extends CI_Controller {
 		$data['imagenes'] = ( isset($imagenes) ) ? $imagenes : NULL;
 		$data['videos'] = ( isset($videos) ) ? $videos : NULL;
 		$data['destacada'] = $destacada;
+		$data['idioma'] = $idioma;
 
-		$this->load->view('layout/head');
+		$this->load->view('layout/head', $data);
 		$this->load->view('novedad', $data);
-		$this->load->view('layout/footer');
+		$this->load->view('layout/footer', $data);
 
 	}
 
 	public function ver_novedades()
 	{
+		$idioma = $this->ver_idioma();
+		
 		$this->load->model('admin/novedades_model');
 
 		$conf = $this->novedades_model->get_configuracion();
 		$cantidad = ($conf['cantidad']['valor'] != '') ? $conf['cantidad']['valor'] : 10;
 		$orden = ($conf['orden']['valor'] != '') ? $conf['orden']['valor'] : 'id desc';
 
-		$data['posts'] = $this->post_model->obtener_novedades($cantidad, $orden);
+		$data['posts'] = $this->post_model->obtener_novedades($cantidad, $orden, $idioma);
+		$data['idioma'] = $idioma;
 
-		$this->load->view('layout/head');
+		$this->load->view('layout/head', $data);
 		$this->load->view('novedades', $data);
-		$this->load->view('layout/footer');
+		$this->load->view('layout/footer', $data);
 	}
 
 	
 	function pagina_no_encontrada(){
-		$this->load->view('layout/head');
-		$this->load->view('pagina_no_encontrada');
-		$this->load->view('layout/footer');
+		$idioma = $this->ver_idioma();
+		$data['idioma'] = $idioma;
+
+		$this->load->view('layout/head', $data);
+		$this->load->view('pagina_no_encontrada', $data);
+		$this->load->view('layout/footer', $data);
 	}
 
 
@@ -109,8 +181,10 @@ class Web extends CI_Controller {
 		$id_obra = $this->uri->segment(2);
 		$vp = $this->uri->segment(3);
 		$estado = ($vp == 'vista_previa' ) ? 0 : 1;
+
+		$idioma = $this->ver_idioma();
 		
-		$obra = $this->post_model->obtener_obra($id_obra,$estado);
+		$obra = $this->post_model->obtener_obra($id_obra,$estado,$idioma);
 		
 		if(count($obra)==0):
 			redirect('pagina_no_encontrada');
@@ -167,27 +241,30 @@ class Web extends CI_Controller {
 		$data['destacada'] = $destacada;
 		$data['data_adicional'] = $data_adicional;
 		$data['hay_datos_adicionales'] = $hay_datos_adicionales;
+		$data['idioma'] = $idioma;
 
 		
-		$this->load->view('layout/head');
+		$this->load->view('layout/head', $data);
 		$this->load->view('obra', $data);
-		$this->load->view('layout/footer');
+		$this->load->view('layout/footer', $data);
 
 	}
 
 	public function ver_obras()
 	{
+		$idioma = $this->ver_idioma();
+
 		$this->load->model('admin/obras_model');
 
 		$conf = $this->obras_model->get_configuracion();
 		$cantidad = ($conf['cantidad']['valor'] != '') ? $conf['cantidad']['valor'] : 10;
 		$orden = ($conf['orden']['valor'] != '') ? $conf['orden']['valor'] : 'id desc';
+		$data['posts'] = $this->post_model->obtener_obras($cantidad, $orden, $idioma);
+		$data['idioma'] = $idioma;
 
-		$data['posts'] = $this->post_model->obtener_obras($cantidad, $orden);
-
-		$this->load->view('layout/head');
+		$this->load->view('layout/head', $data);
 		$this->load->view('obras', $data);
-		$this->load->view('layout/footer');
+		$this->load->view('layout/footer', $data);
 	}
 
 	function ver_proyecto(){
@@ -195,7 +272,9 @@ class Web extends CI_Controller {
 		$vp = $this->uri->segment(3);
 		$estado = ($vp == 'vista_previa' ) ? 0 : 1;
 		
-		$proyecto = $this->post_model->obtener_proyecto($id_proyecto,$estado);
+		$idioma = $this->ver_idioma();
+
+		$proyecto = $this->post_model->obtener_proyecto($id_proyecto,$estado,$idioma);
 
 		if(count($proyecto)==0):
 			redirect('pagina_no_encontrada');
@@ -252,27 +331,30 @@ class Web extends CI_Controller {
 		$data['destacada'] = $destacada;
 		$data['data_adicional'] = $data_adicional;
 		$data['hay_datos_adicionales'] = $hay_datos_adicionales;
+		$data['idioma'] = $idioma;
 
 
-		$this->load->view('layout/head');
+		$this->load->view('layout/head', $data);
 		$this->load->view('proyecto', $data);
-		$this->load->view('layout/footer');
+		$this->load->view('layout/footer', $data);
 
 	}
 
 	public function ver_proyectos()
 	{
 		$this->load->model('admin/proyectos_model');
+		$idioma = $this->ver_idioma();
 
 		$conf = $this->proyectos_model->get_configuracion();
 		$cantidad = ($conf['cantidad']['valor'] != '') ? $conf['cantidad']['valor'] : 10;
 		$orden = ($conf['orden']['valor'] != '') ? $conf['orden']['valor'] : 'id desc';
 
-		$data['posts'] = $this->post_model->obtener_proyectos($cantidad, $orden);
+		$data['posts'] = $this->post_model->obtener_proyectos($cantidad, $orden, $idioma);
+		$data['idioma'] = $idioma;
 
-		$this->load->view('layout/head');
+		$this->load->view('layout/head', $data);
 		$this->load->view('proyectos', $data);
-		$this->load->view('layout/footer');
+		$this->load->view('layout/footer', $data);
 	}
 
 	

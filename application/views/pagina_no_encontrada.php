@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Página no encontrada</h1>
+                <h1>PÃ¡gina no encontrada</h1>
             </div>
         </div>
     </div>
