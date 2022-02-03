@@ -1,11 +1,4 @@
-<?php /*
-<link href='<?php echo base_url(); ?>_res/assets/chosen/chosen.css' rel='stylesheet' type='text/css'>
-<script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>_res/assets/chosen/chosen.jquery.min.js"></script>
-*/ ?>
 <script>
-
-
-	//$(".chosen-select").chosen();
 	
 	$(".acciones").on('click', function(){
 		var accion = $(this).data("accion");
@@ -35,7 +28,6 @@
 		var sup_cubierta = $(this).parent().siblings(".sup_cubierta").val();
 		var anio_finalizacion = $(this).parent().siblings(".anio_finalizacion").val();
 		var fotografia = $(this).parent().siblings(".fotografia").val();
-		
 		
 		
 		if(accion == "detalle"){
@@ -115,7 +107,7 @@
 	
 
 	function cargar_fotos_en_modal(id_obra){
-		//$(".cargando_ajax").fadeIn(200);
+		$(".cargando_ajax").fadeIn(200);
 		$("#contenedor_fotos").html("");
 		
 		var url = "<?php echo base_url(); ?>admin/Obras/VisualesObra";
@@ -136,11 +128,13 @@
 
 					contenido = '<div class="eo_image_thumb">';
 					contenido += "<img src='<?php echo base_url(); ?>"+element.path+"'>";
+					contenido += "Orden: <input type='text' class='form-control orden' value='"+element.orden+"' name='orden[]'>";
 					contenido += '<a href="javascript:void(0);" class="clear_thumb_image btn btn-sm btn-danger">';
 					contenido += 'Eliminar Imagen';
 					contenido += '</a>';
 					contenido += '<input type="hidden" name="eo_borrar_foto[]" class="eo_borrar_foto" value="0">';
 					contenido += '<input type="hidden" name="eo_foto_actual[]" class="eo_foto_actual" value="'+element.path+'">';
+					contenido += '<input type="hidden" name="eo_id_foto[]" class="eo_id_foto" value="'+element.id+'">';
 					contenido += '<label class="destacada"><input type="radio" name="eo_foto_destacada" value="'+element.path+'" '+checked+'>Es la imagen destacada<label>';
 					contenido += '</div>';
 
@@ -208,8 +202,6 @@
 
 		}); //ajax
 	} //cargar_videos_en_modal
-
-
 
 	
 	<?php //Boton para eliminar imagen ?>

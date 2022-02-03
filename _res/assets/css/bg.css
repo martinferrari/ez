@@ -20,17 +20,21 @@ background-size: 100% !important;
 
 /* general background image for subheader */
 #subheader{
-background:url(../images/background/bg-subheaderH.jpg)top fixed;
+/*background:url(../images/background/bg-subheaderH.jpg)top fixed;*/
+background-image: url(../../zocalos/inicio.jpg), url(../images/background/bg-subheaderH.jpg) ;
 background-repeat: no-repeat;
 }
 
 
 /* background settings for page subheader */
-.obras #subheader{background-image:url(../images/background/bg-subheader_obras.jpg);}
+/*.obras #subheader{background-image:url(../images/background/bg-subheader_obras.jpg);}*/
+.obras #subheader{background-image:url(../../zocalos/obras.jpg), url(../images/background/bg-subheader_obras.jpg);}
 .mural #subheader{background-image:url(../images/background/bg-subheader_Mural.jpg)n;}
 .viajes #subheader{background-image:url(../images/background/bg-subheader_viajes.jpg);}
-.nosotros #subheader{background-image:url(../images/background/bg-subheader_nosotros.jpg);}
-.proyectos #subheader{background-image:url(../images/background/bg-subheader_proyectos.jpg);}
+/*.nosotros #subheader{background-image:url(../images/background/bg-subheader_nosotros.jpg);}*/
+.nosotros #subheader{background-image:url(../../zocalos/nosotros.jpg), url(../images/background/bg-subheader_nosotros.jpg);}
+/*.proyectos #subheader{background-image:url(../images/background/bg-subheader_proyectos.jpg);}*/
+.proyectos #subheader{background-image:url(../../zocalos/proyectos.jpg), url(../images/background/bg-subheader_proyectos.jpg);}
 .page-projects-alt #subheader{background-image:url(../images/background/subheader-1b.jpg);}
 .page-services #subheader{background-image:url(../images/background/subheader-2.jpg);}
 .page-about #subheader{background-image:url(../images/background/subheader-3.jpg);}

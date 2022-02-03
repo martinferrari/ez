@@ -10,11 +10,10 @@ class Obras extends CI_Controller {
 	}
 
 	function altaObra(){
-		
 		$errores = 0;
-
 		$logged_user = $this->session->all_userdata();
 
+		$tipo_post = $this->input->post('tipo_post'); 
 		$titulo = reg_expresion($this->input->post('titulo'));
 		$descripcion = reg_expresion($this->input->post('descripcion'));
 		$anio_proyecto = reg_expresion($this->input->post('anio_proyecto'));
@@ -41,13 +40,15 @@ class Obras extends CI_Controller {
 		$usuario_alta = $logged_user['logged_user_id'];
 		$fecha_alta = date("Y-m-d H:i:s");
 		
-		$insert = $this->obras_model->alta_obra($titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_alta, $fecha_alta, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia);
+		$insert = $this->obras_model->alta_obra($tipo_post, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_alta, $fecha_alta, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia);
+
+		$redirect = ($tipo_post == 1) ? "admin/obras" : "admin/obras_ejecucion";
 
 		if($insert != 0):
 			$id_obra = $insert;
 		else:
 			establecer_mensaje_emergente("Se produjo un error", "error");
-			redirect("admin/obra");
+			redirect($redirect);
 		endif;
 
 		if (!file_exists('_res/visuales/obras')) {
@@ -93,7 +94,7 @@ class Obras extends CI_Controller {
 				else:
 					$imageError =  $this->upload->display_errors();
 					establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen. Error: ".$imageError, "error");
-					redirect("admin/obras");
+					redirect($redirect);
 				endif;				
 			endif;	
 		}
@@ -107,13 +108,19 @@ class Obras extends CI_Controller {
 		if($errores == 0):
 			establecer_mensaje_emergente("Obra agregada con �xito", "success");
 		endif;
-		redirect("admin/obras");
+
+		redirect($redirect);
 
 	} //altaObra
 
 
+	
+
+
 	function borrar_obra($id_obra = null){
 		$id = ($id_obra != null) ? $id_obra : $this->uri->segment(3);
+		$tipo_post = $this->input->post('tipo_post'); 
+		$redirect = ($tipo_post == 1) ? "admin/obras" : "admin/obras_ejecucion";
 		
 		$baja = $this->obras_model->baja_obra($id);
 
@@ -125,7 +132,7 @@ class Obras extends CI_Controller {
 			establecer_mensaje_emergente("La obra no pudo eliminarse", "error");
 		endif;
 		
-		redirect("admin/obras");
+		redirect($redirect);
 	}
 
 
@@ -156,6 +163,7 @@ class Obras extends CI_Controller {
 
 	function modificacion_idioma(){
 		$id_obra = $this->input->post('id');
+		$tipo_post = $this->input->post('tipo_post');
 		$titulo = reg_expresion($this->input->post('titulo'));
 		$descripcion = reg_expresion($this->input->post('descripcion'));
 		$tipologia = reg_expresion($this->input->post('tipologia'));
@@ -169,8 +177,9 @@ class Obras extends CI_Controller {
 		else:
 			establecer_mensaje_emergente("La obra no pudo modificarse", "error");
 		endif;
-		redirect("admin/obras");
 
+		$redirect = ($tipo_post == 1) ? "admin/obras" : "admin/obras_ejecucion";
+		redirect($redirect);
 
 	}
 
@@ -179,8 +188,14 @@ class Obras extends CI_Controller {
 	function modificacion_imagenes_obra(){
 		
 		$id_obra = $this->input->post('mei_id');
+		$tipo_post = $this->input->post('tipo_post');
 		$imagenes = $_FILES['mei_imagenes'];
 		$destacada = $_POST['eo_foto_destacada'];
+		$orden = $_POST['orden'];
+		$id_foto = $_POST['eo_id_foto'];
+		
+
+		$redirect = ($tipo_post == 1) ? "admin/obras" : "admin/obras_ejecucion";
 
 		if(isset($_POST['eo_borrar_foto'])):
 			$a_borrar = $_POST['eo_borrar_foto'];
@@ -227,7 +242,7 @@ class Obras extends CI_Controller {
 						$uploadData = $this->upload->data();
 						$imagen_subida = $upload_path."/".$uploadData['file_name'];
 
-						$insert_visual = $this->visuales_model->alta_visual($id_obra, $imagen_subida, 0, 1);
+						$insert_visual = $this->visuales_model->alta_visual($id_obra, $imagen_subida, 0, 1,1);
 						if($insert_visual == 0):
 							establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen.", "error");
 							$errores++;
@@ -235,7 +250,7 @@ class Obras extends CI_Controller {
 					else:
 						$imageError =  $this->upload->display_errors();
 						establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen. Error: ".$imageError, "error");
-						redirect("admin/obras");
+						redirect($redirect);
 					endif;
 				endif;
 			
@@ -244,14 +259,22 @@ class Obras extends CI_Controller {
 			$this->visuales_model->unset_destacada($id_obra);
 			$this->visuales_model->set_destacada($id_obra,$destacada);
 
+			$cantidad_fotos = count($id_foto);
+			for($i=0; $i<$cantidad_fotos; $i++):
+				$this->visuales_model->set_orden($id_foto[$i],$orden[$i]);
+			endfor;
+
 			establecer_mensaje_emergente("Imagenes editadas", "success");
-			redirect("admin/obras");
+			redirect($redirect);
+
 		endif;
 	}
 
 	function modificacion_videos_obra(){
 		$id_obra = $this->input->post('mev_id');
 		$imagenes = $_FILES['mev_videos'];
+		$tipo_post = $this->input->post('tipo_post');
+		$redirect = ($tipo_post == 1) ? "admin/obras" : "admin/obras_ejecucion";
 
 		if(isset($_POST['eo_borrar_video'])):
 			$a_borrar = $_POST['eo_borrar_video'];
@@ -306,7 +329,7 @@ class Obras extends CI_Controller {
 					else:
 						$imageError =  $this->upload->display_errors();
 						establecer_mensaje_emergente("Ocurri� un error al intentar cargar elvideo. Error: ".$imageError, "error");
-						redirect("admin/obras");
+						redirect($redirect);
 					endif;
 				endif;
 			
@@ -314,7 +337,7 @@ class Obras extends CI_Controller {
 
 
 			establecer_mensaje_emergente("Imagenes editadas", "success");
-			redirect("admin/obras");
+			redirect($redirect);
 		endif;
 	}
 
@@ -347,6 +370,9 @@ class Obras extends CI_Controller {
 		$anio_finalizacion = reg_expresion($this->input->post('me_anio_finalizacion'));
 		$fotografia = reg_expresion($this->input->post('me_fotografia'));
 
+		$tipo_post = $this->input->post('tipo_post');
+		$redirect = ($tipo_post == 1) ? "admin/obras" : "admin/obras_ejecucion";
+
 		$usuario_modif = $logged_user['logged_user_id'];
 		$fecha_modif = date("Y-m-d H:i:s");
 
@@ -357,7 +383,7 @@ class Obras extends CI_Controller {
 		else:
 			establecer_mensaje_emergente("La obra no pudo modificarse", "error");
 		endif;
-		redirect("admin/obras");
+		redirect($redirect);
 
 	} //modificacionObra
 
@@ -370,6 +396,9 @@ class Obras extends CI_Controller {
 		$ubicacion = $this->input->post('ubicacion');
 		$tipologia = $this->input->post('tipologia');
 
+		$tipo_post = $this->input->post('tipo_post');
+		$redirect = ($tipo_post == 1) ? "admin/obras" : "admin/obras_ejecucion";
+
 		$editado = $this->obras_model->modificacion_traduccion($id, $titulo, $descripcion, $proyecto, $ubicacion, $tipologia);
 
 		if($editado == 1):
@@ -377,7 +406,7 @@ class Obras extends CI_Controller {
 		else:
 			establecer_mensaje_emergente("La Traducción no pudo modificarse", "error");
 		endif;
-		redirect("admin/obras");
+		redirect($redirect);
 	}
 
 
@@ -396,6 +425,8 @@ class Obras extends CI_Controller {
 		
 		$obras = $this->obras_model->obtener_obras();
 		$data['mensaje_emergente'] = obtener_mensaje_emergente();
+		$data['titulo_pagina'] = "Obras";
+		$data['tipo_post'] = 1; //indica en tipo de post al dar de alta
 
 		//se fija si la obra tiene imagen destacada
 		foreach($obras as $k =>$v):
@@ -412,6 +443,29 @@ class Obras extends CI_Controller {
 		$this->load->view('admin/js/obras.php');
 	}
 
- 
+
+	public function ver_obras_ejecucion(){
+		$data['logged_user'] = $this->session->all_userdata();
+		$this->sesiones->valida_sesion();
+		
+		$obras = $this->obras_model->obtener_obras_ejecucion();
+		$data['mensaje_emergente'] = obtener_mensaje_emergente();
+		$data['titulo_pagina'] = "Obras en Ejecución";
+		$data['tipo_post'] = 4; //indica en tipo de post al dar de alta
+
+		//se fija si la obra tiene imagen destacada
+		foreach($obras as $k =>$v):
+			$tiene_destacada = $this->visuales_model->tiene_destacada($v['id']);
+			$obras[$k]['tiene_destacada'] = $tiene_destacada[0]['tiene'];
+		endforeach;
+		
+		$data['obras'] = $obras;
+
+		$this->load->view('layout/head_admin');
+		$this->load->view('layout/sidebar_admin',$data);
+		$this->load->view('admin/obras',$data);
+		$this->load->view('layout/footer_admin',$data);
+		$this->load->view('admin/js/obras.php');
+	}
 
 }

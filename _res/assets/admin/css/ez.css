@@ -100,7 +100,6 @@ i.fas{
 .eo_image_thumb,
 .eo_video_thumb{
     width: 185px;
-    height: 200px;
     display: inline-block;
     padding:17px;
     border:1px solid #ccc;
@@ -114,6 +113,17 @@ i.fas{
 }
 .eo_image_thumb .eo_foto{
     display: none;
+}
+.eo_image_thumb{
+    height: 220px;
+}
+.eo_image_thumb .orden{
+    width:40px;
+    height: 20px;
+    display: inline;
+    font-size:12px;
+    margin-top:9px;
+    margin-bottom:0px;
 }
 .eo_video_thumb{height: 180px;}
 .eo_video_thumb video{
@@ -130,8 +140,8 @@ i.fas{
 .clear_thumb_video{
     margin-bottom: 95px;
 }
-#mei_imagenes,#mev_videos{display: none;}
-#lbl_mei_imagenes,#lbl_mev_videos{
+#mei_imagenes,#mev_videos, #mz_imagen{display: none;}
+#lbl_mei_imagenes,#lbl_mev_videos, #lbl_mz_seccion{
     margin:20px auto;
     display: table;
 }
@@ -163,3 +173,17 @@ label.destacada input{margin-right: 5px;}
 }
 .modal-body.contacto .fas.green{color:green;}
 .modal-body.contacto .fas.red{color:red;}
+
+.img_zocalo{
+    height: 100px !important;
+}
+
+
+.cargando_ajax{
+	width:32px;
+	height:32px;
+	background: url('ajax-loader.gif') #fff;
+	background-repeat:no-repeat;
+	background-position:50%;
+	display:none;
+}

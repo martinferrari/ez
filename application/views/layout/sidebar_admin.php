@@ -23,6 +23,9 @@
                       <a href="obras"><i class="fas fa-archway"></i> Obras</a>
                   </li>
                   <li>
+                      <a href="obras_ejecucion"><i class="fas fa-archway"></i> Obras en ejecución</a>
+                  </li>
+                  <li>
                       <a href="proyectos"><i class="fas fa-drafting-compass"></i> Proyectos</a>
                   </li>
                   <li>
@@ -31,11 +34,16 @@
                   <li>
                       <a href="nosotros"><i class="fas fa-users"></i> Nosotros</a>
                   </li>
+                  <?php if($logged_user['logged_user_tipo'] == 1): ?>
                   <li>
-                    <?php if($logged_user['logged_user_tipo'] == 1): ?>
                       <a href="usuarios"><i class="fas fa-users-cog"></i> Usuarios</a>
-                    <?php endif; ?>
                   </li>
+                  <?php endif; ?>
+                  <?php if($logged_user['logged_user_tipo'] == 1): ?>
+                  <li>
+                      <a href="zocalos"><i class="fas fa-images"></i> Zócalos</a>
+                  </li>
+                  <?php endif; ?>
                   <li>
                       <a>
                       <i class="fas fa-paper-plane"></i> Contacto
@@ -68,7 +76,7 @@
                     <?php echo strtoupper($logged_user['logged_user_nombre']); ?>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="<?php echo base_url();?>admin/logout"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesi�n</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>admin/logout"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesi�n</a>
                   </div>
                 </li>
 

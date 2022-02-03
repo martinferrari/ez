@@ -1,4 +1,5 @@
-    <!-- jQuery -->
+
+	<!-- jQuery -->
     <script src="<?php echo base_url(); ?>_res/assets/admin/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="<?php echo base_url(); ?>_res/assets/admin/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>

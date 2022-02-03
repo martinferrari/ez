@@ -27,7 +27,7 @@
                                         <th>T�tulo</th>
                                         <th>Fecha de Alta</th>
                                         <th>Estado</th>
-										<th></th>
+										<th>Acciones</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -287,6 +287,7 @@
 								<input type="hidden" class="form-control" name="mei_id" id="mei_id">
 
 								<div class="col-md-12">
+									<div class="cargando_ajax"></div>
 									<div id="contenedor_fotos"></div>
 									<input type="file" class="form-control" name="mei_imagenes[]" class="mei_imagenes" id="mei_imagenes" multiple>
 									<label 
@@ -329,7 +330,7 @@
 								<input type="hidden" class="form-control" name="mev_id" id="mev_id">
 
 								<div class="col-md-12">
-									
+									<div class="cargando_ajax"></div>
 									<div id="contenedor_videos"></div>
 
 									<input type="file" class="form-control" id="mev_videos" name="mev_videos[]" class="mev_videos" multiple>

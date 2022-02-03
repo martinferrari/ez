@@ -27,7 +27,7 @@
                                         <th>Nombre</th>
                                         <th>Tipo</th>
                                         <th>Estado</th>
-										<th></th>
+										<th>Acciones</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -68,7 +68,7 @@
                                                         data-target="#modalPassword">
 															<i class="fas fa-key"
 															data-toggle="tooltip" 
-															data-placement="Top" title="Reestablecer Contraseña"></i>
+															data-placement="Top" title="Reestablecer Contraseï¿½a"></i>
 													</a>
 													
                                                 </td>
@@ -108,7 +108,7 @@
 									<input type="text" class="form-control" name="nombre">
 								</div>
                                 <div class="col-md-12">
-                                    <h4>Contraseña</h4>
+                                    <h4>Contraseï¿½a</h4>
 									<input type="text" class="form-control" name="pass">
 								</div>
                                 <div class="col-md-6">
@@ -146,7 +146,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Edición del usuario</h4>	
+			  <h4 class="modal-title">Ediciï¿½n del usuario</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -198,7 +198,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Reestablecer la Contraseña del usuario</h4>	
+			  <h4 class="modal-title">Reestablecer la Contraseï¿½a del usuario</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -212,11 +212,11 @@
                                 <div class="col-md-12">
                                     <input type="hidden" class="form-control" name="mp_id" id="mp_id">
 									
-                                    <h4>Contraseña</h4>
+                                    <h4>Contraseï¿½a</h4>
 									<input type="text" class="form-control" name="mp_pass" id="mp_pass">
 								</div>
                                 <div class="col-md-12">
-                                    <h4>Reescribir Contraseña</h4>
+                                    <h4>Reescribir Contraseï¿½a</h4>
 									<input type="text" class="form-control" name="mp_pass2" id="mp_pass">
 								</div>
 							</div>

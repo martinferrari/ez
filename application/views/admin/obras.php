@@ -3,7 +3,7 @@
 <div class="right_col" role="main">
     <div class="page-title">
         <div class="title_left">
-            <h3>Obras</h3>
+            <h3><?php echo $titulo_pagina; ?></h3>
 			
         </div>
         <div class="title_right">
@@ -27,7 +27,7 @@
                                         <th>T&iacute;tulo</th>
                                         <th>Fecha de Alta</th>
                                         <th>Estado</th>
-										<th></th>
+										<th>Acciones</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -209,6 +209,7 @@
 						<div class="panel-body">
 							<div class="row">
 								<input type="hidden" class="form-control" name="me_id" id="id">
+								<input type="hidden" class="form-control" name="tipo_post" value="<?php echo $tipo_post; ?>">
 								
 								<div class="col-md-12">
 									<h4>T��tulo</h4>
@@ -341,6 +342,7 @@
 						<div class="panel-body">
 							<div class="row">
 								<input type="hidden" class="form-control" name="me_id" id="me_id">
+								<input type="hidden" class="form-control" name="tipo_post" value="<?php echo $tipo_post; ?>">
 								
 								<div class="col-md-12">
 									<h4>T�tulo</h4>
@@ -471,8 +473,10 @@
 						<div class="panel-body">
 							<div class="row">
 								<input type="hidden" class="form-control" name="mei_id" id="mei_id">
+								<input type="hidden" class="form-control" name="tipo_post" value="<?php echo $tipo_post; ?>">
 
 								<div class="col-md-12">
+									<div class="cargando_ajax"></div>
 									<div id="contenedor_fotos"></div>
 									<input type="file" class="form-control" name="mei_imagenes[]" class="mei_imagenes" id="mei_imagenes" multiple>
 									<label 
@@ -514,9 +518,10 @@
 						<div class="panel-body">
 							<div class="row">
 								<input type="hidden" class="form-control" name="mev_id" id="mev_id">
+								<input type="hidden" class="form-control" name="tipo_post" value="<?php echo $tipo_post; ?>">
 
 								<div class="col-md-12">
-									
+									<div class="cargando_ajax"></div>
 									<div id="contenedor_videos"></div>
 
 									<input type="file" class="form-control" id="mev_videos" name="mev_videos[]" class="mev_videos">
@@ -561,6 +566,7 @@
 						<div class="panel-body">
 							<div class="row">
 								<input type="hidden" name="id" id="me_idioma_id">
+								<input type="hidden" class="form-control" name="tipo_post" value="<?php echo $tipo_post; ?>">
 								
 								<div class="col-md-12">
 									<h4>T��tulo</h4>
@@ -595,4 +601,3 @@
 		</div> <?php //modal-content ?>
 	</div>  <?php //modal-dialog ?>
 </div>  <?php //modal ?>
-

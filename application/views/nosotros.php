@@ -27,6 +27,9 @@
                      <!-- PRIMERA FOTO -->
 
                      <!-- SEGUNDA FOTO ARRIBA Y ABAJO -->
+                     <?php 
+                     
+                     ?>
                      <div class="col-md-8" style="padding-left: 0em">
                          <div class="row-fluid">
                              <div class="col-md-12" style="padding-right: 0em; padding-left:0em;">
@@ -34,31 +37,32 @@
                              </div>
                              <div class="col-md-6">
                                  <strong>
-                                     <p style="padding-left: 25%; padding-top:2em">Graciano Zucchet <br> Ingeniero Civil</p>
+                                     <p style="padding-left: 25%; padding-top:2em">Graciano Zucchet <br> <?php echo $ingeniero_civil; ?></p>
                                  </strong>
-                                 <p style="padding-left: 25%">Cálculo <br> Diseño Estructural</p>
+                                 <p style="padding-left: 25%"><?php echo $calculo; ?> <br> <?php echo $diseño_estructural; ?></p>
                              </div>
                          </div>
                          <div class="col-md-6">
                              <strong>
-                                 <p style="padding-left: 35%; padding-top:2em">Pietro Ezio Zucchet<br>Arquitecto CPAF 443</p>
+                                 <p style="padding-left: 35%; padding-top:2em">Pietro Ezio Zucchet<br><?php echo $arquitecto; ?> CPAF 443</p>
                              </strong>
-                             <p style="padding-left:35%">Diseño<br>Coordinación General</p>
+                             <p style="padding-left:35%"><?php echo $disenio; ?><br><?php echo $coordinación_general; ?></p>
                          </div>
                      </div>
                      <!-- SEGUNDA FOTO ARRIBA Y ABAJO -->
                  </div>
 
 
-
-
-
-
                 <?php //RENGLONES ?>
                 <?php 
                 $cantidad = count($nosotros); 
                 $i = 1;
-                foreach($nosotros as $n): ?>
+                foreach($nosotros as $n): 
+                    $cargo = utf8_decode($n['cargo']);
+                    if($idioma == 'en' && utf8_decode($n['cargo_traducido']) != ""):
+                        $cargo = utf8_decode($n['cargo_traducido']);
+                    endif;
+                ?>
                     <div class="row">
                     <?php if($i == 1): ?>
                         <div class="row">
@@ -67,7 +71,7 @@
                             </div>
                             <div class="col-md-3 nosotros c2">
                                 <p class="p1"><?php echo $n['nombre']." ".$n['apellido']; ?></p>
-                                <p class="p2"><?php echo utf8_decode($n['cargo']); ?>
+                                <p class="p2"><?php echo $cargo; ?>
                             </div>
                             <div class="col-md-3 nosotros c3">
                                 <img src="<?php echo base_url().'/'.$n['visuales'][1]['path']; ?>" class="img-thumbnail" width="100%">
@@ -100,7 +104,7 @@
 
                                 <div class="col-md-5 nosotros cg5"> 
                                     <p class="p1"><?php echo utf8_decode($n['nombre']." ".$n['apellido']); ?></p>
-                                    <p class="p2"><?php echo utf8_decode($n['cargo']); ?>
+                                    <p class="p2"><?php echo $cargo; ?>
                                  </div>
                                  <div class="col-md-7 nosotros cg6">
                                      <img src="<?php echo base_url().'/'.$n['visuales'][3]['path']; ?>" class="img-thumbnail" width="100%">

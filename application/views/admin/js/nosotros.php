@@ -34,7 +34,7 @@ $(".acciones").on('click', function(){
 
 
 	function cargar_fotos_en_modal(id_nosotros){
-		//$(".cargando_ajax").fadeIn(200);
+		$(".cargando_ajax").fadeIn(200);
 		$("#contenedor_fotos").html("");
 		
 		var url = "<?php echo base_url(); ?>admin/nosotros/VisualesNosotros";

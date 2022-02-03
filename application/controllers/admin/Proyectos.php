@@ -144,6 +144,8 @@ class Proyectos extends CI_Controller {
 		$id_proyecto = $this->input->post('mei_id');
 		$imagenes = $_FILES['mei_imagenes'];
 		$destacada = $_POST['eo_foto_destacada'];
+		$orden = $_POST['orden'];
+		$id_foto = $_POST['eo_id_foto'];
 
 		if(isset($_POST['eo_borrar_foto'])):
 			$a_borrar = $_POST['eo_borrar_foto'];
@@ -190,7 +192,7 @@ class Proyectos extends CI_Controller {
 						$uploadData = $this->upload->data();
 						$imagen_subida = $upload_path."/".$uploadData['file_name'];					
 
-						$insert_visual = $this->visuales_model->alta_visual($id_proyecto, $imagen_subida, 0, 1);
+						$insert_visual = $this->visuales_model->alta_visual($id_proyecto, $imagen_subida, 0, 1,1);
 						if($insert_visual == 0):
 							establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen.", "error");
 							$errores++;
@@ -206,6 +208,11 @@ class Proyectos extends CI_Controller {
 
 			$this->visuales_model->unset_destacada($id_proyecto);
 			$this->visuales_model->set_destacada($id_proyecto,$destacada);
+
+			$cantidad_fotos = count($id_foto);
+			for($i=0; $i<$cantidad_fotos; $i++):
+				$this->visuales_model->set_orden($id_foto[$i],$orden[$i]);
+			endfor;
 
 			establecer_mensaje_emergente("Imagenes editadas", "success");
 			redirect("admin/proyectos");

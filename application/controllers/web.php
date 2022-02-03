@@ -62,6 +62,7 @@ class Web extends CI_Controller {
 	{
 		$idioma = $this->ver_idioma();
 		$data['idioma'] = $idioma;
+		//echo current_url(); die();
 
 		$this->load->view('layout/head', $data);
 		$this->load->view('contacto');
@@ -81,6 +82,22 @@ class Web extends CI_Controller {
 			$visuales = $this->post_model->obtener_visuales_nosotros($v['id']);
 			$nosotros[$k]['visuales'] = $visuales;
 		endforeach;
+
+		if($idioma == 'es'):
+			$data['ingeniero_civil'] = ES_INGENIERO_CIVIL;
+			$data['calculo'] = ES_CALCULO;
+			$data['diseño_estructural'] = ES_DISENIO_ESTRUCTURAL;
+			$data['arquitecto'] = ES_ARQUITECTO;
+			$data['disenio'] = ES_DISENIO;
+			$data['coordinación_general'] = ES_COORDINACION_GENERAL;
+		 else:
+			$data['ingeniero_civil'] = EN_INGENIERO_CIVIL;
+			$data['calculo'] = EN_CALCULO;
+			$data['diseño_estructural'] = EN_DISENIO_ESTRUCTURAL;
+			$data['arquitecto'] = EN_ARQUITECTO;
+			$data['disenio'] = EN_DISENIO;
+			$data['coordinación_general'] = EN_COORDINACION_GENERAL;
+		 endif;
 		
 		$data['nosotros'] = $nosotros;
 		$data['idioma'] = $idioma;
@@ -117,7 +134,7 @@ class Web extends CI_Controller {
 		$vp = $this->uri->segment(3);
 		$estado = ($vp == 'vista_previa' ) ? 0 : 1;
 
-		$novedad = $this->post_model->obtener_novedad($id_novedad,$estado);
+		$novedad = $this->post_model->obtener_novedad($id_novedad,$estado, $idioma);
 		$visuales = $this->post_model->obtener_visuales($id_novedad);
 
 		$destacada = '';
@@ -242,6 +259,7 @@ class Web extends CI_Controller {
 		$data['data_adicional'] = $data_adicional;
 		$data['hay_datos_adicionales'] = $hay_datos_adicionales;
 		$data['idioma'] = $idioma;
+		$data['tipo'] = 1;
 
 		
 		$this->load->view('layout/head', $data);
@@ -259,8 +277,27 @@ class Web extends CI_Controller {
 		$conf = $this->obras_model->get_configuracion();
 		$cantidad = ($conf['cantidad']['valor'] != '') ? $conf['cantidad']['valor'] : 10;
 		$orden = ($conf['orden']['valor'] != '') ? $conf['orden']['valor'] : 'id desc';
-		$data['posts'] = $this->post_model->obtener_obras($cantidad, $orden, $idioma);
+		$data['posts'] = $this->post_model->obtener_obras($cantidad, $orden, $idioma, 1);
 		$data['idioma'] = $idioma;
+		$data['tipo'] = 1;
+
+		$this->load->view('layout/head', $data);
+		$this->load->view('obras', $data);
+		$this->load->view('layout/footer', $data);
+	}
+
+	public function ver_obras_ejecucion()
+	{
+		$idioma = $this->ver_idioma();
+
+		$this->load->model('admin/obras_model');
+
+		$conf = $this->obras_model->get_configuracion();
+		$cantidad = ($conf['cantidad']['valor'] != '') ? $conf['cantidad']['valor'] : 10;
+		$orden = ($conf['orden']['valor'] != '') ? $conf['orden']['valor'] : 'id desc';
+		$data['posts'] = $this->post_model->obtener_obras($cantidad, $orden, $idioma, 4);
+		$data['idioma'] = $idioma;
+		$data['tipo'] = 4;
 
 		$this->load->view('layout/head', $data);
 		$this->load->view('obras', $data);

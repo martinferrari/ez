@@ -1,4 +1,10 @@
-<?php $titulo_pagina = ($idioma == 'es') ? ES_OBRAS : EN_OBRAS; ?>
+<?php 
+if($tipo == 1):
+    $titulo_pagina = ($idioma == 'es') ? ES_OBRAS : EN_OBRAS; 
+elseif($tipo == 4):
+    $titulo_pagina = ($idioma == 'es') ? ES_OBRAS_EJEC : EN_OBRAS_EJEC; 
+endif;
+?>
 
 <div class="obras">
 <!-- subheader -->

@@ -38,7 +38,7 @@ $(".acciones").on('click', function(){
 
 
 	function cargar_fotos_en_modal(id_novedad){
-		//$(".cargando_ajax").fadeIn(200);
+		$(".cargando_ajax").fadeIn(200);
 		$("#contenedor_fotos").html("");
 		
 		var url = "<?php echo base_url(); ?>admin/Novedades/VisualesNovedad";
@@ -59,11 +59,13 @@ $(".acciones").on('click', function(){
 
 					contenido = '<div class="eo_image_thumb">';
 					contenido += "<img src='<?php echo base_url(); ?>"+element.path+"'>";
+					contenido += "Orden: <input type='text' class='form-control orden' value='"+element.orden+"' name='orden[]'>";
 					contenido += '<a href="javascript:void(0);" class="clear_thumb_image btn btn-sm btn-danger">';
 					contenido += 'Eliminar Imagen';
 					contenido += '</a>';
 					contenido += '<input type="hidden" name="en_borrar_foto[]" class="en_borrar_foto" value="0">';
 					contenido += '<input type="hidden" name="en_foto_actual[]" class="en_foto_actual" value="'+element.path+'">';
+					contenido += '<input type="hidden" name="eo_id_foto[]" class="eo_id_foto" value="'+element.id+'">';
 					contenido += '<label class="destacada"><input type="radio" name="en_foto_destacada" value="'+element.path+'" '+checked+'>Es la imagen destacada<label>';
 					contenido += '</div>';
 
@@ -88,7 +90,7 @@ $(".acciones").on('click', function(){
 
 
 	function cargar_traducciones(id){
-		//$(".cargando_ajax").fadeIn(200);
+		$(".cargando_ajax").fadeIn(200);
 		
 		var url = "<?php echo base_url(); ?>admin/Novedades/TraduccionNovedad";
 		$("#modalTraduccion input.form-control").val('');
@@ -104,7 +106,7 @@ $(".acciones").on('click', function(){
 					$("#mt_descripcion").val(element.descripcion);
 				});
 				
-				//$('.cargando_ajax').fadeOut(200, function() {});
+				$('.cargando_ajax').fadeOut(200, function() {});
 			},
 			error: function(data) {
 				console.log("ERROR");
@@ -115,7 +117,7 @@ $(".acciones").on('click', function(){
 
 
 	function cargar_videos_en_modal(id_novedad){
-		//$(".cargando_ajax").fadeIn(200);
+		$(".cargando_ajax").fadeIn(200);
 		$("#contenedor_videos").html("");
 		
 		var url = "<?php echo base_url(); ?>admin/Novedades/VisualesNovedad";

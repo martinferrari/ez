@@ -19,15 +19,25 @@
     </section>
 
     <div class="container">
+        <?php if($idioma == "es"):
+            $envianos_mensaje = "Envianos un Mensaje";
+            $solicitar_entrevista = "Solicitar Entrevista";
+            $trabaja = "Trabaja con nosotros";
+        else:
+            $envianos_mensaje = "Send us a message";
+            $solicitar_entrevista = "Request Interview";
+            $trabaja = "Work with us";
+        endif;
+        ?>
         <div class="row">
             <div class="col-md-12" style="padding-bottom: 20px;">
-                <h3 style="padding-bottom: 30px;">Envianos un Mensaje</h3>
+                <h3 style="padding-bottom: 30px;"><?php echo $envianos_mensaje; ?></h3>
                 <div class="col-md-6" style="background-color: #9d3c34; text-align: center; padding: 10px;">
-                    <a href="" class="btn bnt-line-white btn-big" data-toggle="modal" data-target="#modalEntrevista">Solicitar Entrevista</a>
+                    <a href="" class="btn bnt-line-white btn-big" data-toggle="modal" data-target="#modalEntrevista"><?php echo $solicitar_entrevista; ?></a>
                 </div>
                 
                 <div class="col-md-6" style="background-color: gray; text-align: center; padding: 10px;">
-                    <a href="" class="btn bnt-line-white btn-big" data-toggle="modal" data-target="#modalTrabaja">Trabaja con nosotros</a>
+                    <a href="" class="btn bnt-line-white btn-big" data-toggle="modal" data-target="#modalTrabaja"><?php echo $trabaja; ?></a>
                 </div>
             </div>
         </div>
@@ -303,117 +313,31 @@
 </div>  <?php //modal ?>
 
 
-
-
-
+<link rel="stylesheet" href="<?php echo base_url();?>_res/assets/css/leaflet.css">
+<script src="<?php echo base_url();?>_res/assets/js/leaflet/leaflet.js" ></script>
+<script src="<?php echo base_url();?>_res/assets/js/leaflet/leaflet-providers.js"></script>
 
 <script>
-                
-                function initMap() {
-                                      
-                    //Inicio del mapa y colocando en una direccion determinada
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        center: {lat: -26.18798357, lng: -58.16292465},
-                        zoom: 15,
-                        styles: [
-                        {elementType: 'geometry', stylers: [{color: '#000000'}]},
-                        {elementType: 'labels.text.stroke', stylers: [{color: '#000000'}]},
-                        {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-                        {
-                        featureType: 'administrative.locality',
-                        elementType: 'labels.text.fill',
-                        stylers: [{color: '#9d3c34'}]
-                        },
-                        {
-                        featureType: 'poi',
-                        elementType: 'labels.text.fill',
-                        stylers: [{color: '#9d3c34'}]
-                        },
-                        {
-                        featureType: 'poi.park',
-                        elementType: 'geometry',
-                        stylers: [{color: '#263c3f'}]
-                        },
-                        {
-                        featureType: 'poi.park',
-                        elementType: 'labels.text.fill',
-                        stylers: [{color: '#6b9a76'}]
-                        },
-                        {
-                        featureType: 'road',
-                        elementType: 'geometry',
-                        stylers: [{color: '#38414e'}]
-                        },
-                        {
-                        featureType: 'road',
-                        elementType: 'geometry.stroke',
-                        stylers: [{color: '#212a37'}]
-                        },
-                        {
-                        featureType: 'road',
-                        elementType: 'labels.text.fill',
-                        stylers: [{color: '#9ca5b3'}]
-                        },
-                        {
-                        featureType: 'road.highway',
-                        elementType: 'geometry',
-                        stylers: [{color: '#746855'}]
-                        },
-                        {
-                        featureType: 'road.highway',
-                        elementType: 'geometry.stroke',
-                        stylers: [{color: '#1f2835'}]
-                        },
-                        {
-                        featureType: 'road.highway',
-                        elementType: 'labels.text.fill',
-                        stylers: [{color: '#f3d19c'}]
-                        },
-                        {
-                        featureType: 'transit',
-                        elementType: 'geometry',
-                        stylers: [{color: '#2f3948'}]
-                        },
-                        {
-                        featureType: 'transit.station',
-                        elementType: 'labels.text.fill',
-                        stylers: [{color: '#d59563'}]
-                        },
-                        {
-                        featureType: 'water',
-                        elementType: 'geometry',
-                        stylers: [{color: '#2D333C'}]
-                        },
-                        {
-                        featureType: 'water',
-                        elementType: 'labels.text.fill',
-                        stylers: [{color: '#515c6d'}]
-                        },
-                        {
-                        featureType: 'water',
-                        elementType: 'labels.text.stroke',
-                        stylers: [{color: '#2D333C'}]
-                        }
-                    ]
 
-                    });
+function render_map(){
+    var map = L.map('map').setView([-26.188116742567207, -58.16300429346104], 17);
+    
+	var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1
+	}).addTo(map);
 
+    L.tileLayer.provider('Jawg.Dark', {
+        accessToken: 'OFitt33Ueojq65oJTCgms50ZcPyCaXSwQDpGp2H6MLRcIMiy86d3kXFjoZ2YOWS9'
+    }).addTo(map);
 
-                   var marker = new google.maps.Marker({
-                    position: {lat: -26.18798357, lng: -58.16292465},
-                    map: map,
-                    icon: 'images/map-marker.png',
-                    title: 'Ezestudio'
-                    });
-               
+    var ubicacion = L.icon({
+        iconUrl: '<?php echo base_url(); ?>_res/assets/images/map-marker.png',
+        iconSize:     [50, 50], // size of the icon
+    });
+    L.marker([-26.18799385219119, -58.16300893197799], {icon: ubicacion}).addTo(map).bindPopup("Belgrano 1349");
+}
+	
 
-            
-                }
-
-                
-
-
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXnla22R963itfKKRue7VxZjm0Tz7qVD0&libraries=places&callback=initMap">
-    </script>
-
+</script>

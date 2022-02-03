@@ -113,7 +113,7 @@ class Post_model extends CI_Model {
 
 
 
-	public function obtener_obras($cantidad, $orden, $idioma){
+	public function obtener_obras($cantidad, $orden, $idioma, $tipo){
 		if($idioma == "es"):
 			$sql = "SELECT 
 					p.id,
@@ -124,7 +124,7 @@ class Post_model extends CI_Model {
 				FROM post p
 				JOIN visuales v on v.id_post = p.id
 				WHERE p.estado = 1 
-				and p.tipo = 1
+				and p.tipo = $tipo
 				AND v.es_destacada = 1
 				ORDER BY $orden
 				LIMIT $cantidad ";
@@ -144,7 +144,7 @@ class Post_model extends CI_Model {
 			JOIN visuales v on v.id_post = p.id
 			LEFT JOIN post_traducciones t ON t.id_post = p.id
 			WHERE p.estado = 1 
-			and p.tipo = 1
+			and p.tipo = $tipo
 			AND v.es_destacada = 1
 			ORDER BY $orden
 			LIMIT $cantidad ";
@@ -247,7 +247,8 @@ class Post_model extends CI_Model {
 		$sql = "SELECT 
 				*
 			FROM visuales v 
-			WHERE v.id_post = $id_post";
+			WHERE v.id_post = $id_post
+			ORDER BY orden";
 		$res = $this->db->query($sql);
 		return $res->result_array();
 	}

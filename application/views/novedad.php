@@ -24,12 +24,14 @@
                     <div class="carousel-inner" role="listbox">
                         <?php  
                         if(isset($imagenes)):
-                        for($i=0; $i<5;$i++): 
-                            $active = ($i == 0) ? "active" : "";
-                        ?>
-                            <div class="item <?php echo $active;?>">
-                                <img src="<?php echo base_url().$imagenes[$i]; ?>" alt="" />
-                            </div>
+                            $qty = count($imagenes);
+                            $qty_hasta = ($qty>=5) ? 5 : $qty;
+
+                            for($i=0; $i<$qty_hasta;$i++): 
+                                $active = ($i == 0) ? "active" : ""; ?>
+                                <div class="item <?php echo $active;?>">
+                                    <img src="<?php echo base_url().$imagenes[$i]; ?>" alt="" />
+                                </div>
                             <?php 
                             endfor; 
                         endif;
@@ -73,8 +75,14 @@
 
 <section id="view-all-projects" class="call-to-action bg-color text-center text-dark padding20" data-speed="5" data-type="background" aria-label="cta">
     <div class="container">
-        <div class="row">         
-                <a href="<?php echo base_url(); ?>contacto" class="btn btn-line-black btn-big mt20 wow fadeInUp">CONTACTO</a>
+        <div class="row">      
+            <?php if($idioma == "es"): 
+                $contacto_label = "CONTACTO";
+            else:
+                $contacto_label = "CONTACT";
+            endif;
+            ?>   
+                <a href="<?php echo base_url(); ?>contacto" class="btn btn-line-black btn-big mt20 wow fadeInUp"><?php echo $contacto_label; ?></a>
         </div>
     </div>
 </section>

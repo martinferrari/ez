@@ -56,7 +56,7 @@
                         
                         <!-- logo begin -->
                         <div id="logo">
-                            <a href="/">
+                            <a href="/home">
                                 <img class="logo" src="<?php echo base_url(); ?>_res/assets/images/logo.png" with="140px" alt="">
                             </a>
                         </div>
@@ -70,6 +70,7 @@
                                 <?php 
                                     $inicio_label = ($idioma == "es") ? ES_INICIO : EN_INICIO;
                                     $obras_label = ($idioma == "es") ? ES_OBRAS : EN_OBRAS;
+                                    $obras_ejec_label = ($idioma == "es") ? ES_OBRAS_EJEC : EN_OBRAS_EJEC;
                                     $proyectos_label = ($idioma == "es") ? ES_PROYECTOS : EN_PROYECTOS;
                                     $nosotros_label = ($idioma == "es") ? ES_NOSOTROS : EN_NOSOTROS;
                                     $novedades_label = ($idioma == "es") ? ES_NOVEDADES : EN_NOVEDADES;
@@ -84,6 +85,11 @@
                                 <li>
                                     <a href="<?php echo base_url();?>obras">
                                         <?php echo $obras_label; ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>obras_ejecucion">
+                                        <?php echo $obras_ejec_label; ?>
                                     </a>
                                 </li>
                                 <li>

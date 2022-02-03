@@ -8,18 +8,20 @@ class Visuales_model extends CI_Model {
 
 	}
 
-	public function alta_visual($id_post, $path, $es_destacada, $tipo){
+	public function alta_visual($id_post, $path, $es_destacada, $tipo, $orden){
         
 		$sql = "
         INSERT INTO `visuales`
             (`id_post`,
              `path`,
              `es_destacada`,
-             `tipo`)
+             `tipo`,
+			 `orden`)
         VALUES ('$id_post',
                 '$path',
                 '$es_destacada',
-                '$tipo')";
+                '$tipo',
+				$orden)";
 
         $query = $this->db->query($sql);
         $insert = $this->db->affected_rows();
@@ -59,10 +61,12 @@ class Visuales_model extends CI_Model {
 		id_post,
 		path,
 		es_destacada,
-		tipo
+		tipo,
+		orden
 	  FROM visuales
 	  WHERE id_post = $id_post
-	  AND tipo = $tipo";
+	  AND tipo = $tipo
+	  ORDER BY orden ";
 	  $query = $this->db->query($sql);
 	  return $query->result_array();
 
@@ -89,6 +93,14 @@ class Visuales_model extends CI_Model {
 		SET es_destacada = 1
 		WHERE id_post = $id_post 
 		AND path = '$destacada' ";
+		$res  = $this->db->query($sql);
+	}
+
+	function set_orden($id_foto,$orden){
+		$sql = "
+		UPDATE visuales 
+		SET orden = $orden
+		WHERE id = $id_foto ";
 		$res  = $this->db->query($sql);
 	}
 

@@ -126,16 +126,6 @@
     <script src="<?php echo base_url(); ?>_res/assets/js/designesia.js"></script>
 
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> -->
-
-    <!-- SLIDER REVOLUTION SCRIPTS  -->
-
-    <?php /*<script type="text/javascript" src="<?php echo base_url(); ?>_res/assets/js/validar.js"></script>*/ ?>
-
-
-
-
-
     <script>
 
         <?php //carousel detalle de obras, proyectos ?>
@@ -177,15 +167,19 @@
             }
         }, false);
 
-
-
         $("#menu-btn").on("click", function(){
             $("nav").css("background","#000");
             $("#mainmenu").toggle();
         });
 
-    </script>
+        <?php if( strpos(current_url(),'contacto') > 0):  ?>
+            $(document).ready(function(){
+                render_map(); <?php //solo para la pagina de contacto ?>
+            });
+        <?php endif; ?>
 
+        
+    </script>
 
 </body>
 </html>

@@ -1,8 +1,14 @@
-<?php $titulo_pagina = ($idioma == 'es') ? ES_OBRAS : EN_OBRAS; ?>
+<?php 
+if($tipo == 1):
+    $titulo_pagina = ($idioma == 'es') ? ES_OBRAS : EN_OBRAS; 
+elseif($tipo == 4):
+    $titulo_pagina = ($idioma == 'es') ? ES_OBRAS_EJEC : EN_OBRAS_EJEC; 
+endif;
+?>
 
 <!-- subheader -->
 <div class="obras">
-<section id="subheader"  data-type="background">
+<section id="subheader" data-type="background">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -24,12 +30,15 @@
                     <div class="carousel-inner" role="listbox">
                         <?php  
                         if(isset($imagenes)):
-                        for($i=0; $i<5;$i++): 
-                            $active = ($i == 0) ? "active" : "";
+                            $qty = count($imagenes);
+                            $qty_hasta = ($qty>=5) ? 5 : $qty;
+
+                            for($i=0; $i<$qty_hasta;$i++): 
+                                $active = ($i == 0) ? "active" : "";
                         ?>
-                            <div class="item <?php echo $active;?>">
-                                <img src="<?php echo base_url().$imagenes[$i]; ?>" alt="" />
-                            </div>
+                                <div class="item <?php echo $active;?>">
+                                    <img src="<?php echo base_url().$imagenes[$i]; ?>" alt="" />
+                                </div>
                             <?php 
                             endfor; 
                         endif;

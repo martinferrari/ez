@@ -28,7 +28,7 @@
                                         <th>Apellido</th>
                                         <th>Cargo</th>
                                         <th>Estado</th>
-										<th></th>
+										<th>Acciones</th>
                                     </tr>
                                     </thead>
                                     <tbody>

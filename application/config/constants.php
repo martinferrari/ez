@@ -76,6 +76,8 @@ define('ES_INICIO', "Inicio");
 define('EN_INICIO', "Home");
 define('ES_OBRAS', "Obras");
 define('EN_OBRAS', "Constructions");
+define('ES_OBRAS_EJEC', "Obras En Ejecución");
+define('EN_OBRAS_EJEC', "Works in progress");
 define('ES_PROYECTOS', "Proyectos");
 define('EN_PROYECTOS', "Projects");
 define('ES_NOSOTROS', "Sobre Nosotros");
@@ -84,6 +86,22 @@ define('ES_NOVEDADES', "Novedades");
 define('EN_NOVEDADES', "News");
 define('ES_CONTACTO', "Contacto");
 define('EN_CONTACTO', "Contact");
+
+define('ES_INGENIERO_CIVIL', "Ingeniero Civil");
+define('EN_INGENIERO_CIVIL', "Civil Engineer");
+define('ES_CALCULO', "Cálculo");
+define('EN_CALCULO', "Calculation");
+define('ES_DISENIO_ESTRUCTURAL', "Diseño Estructural");
+define('EN_DISENIO_ESTRUCTURAL', "Structural design");
+define('ES_ARQUITECTO', "Arquitecto");
+define('EN_ARQUITECTO', "Architect");
+define('ES_DISENIO', "Diseño");
+define('EN_DISENIO', "Design");
+define('ES_COORDINACION_GENERAL', "Coordinación General");
+define('EN_COORDINACION_GENERAL', "General coordination");
+// define('ES_', "");
+// define('EN_', "");
+
 
 
 

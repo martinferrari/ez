@@ -8,7 +8,7 @@ class Obras_model extends CI_Model {
 
 	}
 
-	public function alta_obra($titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_alta, $fecha_alta, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia){
+	public function alta_obra($tipo_post, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_alta, $fecha_alta, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia){
 	
 		$sql = "INSERT INTO `post`
 		(`tipo`,
@@ -35,7 +35,7 @@ class Obras_model extends CI_Model {
 		 `sup_cubierta`,
 		 `anio_finalizacion`,
 		 `fotografia`)
-		VALUES ('1',
+		VALUES ($tipo_post,
 			'$titulo',
 			'$descripcion',
 			'$anio_proyecto',
@@ -241,6 +241,18 @@ class Obras_model extends CI_Model {
 		return $res->result_array();
 	}
 
+	public function obtener_obras_ejecucion($cantidad = null){
+        $cantidad = ($cantidad == null) ? 9999999 : $cantidad;
+
+		$sql = "SELECT 
+				*
+			FROM post p
+			WHERE p.tipo = 4
+			ORDER BY p.fecha_alta DESC
+			LIMIT $cantidad ";
+		$res = $this->db->query($sql);
+		return $res->result_array();
+	}
 
 	function obtener_traduccion($id){
 		$sql = "SELECT * FROM post_traducciones WHERE id_post = $id";
