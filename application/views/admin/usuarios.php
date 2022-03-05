@@ -68,7 +68,7 @@
                                                         data-target="#modalPassword">
 															<i class="fas fa-key"
 															data-toggle="tooltip" 
-															data-placement="Top" title="Reestablecer Contrase�a"></i>
+															data-placement="Top" title="Reestablecer Contrase&ntilde;a"></i>
 													</a>
 													
                                                 </td>
@@ -108,7 +108,7 @@
 									<input type="text" class="form-control" name="nombre">
 								</div>
                                 <div class="col-md-12">
-                                    <h4>Contrase�a</h4>
+                                    <h4>Contrase&ntilde;a</h4>
 									<input type="text" class="form-control" name="pass">
 								</div>
                                 <div class="col-md-6">
@@ -146,7 +146,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Edici�n del usuario</h4>	
+			  <h4 class="modal-title">Edici&oacute;n del usuario</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -198,7 +198,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Reestablecer la Contrase�a del usuario</h4>	
+			  <h4 class="modal-title">Reestablecer la Contrase&ntilde;a del usuario</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -212,11 +212,11 @@
                                 <div class="col-md-12">
                                     <input type="hidden" class="form-control" name="mp_id" id="mp_id">
 									
-                                    <h4>Contrase�a</h4>
+                                    <h4>Contrase&ntilde;a</h4>
 									<input type="text" class="form-control" name="mp_pass" id="mp_pass">
 								</div>
                                 <div class="col-md-12">
-                                    <h4>Reescribir Contrase�a</h4>
+                                    <h4>Reescribir Contrase&ntilde;a</h4>
 									<input type="text" class="form-control" name="mp_pass2" id="mp_pass">
 								</div>
 							</div>

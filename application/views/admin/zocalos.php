@@ -7,9 +7,6 @@
 			
         </div>
         <div class="title_right">
-			<!-- <div class="input-group">
-				<button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalZocalo">Cargar Usuario</button>
-			</div> -->
         </div>
 		
 		<div style="clear:both"></div>
@@ -23,7 +20,7 @@
                         <table class="table table-striped table-hover no-footer tabla_zocalos">
                             <thead>
                                 <tr>
-                                    <th>Sección</th>
+                                    <th>Secci&oacute;n</th>
                                     <th>Imagen</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -68,7 +65,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Obras en ejecución</td>
+                                    <td>Obras en ejecuci&oacute;n</td>
                                     <td><img src="<?php echo base_url(); ?>_res/zocalos/obras_ejecucion.jpg" class="img_zocalo"></td>
                                     <td>
                                         <a 
@@ -77,7 +74,7 @@
                                             data-accion="imagenes" 
                                             data-toggle="modal" 
                                             data-target="#modalZocalo"
-                                            data-seccion="Obras en ejecución">
+                                            data-seccion="Obras en ejecuci&oacute;n">
 
                                                 <i class="fas fa-pen"
                                                 data-toggle="tooltip" 
@@ -176,7 +173,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Imagen del Zócalo de la sección <span></span></h4>	
+			  <h4 class="modal-title">Imagen del Z&oacute;calo de la secci&oacute;n <span></span></h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>

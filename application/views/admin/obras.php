@@ -155,7 +155,7 @@
                                                         
 															<i class="fas fa-globe-americas"
 															data-toggle="tooltip" 
-															data-placement="Top" title="Traducción"></i>
+															data-placement="Top" title="Traducci&oacute;n"></i>
 													</a>
 
 													<a 
@@ -212,21 +212,21 @@
 								<input type="hidden" class="form-control" name="tipo_post" value="<?php echo $tipo_post; ?>">
 								
 								<div class="col-md-12">
-									<h4>T��tulo</h4>
+									<h4>Título</h4>
 									<input type="text" class="form-control titulo" name="titulo">
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripci�n</h4>
+									<h4>Descripci&oacute;n</h4>
                                     <textarea class="form-control" name="descripcion"></textarea>
 								</div>
 
                                 <div class="col-md-6">
-									<h4>A�o del proyecto</h4>
+									<h4>A&ntilde;o del proyecto</h4>
 									<input type="number" class="form-control" name="anio_proyecto">
 								</div>
 								<div class="col-md-6">
-									<h4>A�o de finalizaci�n del proyecto</h4>
+									<h4>A&ntilde;o de finalizaci&oacute;n del proyecto</h4>
 									<input type="number" class="form-control" name="anio_finalizacion">
 								</div>
                                 <div class="col-md-6">
@@ -234,7 +234,7 @@
 									<input type="text" class="form-control" name="area">
 								</div>
 								<div class="col-md-6">
-									<h4>Tipolog�a</h4>
+									<h4>Tipolog&iacute;a</h4>
 									<input type="text" class="form-control" name="tipologia">
 								</div>
                                 <div class="col-md-12">
@@ -242,28 +242,28 @@
 									<input type="text" class="form-control" name="proyecto">
 								</div>
                                 <div class="col-md-12">
-									<h4>Ejecuci�n</h4>
+									<h4>Ejecuci&oacute;n</h4>
 									<input type="text" class="form-control" name="ejecucion">
 								</div>
                                 <div class="col-md-12">
-									<h4>Construcci�n</h4>
+									<h4>Construcci&oacute;n</h4>
 									<input type="text" class="form-control" name="construccion">
 								</div>
                                 <div class="col-md-12">
-									<h4>Dise�o y Dimensionado Estructural</h4>
+									<h4>Dise&ntilde;o y Dimensionado Estructural</h4>
 									<input type="text" class="form-control" name="disenio_dim_est">
 								</div>
                                 
                                 <div class="col-md-12">
-									<h4>Dise�o y Dimensionado de Climatizaci�n</h4>
+									<h4>Dise&ntilde;o y Dimensionado de Climatizaci&oacute;n</h4>
 									<input type="text" class="form-control" name="disenio_dim_clim">
 								</div>
 								<div class="col-md-6">
-									<h4>Direcci�n T�cnica</h4>
+									<h4>Direcci&oacute;n T&eacute;cnica</h4>
 									<input type="text" class="form-control" name="direccion_tecnica">
 								</div>
 								<div class="col-md-6">
-									<h4>Asistencia T�cnica en Obra</h4>
+									<h4>Asistencia T&eacute;cnica en Obra</h4>
 									<input type="text" class="form-control" name="asist_tec_obra">
 								</div>
 								<div class="col-md-6">
@@ -284,16 +284,16 @@
 									<input type="text" class="form-control" name="sup_cubierta">
 								</div>
 								<div class="col-md-6">
-									<h4>Gesti�n de Documentaci�n</h4>
+									<h4>Gesti&oacute;n de Documentaci&oacute;n</h4>
 									<input type="text" class="form-control" name="gestion_documentacion">
 								</div>
 								<div class="col-md-6">
-									<h4>Fotograf�a</h4>
+									<h4>Fotograf&iacute;a</h4>
 									<input type="text" class="form-control" name="fotografia">
 								</div>
 								
                                 <div class="col-md-6">
-									<h4>Ubicaci�n</h4>
+									<h4>Ubicaci&oacute;n</h4>
 									<input type="text" class="form-control" name="ubicacion">
 								</div>
                                 <div class="col-md-6">
@@ -345,21 +345,21 @@
 								<input type="hidden" class="form-control" name="tipo_post" value="<?php echo $tipo_post; ?>">
 								
 								<div class="col-md-12">
-									<h4>T�tulo</h4>
+									<h4>T&iacute;tulo</h4>
 									<input type="text" class="form-control titulo" name="me_titulo" id="me_titulo">
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripci�n</h4>
+									<h4>Descripci&oacute;n</h4>
 									<textarea class="form-control" name="me_descripcion" id="me_descripcion"></textarea>
 								</div>
 
 								<div class="col-md-6">
-									<h4>A�o del Proyecto</h4>
+									<h4>A&ntilde;o del Proyecto</h4>
 									<input type="text" class="form-control" name="me_anio_proyecto" id="me_anio_proyecto">
 								</div>
 								<div class="col-md-6">
-									<h4>A�o de finalizaci�n del Proyecto</h4>
+									<h4>A&ntilde;o de finalizaci&oacute;n del Proyecto</h4>
 									<input type="text" class="form-control" name="me_anio_finalizacion" id="me_anio_finalizacion">
 								</div>
 								<div class="col-md-6">
@@ -367,7 +367,7 @@
 									<input type="text" class="form-control" name="me_area" id="me_area">
 								</div>
 								<div class="col-md-6">
-									<h4>Tipolog�a</h4>
+									<h4>Tipolog&iacute;a</h4>
 									<input type="text" class="form-control" name="me_tipologia" id="me_tipologia">
 								</div>
 								
@@ -376,29 +376,29 @@
 									<input type="text" class="form-control" name="me_proyecto" id="me_proyecto">
 								</div>
 								<div class="col-md-12">
-									<h4>Ejecuci�n</h4>
+									<h4>Ejecuci&oacute;n</h4>
 									<input type="text" class="form-control" name="me_ejecucion" id="me_ejecucion">
 								</div>
 								<div class="col-md-12">
-									<h4>Construcci�n</h4>
+									<h4>Construcci&oacute;n</h4>
 									<input type="text" class="form-control" name="me_construccion_direccion" id="me_construccion_direccion">
 								</div>
 								<div class="col-md-12">
-									<h4>Dise�o y Dimensionado Estructural</h4>
+									<h4>Dise&ntilde;o y Dimensionado Estructural</h4>
 									<input type="text" class="form-control" name="me_disenio_dim_estruc" id="me_disenio_dim_estruc">
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Dise�o y Dimensionado de Climatizaci�n</h4>
+									<h4>Dise&ntilde;o y Dimensionado de Climatizaci&oacute;n</h4>
 									<input type="text" class="form-control" name="me_disenio_dim_clim" id="me_disenio_dim_clim">
 								</div>
 
 								<div class="col-md-6">
-									<h4>Direcci�n T�cnica</h4>
+									<h4>Direcci&oacute;n T&eacute;cnica</h4>
 									<input type="text" class="form-control" name="me_direccion_tecnica" id="me_direccion_tecnica">
 								</div>
 								<div class="col-md-6">
-									<h4>Asistencia T�cnica en Obra</h4>
+									<h4>Asistencia T&eacute;cnica en Obra</h4>
 									<input type="text" class="form-control" name="me_asist_tec_obra" id="me_asist_tec_obra">
 								</div>
 								<div class="col-md-6">
@@ -419,17 +419,17 @@
 									<input type="text" class="form-control" name="me_sup_cubierta" id="me_sup_cubierta">
 								</div>
 								<div class="col-md-6">
-									<h4>Gesti�n de Documentaci�n</h4>
+									<h4>Gesti&oacute;n de Documentaci&oacute;n</h4>
 									<input type="text" class="form-control" name="me_gestion_documentacion" id="me_gestion_documentacion">
 								</div>
 								<div class="col-md-6">
-									<h4>Fotograf�a</h4>
+									<h4>Fotograf&iacute;a</h4>
 									<input type="text" class="form-control" name="me_fotografia" id="me_fotografia">
 								</div>
 
 								
 								<div class="col-md-12">
-									<h4>Ubicaci�n</h4>
+									<h4>Ubicaci&oacute;n</h4>
 									<input type="text" class="form-control" name="me_ubicacion" id="me_ubicacion">
 								</div>
 								<div class="col-md-12">
@@ -461,7 +461,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Galer�a de Imagenes de la Obra</h4>	
+			  <h4 class="modal-title">Galer&iacute;a de Imagenes de la Obra</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -506,7 +506,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Galer�a de Videos de la Obra</h4>	
+			  <h4 class="modal-title">Galer&iacute;a de Videos de la Obra</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -569,16 +569,16 @@
 								<input type="hidden" class="form-control" name="tipo_post" value="<?php echo $tipo_post; ?>">
 								
 								<div class="col-md-12">
-									<h4>T��tulo</h4>
+									<h4>T&iacute;tulo</h4>
 									<input type="text" class="form-control titulo" name="titulo" id="mt_titulo">
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripci�n</h4>
+									<h4>Descripci&oacute;n</h4>
                                     <textarea class="form-control" name="descripcion" id="mt_descripcion"></textarea>
 								</div>
 								<div class="col-md-6">
-									<h4>Tipolog�a</h4>
+									<h4>Tipolog&iacute;a</h4>
 									<input type="text" class="form-control" name="tipologia" id="mt_tipologia">
 								</div>
                                 <div class="col-md-12">
@@ -586,7 +586,7 @@
 									<input type="text" class="form-control" name="proyecto" id="mt_proyecto">
 								</div>
 								<div class="col-md-12">
-									<h4>Ubicaci�n</h4>
+									<h4>Ubicaci&oacute;n</h4>
 									<input type="text" class="form-control" name="ubicacion" id="mt_ubicacion">
 								</div>
 							</div>

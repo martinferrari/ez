@@ -24,7 +24,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>T�tulo</th>
+                                        <th>T&iacute;tulo</th>
                                         <th>Fecha de Alta</th>
                                         <th>Estado</th>
 										<th>Acciones</th>
@@ -102,7 +102,7 @@
                                                         
 															<i class="fas fa-globe-americas"
 															data-toggle="tooltip" 
-															data-placement="Top" title="Traducción"></i>
+															data-placement="Top" title="Traducci&oacute;n"></i>
 													</a>
 
 													<a 
@@ -163,17 +163,17 @@
 							<div class="row">
 								
 								<div class="col-md-12">
-									<h4>T��tulo</h4>
+									<h4>T&iacute;tulo</h4>
 									<input type="text" class="form-control titulo" name="titulo">
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripci�n</h4>
+									<h4>Descripci&oacute;n</h4>
                                     <textarea class="form-control" name="descripcion"></textarea>
 								</div>
 
                                 <div class="col-md-6">
-									<h4>Categor�a</h4>
+									<h4>Categor&iacute;a</h4>
 									<select name="categoria" class="form-control">
                                         <?php foreach($categorias as $c):
                                             echo '<option value="'.$c['id'].'">'.$c['descripcion'].'</option>';
@@ -228,17 +228,17 @@
 							<input type="hidden" name="en_id" id="en_id">
 
 								<div class="col-md-12">
-									<h4>T��tulo</h4>
+									<h4>T&iacute;tulo</h4>
 									<input type="text" class="form-control titulo" name="en_titulo" id="en_titulo">
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripci�n</h4>
+									<h4>Descripci&oacute;n</h4>
                                     <textarea class="form-control" name="en_descripcion"></textarea>
 								</div>
 
                                 <div class="col-md-6">
-									<h4>Categor�a</h4>
+									<h4>Categor&iacute;a</h4>
 									<select name="en_categoria" class="form-control">
                                         <?php foreach($categorias as $c):
                                             echo '<option value="'.$c['id'].'">'.$c['descripcion'].'</option>';
@@ -273,7 +273,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Galer�a de Imagenes</h4>	
+			  <h4 class="modal-title">Galer&iacute;a de Imagenes</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -316,7 +316,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-			  <h4 class="modal-title">Galer�a de Videos</h4>	
+			  <h4 class="modal-title">Galer&iacute;a de Videos</h4>	
         		<button type="button" class="close" data-dismiss="modal">
 					<span><i class="fas fa-times"></i></span>
 					<span class="sr-only">Cerrar</span>
@@ -374,12 +374,12 @@
 								<input type="hidden" name="id" id="me_idioma_id">
 								
 								<div class="col-md-12">
-									<h4>T��tulo</h4>
+									<h4>T&iacute;tulo</h4>
 									<input type="text" class="form-control titulo" name="titulo" id="mt_titulo">
 								</div>
 								
 								<div class="col-md-12">
-									<h4>Descripci�n</h4>
+									<h4>Descripci&oacute;n</h4>
                                     <textarea class="form-control" name="descripcion" id="mt_descripcion"></textarea>
 								</div>
 							</div>
