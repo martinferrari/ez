@@ -45,8 +45,6 @@ $(".acciones").on('click', function(){
 			url: url,
 			dataType: 'json',
 			success: function (data) {
-				console.log(data);
-
 				
 				 $.each(data, function(index, element) {
 					var destacada = 0;
@@ -63,7 +61,6 @@ $(".acciones").on('click', function(){
 					contenido += '</a>';
 					contenido += '<input type="hidden" name="eo_borrar_foto[]" class="eo_borrar_foto" value="0">';
 					contenido += '<input type="hidden" name="eo_foto_actual[]" class="eo_foto_actual" value="'+element.path+'">';
-					// contenido += '<label class="destacada"><input type="radio" name="eo_foto_destacada" value="'+element.path+'" '+checked+'>Es la imagen destacada<label>';
 					contenido += '</div>';
 
 					
@@ -71,10 +68,9 @@ $(".acciones").on('click', function(){
 
 				});
 				
-				$('.cargando_ajax').fadeOut(200, function() {}); //oculta animacion cargando
+				$('.cargando_ajax').fadeOut(200, function() {}); 
 			},
 			
-			//Funcion que se ejecuta si el request da error. (Opcional)
 			error: function(data) {
 				console.log("ERROR");
 				console.log(data);

@@ -1,4 +1,4 @@
-<?php  header('Content-type: text/html; charset=ISO-8859-1'); ?> 
+<?php  header('Content-type: text/html; charset=UTF-8'); ?> 
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	
 	/**
@@ -10,7 +10,7 @@
 			$CI =& get_instance();
 			
 			if($texto == NULL and $tipo == "error"):
-				$texto = "Ocurrió un error.";
+				$texto = "Se produjo un error.";
 			endif;
 			
 			$CI->session->set_userdata(array('mensaje_emergente_texto' => $texto, "mensaje_emergente_tipo" => $tipo));
@@ -34,9 +34,20 @@
 
 	if ( ! function_exists('reg_expresion')):
 		function reg_expresion($variable) {
-			$variable = utf8_encode(preg_replace("/[^a-zA-Z0-9������������ \n !#%()$.-@\"\']+/", "", $variable));
+			// $variable = utf8_encode(preg_replace("/[^a-zA-Z0-9áéíóúñÁÉÍÓÚÑ \n !#%()$.-@\"\']+/", "", $variable));
+			// return $variable;
+
+			
+			$especial = array("á", "é", "í", "ó", "ú","Á","É","Í","Ó","Ú","Ñ","ñ");
+			$html   = array("&aacute;", "&eacute;", "&iacute;", "&oacute;", "&uacute;","&Aacute;", "&Eacute;", "&Iacute;", "&Oacute;", "&Uacute;","&Ntilde","&ntilde");
+
+			$variable = str_replace($especial, $html, $variable);
 			return $variable;
 		}
+
+
+		
+
 	endif;
 	
 

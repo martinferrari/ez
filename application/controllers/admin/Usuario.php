@@ -1,3 +1,5 @@
+<?php ob_start(); ?>
+<?php header('Content-Type: text/html; charset=utf-8'); ?>
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Usuario extends CI_Controller {
@@ -18,7 +20,7 @@ class Usuario extends CI_Controller {
 		$insert = $this->usuarios_model->alta_usuario($nombre, $pass, $tipo, $estado);
 
 		if($insert != 0):
-			establecer_mensaje_emergente("Usuario agregado con éxito", "success");
+			establecer_mensaje_emergente("Usuario agregado con ï¿½xito", "success");
 		else:
 			establecer_mensaje_emergente("Se produjo un error", "error");
 		endif;
@@ -63,7 +65,7 @@ class Usuario extends CI_Controller {
 				redirect("admin/home");
 			else:
 				//el usuario esta inactivo
-				$this->session->set_userdata(array('usuario_inactivo' => "El usuario no está activo"));
+				$this->session->set_userdata(array('usuario_inactivo' => "El usuario no estï¿½ activo"));
 				redirect("admin");
 			endif; 
 			
@@ -91,7 +93,7 @@ class Usuario extends CI_Controller {
 		$pass2 = $this->input->post("mp_pass2");
 		
 		if($pass != $pass2):
-			establecer_mensaje_emergente("Las contraseñas no coinciden", "error");
+			establecer_mensaje_emergente("Las contraseï¿½as no coinciden", "error");
 			redirect("admin/usuarios");
 		endif;
 		
@@ -100,7 +102,7 @@ class Usuario extends CI_Controller {
 		$update = $this->usuarios_model->modificacion_password($id, $pass);
 
 		if($update != 0):
-			establecer_mensaje_emergente("Usuario modificado con éxito", "success");
+			establecer_mensaje_emergente("Usuario modificado con ï¿½xito", "success");
 		else:
 			establecer_mensaje_emergente("Se produjo un error", "error");
 		endif;
@@ -118,7 +120,7 @@ class Usuario extends CI_Controller {
 		$update = $this->usuarios_model->modificacion_usuario($id, $nombre, $pass, $tipo, $estado);
 
 		if($update != 0):
-			establecer_mensaje_emergente("Usuario modificado con éxito", "success");
+			establecer_mensaje_emergente("Usuario modificado con ï¿½xito", "success");
 		else:
 			establecer_mensaje_emergente("Se produjo un error", "error");
 		endif;
@@ -143,6 +145,7 @@ class Usuario extends CI_Controller {
 		$data['conf_obras'] = $this->obras_model->get_configuracion();
 		$data['conf_proyectos'] = $this->proyectos_model->get_configuracion();
 		$data['conf_novedades'] = $this->novedades_model->get_configuracion();
+		$data['conf_home'] = $this->obras_model->get_configuracion_home();
 
 
 		$this->load->view('layout/head_admin');

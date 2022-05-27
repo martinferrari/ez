@@ -47,12 +47,15 @@ class Post_model extends CI_Model {
 					p.id,
 					p.tipo,
 					p.titulo,
-					v.path 
+					v.path,
+					vc.path as cuadrada
 				FROM post p
-				JOIN visuales v on v.id_post = p.id
+				LEFT JOIN visuales v on v.id_post = p.id
+				LEFT JOIN visuales vc ON vc.id_post = p.id
 				WHERE p.estado = 1 
 				and p.tipo = 3
 				AND v.es_destacada = 1
+				AND vc.es_destacada_cuadrada = 1
 				ORDER BY $orden
 				LIMIT $cantidad ";
 			$res = $this->db->query($sql);
@@ -65,13 +68,16 @@ class Post_model extends CI_Model {
 				p.tipo,
 				p.titulo,
 				v.path,
+				vc.path as cuadrada,
 				t.titulo AS trad_titulo
 			FROM post p
 			JOIN visuales v on v.id_post = p.id
+			LEFT JOIN visuales vc ON vc.id_post = p.id
 			LEFT JOIN post_traducciones t ON t.id_post = p.id
 			WHERE p.estado = 1 
 			and p.tipo = 3
 			AND v.es_destacada = 1
+			AND vc.es_destacada_cuadrada = 1
 			ORDER BY $orden
 			LIMIT $cantidad ";
 			$res = $this->db->query($sql);
@@ -116,18 +122,21 @@ class Post_model extends CI_Model {
 	public function obtener_obras($cantidad, $orden, $idioma, $tipo){
 		if($idioma == "es"):
 			$sql = "SELECT 
-					p.id,
-					p.tipo,
-					p.titulo,
-					v.path,
-					null AS trad_titulo
-				FROM post p
-				JOIN visuales v on v.id_post = p.id
-				WHERE p.estado = 1 
-				and p.tipo = $tipo
-				AND v.es_destacada = 1
-				ORDER BY $orden
-				LIMIT $cantidad ";
+				p.id,
+				p.tipo,
+				p.titulo,
+				v.path,
+				vc.path as cuadrada,
+				null AS trad_titulo
+			FROM post p
+			LEFT JOIN visuales v on v.id_post = p.id
+			LEFT JOIN visuales vc ON vc.id_post = p.id
+			WHERE p.estado = 1 
+			AND p.tipo = $tipo
+			AND v.es_destacada = 1
+			AND vc.es_destacada_cuadrada = 1
+			ORDER BY $orden
+			LIMIT $cantidad ";
 
 			$res = $this->db->query($sql);
 			return $res->result_array();
@@ -139,13 +148,16 @@ class Post_model extends CI_Model {
 				p.tipo,
 				p.titulo,
 				v.path,
+				vc.path as cuadrada,
 				t.titulo AS trad_titulo
 			FROM post p
 			JOIN visuales v on v.id_post = p.id
 			LEFT JOIN post_traducciones t ON t.id_post = p.id
+			LEFT JOIN visuales vc ON vc.id_post = p.id
 			WHERE p.estado = 1 
 			and p.tipo = $tipo
 			AND v.es_destacada = 1
+			AND vc.es_destacada_cuadrada = 1
 			ORDER BY $orden
 			LIMIT $cantidad ";
 			$res = $this->db->query($sql);
@@ -154,20 +166,45 @@ class Post_model extends CI_Model {
 	}
 
 
-	public function obtener_post_home($cantidad){
-		$sql = "
-			SELECT 
+	public function obtener_post_home($cantidad, $orden, $idioma){
+		
+
+		if($idioma == "es"):
+			$sql = "SELECT 
+					p.id,
+					p.tipo,
+					p.titulo,
+					v.path,
+					vc.path as cuadrada 
+				FROM post p
+				LEFT JOIN visuales v on v.id_post = p.id
+				LEFT JOIN visuales vc ON vc.id_post = p.id
+				WHERE p.estado = 1 
+				AND v.es_destacada = 1
+				AND vc.es_destacada_cuadrada = 1
+				ORDER BY $orden
+				LIMIT $cantidad ";
+		endif;
+
+		if($idioma == "en"):
+			$sql = "SELECT 
 				p.id,
 				p.tipo,
 				p.titulo,
-				v.path 
+				v.path,
+				vc.path as cuadrada,
+				t.titulo AS trad_titulo
 			FROM post p
-			JOIN visuales v on v.id_post = p.id
+			LEFT JOIN visuales v on v.id_post = p.id
+			LEFT JOIN visuales vc ON vc.id_post = p.id
+			LEFT JOIN post_traducciones t ON t.id_post = p.id
 			WHERE p.estado = 1 
 			AND v.es_destacada = 1
-			ORDER BY p.fecha_alta DESC
-			LIMIT $cantidad
-		";
+			AND vc.es_destacada_cuadrada = 1
+			ORDER BY $orden
+			LIMIT $cantidad ";
+		endif;
+
 		$res = $this->db->query($sql);
 		return $res->result_array();
 	}
@@ -180,12 +217,15 @@ class Post_model extends CI_Model {
 					p.id,
 					p.tipo,
 					p.titulo,
-					v.path 
+					v.path,
+					vc.path as cuadrada 
 				FROM post p
-				JOIN visuales v on v.id_post = p.id
+				LEFT JOIN visuales v on v.id_post = p.id
+				LEFT JOIN visuales vc ON vc.id_post = p.id
 				WHERE p.estado = 1 
 				and p.tipo = 2
 				AND v.es_destacada = 1
+				AND vc.es_destacada_cuadrada = 1
 				ORDER BY $orden
 				LIMIT $cantidad ";
 			$res = $this->db->query($sql);
@@ -198,13 +238,16 @@ class Post_model extends CI_Model {
 				p.tipo,
 				p.titulo,
 				v.path,
+				vc.path as cuadrada,
 				t.titulo AS trad_titulo
 			FROM post p
-			JOIN visuales v on v.id_post = p.id
+			LEFT JOIN visuales v on v.id_post = p.id
+			LEFT JOIN visuales vc ON vc.id_post = p.id
 			LEFT JOIN post_traducciones t ON t.id_post = p.id
 			WHERE p.estado = 1 
 			and p.tipo = 2
 			AND v.es_destacada = 1
+			AND vc.es_destacada_cuadrada = 1
 			ORDER BY $orden
 			LIMIT $cantidad ";
 			$res = $this->db->query($sql);

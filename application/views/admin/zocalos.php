@@ -154,6 +154,24 @@
                                         </a>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>Murvi</td>
+                                    <td><img src="<?php echo base_url(); ?>_res/zocalos/murvi.jpg" class="img_zocalo"></td>
+                                    <td>
+                                        <a 
+                                            class="acciones" 
+                                            href="#" 
+                                            data-accion="imagenes" 
+                                            data-toggle="modal" 
+                                            data-target="#modalZocalo"
+                                            data-seccion="Murvi">
+
+                                                <i class="fas fa-pen"
+                                                data-toggle="tooltip" 
+                                                data-placement="Top" title="Cambiar"></i>	
+                                        </a>
+                                    </td>
+                                </tr>
                             </tbody>
                     </div>
                 </div>

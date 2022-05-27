@@ -1,3 +1,5 @@
+<?php ob_start(); ?>
+<?php header('Content-Type: text/html; charset=utf-8'); ?>
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Obras extends CI_Controller {
@@ -15,7 +17,7 @@ class Obras extends CI_Controller {
 
 		$tipo_post = $this->input->post('tipo_post'); 
 		$titulo = reg_expresion($this->input->post('titulo'));
-		$descripcion = reg_expresion($this->input->post('descripcion'));
+		$descripcion = $this->input->post('descripcion');
 		$anio_proyecto = reg_expresion($this->input->post('anio_proyecto'));
 		$area = reg_expresion($this->input->post('area'));
 		$proyecto = reg_expresion($this->input->post('proyecto'));
@@ -68,7 +70,7 @@ class Obras extends CI_Controller {
 				$nombre_imagen = "obra_".$id_obra."_".$i;
 
 				$_FILES['imagen']['name'] = $imagenes['name'][$i];
-				echo $_FILES['imagen']['type'] = $imagenes['type'][$i];
+				$_FILES['imagen']['type'] = $imagenes['type'][$i];
 				$_FILES['imagen']['tmp_name'] = $imagenes['tmp_name'][$i];
 				$_FILES['imagen']['error'] = $imagenes['error'][$i];
 				$_FILES['imagen']['size'] = $imagenes['size'][$i];
@@ -86,14 +88,14 @@ class Obras extends CI_Controller {
 
 					$destacada = ($i==0) ? 1 : 0;
 					
-					$insert_visual = $this->visuales_model->alta_visual($id_obra, $imagen_subida, $destacada, 1);
+					$insert_visual = $this->visuales_model->alta_visual($id_obra, $imagen_subida, $destacada, 1,1);
 					if($insert_visual == 0):
-						establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen.", "error");
+						establecer_mensaje_emergente("Se produjo un error al intentar cargar la imagen.", "error");
 						$errores++;
 					endif;
 				else:
 					$imageError =  $this->upload->display_errors();
-					establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen. Error: ".$imageError, "error");
+					establecer_mensaje_emergente("Se produjo un error al intentar cargar la imagen. Error: ".$imageError, "error");
 					redirect($redirect);
 				endif;				
 			endif;	
@@ -106,7 +108,7 @@ class Obras extends CI_Controller {
 		$this->obras_model->alta_traduccion($id_obra, null, null, null, null, null);
 
 		if($errores == 0):
-			establecer_mensaje_emergente("Obra agregada con �xito", "success");
+			establecer_mensaje_emergente("Obra agregada", "success");
 		endif;
 
 		redirect($redirect);
@@ -161,6 +163,19 @@ class Obras extends CI_Controller {
 
 
 
+	function guardar_configuracion_home(){
+		$data['logged_user'] = $this->session->all_userdata();
+		$this->sesiones->valida_sesion();
+
+		$cantidad = $this->input->post('cant_home');
+		$orden = $this->input->post('orden_home');
+
+		$update_conf = $this->obras_model->guardar_configuracion_home($cantidad, $orden);
+		redirect("admin/home");
+	}
+
+
+
 	function modificacion_idioma(){
 		$id_obra = $this->input->post('id');
 		$tipo_post = $this->input->post('tipo_post');
@@ -191,6 +206,7 @@ class Obras extends CI_Controller {
 		$tipo_post = $this->input->post('tipo_post');
 		$imagenes = $_FILES['mei_imagenes'];
 		$destacada = $_POST['eo_foto_destacada'];
+		$destacada_cuadrada = $_POST['eo_foto_destacada_cuadrada'];
 		$orden = $_POST['orden'];
 		$id_foto = $_POST['eo_id_foto'];
 		
@@ -244,12 +260,12 @@ class Obras extends CI_Controller {
 
 						$insert_visual = $this->visuales_model->alta_visual($id_obra, $imagen_subida, 0, 1,1);
 						if($insert_visual == 0):
-							establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen.", "error");
+							establecer_mensaje_emergente("Se produjo un error al intentar cargar la imagen.", "error");
 							$errores++;
 						endif;
 					else:
 						$imageError =  $this->upload->display_errors();
-						establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen. Error: ".$imageError, "error");
+						establecer_mensaje_emergente("Se produjo un error al intentar cargar la imagen. Error: ".$imageError, "error");
 						redirect($redirect);
 					endif;
 				endif;
@@ -258,6 +274,9 @@ class Obras extends CI_Controller {
 
 			$this->visuales_model->unset_destacada($id_obra);
 			$this->visuales_model->set_destacada($id_obra,$destacada);
+
+			$this->visuales_model->unset_destacada_cuadrada($id_obra);
+			$this->visuales_model->set_destacada_cuadrada($id_obra,$destacada_cuadrada);
 
 			$cantidad_fotos = count($id_foto);
 			for($i=0; $i<$cantidad_fotos; $i++):
@@ -321,14 +340,14 @@ class Obras extends CI_Controller {
 						$uploadData = $this->upload->data();
 						$imagen_subida = $upload_path."/".$uploadData['file_name'];
 
-						$insert_visual = $this->visuales_model->alta_visual($id_obra, $imagen_subida, 0, 3);
+						$insert_visual = $this->visuales_model->alta_visual($id_obra, $imagen_subida, 0, 3,1);
 						if($insert_visual == 0):
-							establecer_mensaje_emergente("Ocurri� un error al intentar cargar el video.", "error");
+							establecer_mensaje_emergente("Se produjo un error al intentar cargar el video.", "error");
 							$errores++;
 						endif;
 					else:
 						$imageError =  $this->upload->display_errors();
-						establecer_mensaje_emergente("Ocurri� un error al intentar cargar elvideo. Error: ".$imageError, "error");
+						establecer_mensaje_emergente("Se produjo un error al intentar cargar elvideo. Error: ".$imageError, "error");
 						redirect($redirect);
 					endif;
 				endif;
@@ -348,7 +367,8 @@ class Obras extends CI_Controller {
 
 		$id = $this->input->post("me_id");
 		$titulo = reg_expresion($this->input->post("me_titulo"));
-		$descripcion = reg_expresion($this->input->post('me_descripcion'));
+		echo $this->input->post('me_descripcion');
+		echo $descripcion = reg_expresion($this->input->post('me_descripcion'));
 		$anio_proyecto = reg_expresion($this->input->post('me_anio_proyecto'));
 		$area = reg_expresion($this->input->post('me_area'));
 		$proyecto = reg_expresion($this->input->post('me_proyecto'));
@@ -450,7 +470,7 @@ class Obras extends CI_Controller {
 		
 		$obras = $this->obras_model->obtener_obras_ejecucion();
 		$data['mensaje_emergente'] = obtener_mensaje_emergente();
-		$data['titulo_pagina'] = "Obras en Ejecución";
+		$data['titulo_pagina'] = "Obras en Ejecuci&oacute;n";
 		$data['tipo_post'] = 4; //indica en tipo de post al dar de alta
 
 		//se fija si la obra tiene imagen destacada

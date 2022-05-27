@@ -1,3 +1,5 @@
+<?php ob_start(); ?>
+<?php header('Content-Type: text/html; charset=utf-8'); ?>
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Web extends CI_Controller {
@@ -48,9 +50,13 @@ class Web extends CI_Controller {
 	{
 		$idioma = $this->ver_idioma();
 		$data['idioma'] = $idioma;
+		$this->load->model('admin/obras_model');
 
-		$data['posts'] = array();
-		$data['posts'] = $this->post_model->obtener_post_home(10);
+		$conf = $this->obras_model->get_configuracion_home();
+		$cantidad = ($conf['cantidad']['valor'] != '') ? $conf['cantidad']['valor'] : 10;
+		$orden = ($conf['orden']['valor'] != '') ? $conf['orden']['valor'] : 'id desc';
+
+		$data['posts'] = $this->post_model->obtener_post_home($cantidad, $orden, $idioma);
 		
 		$this->load->view('layout/head', $data);
 		$this->load->view('home', $data);
@@ -62,7 +68,6 @@ class Web extends CI_Controller {
 	{
 		$idioma = $this->ver_idioma();
 		$data['idioma'] = $idioma;
-		//echo current_url(); die();
 
 		$this->load->view('layout/head', $data);
 		$this->load->view('contacto');

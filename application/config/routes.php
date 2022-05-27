@@ -45,6 +45,7 @@ $route['pagina_no_encontrada'] = "web/pagina_no_encontrada";
 $route['/'] = "web/index";
 $route['home'] = "web/index";
 $route['obras'] = "web/ver_obras";
+$route['obras_ejecucion'] = "web/ver_obras_ejecucion";
 $route['proyectos'] = "web/ver_proyectos";
 $route['nosotros'] = "web/ver_nosotros";
 $route['nosotros/vista_previa'] = "web/ver_nosotros_vista_previa";
@@ -64,6 +65,11 @@ $route['novedades/:num'] = "web/ver_novedad";
 $route['obras/:num/vista_previa'] = "web/ver_obra";
 $route['proyectos/:num/vista_previa'] = "web/ver_proyecto";
 $route['novedades/:num/vista_previa'] = "web/ver_novedad";
+
+
+$route['shop'] = "shop/index";
+$route['shop/murvi'] = "shop/ver_catalogo_murvi";
+$route['shop/murvi/solicitar_cotizacion'] = "shop/solicitar_cotizacion";
 // WEB //
 
 
@@ -81,6 +87,9 @@ $route['admin/Obras/modificacionImagenesObra'] = "admin/Obras/modificacion_image
 $route['admin/Obras/modificacionVideosObra'] = "admin/Obras/modificacion_videos_obra";
 $route['admin/Obras/modificacionIdiomaObra'] = "admin/Obras/modificacion_traduccion";
 $route['admin/Obras/TraduccionObra'] = "admin/Obras/obtener_traduccion";
+
+$route['admin/obras_ejecucion'] = "admin/Obras/ver_obras_ejecucion";
+$route['admin/Obras_ejecucion'] = "admin/Obras/ver_obras_ejecucion";
 
 
 
@@ -103,6 +112,8 @@ $route['admin/Novedades/modificacionIdiomaNovedad'] = "admin/Novedades/modificac
 $route['admin/Novedades/TraduccionNovedad'] = "admin/Novedades/obtener_traduccion";
 
 $route['admin/nosotros'] = "admin/Nosotros/ver_nosotros";
+$route['admin/nosotros/altaNosotros'] = "admin/Nosotros/altaNosotros"; 
+$route['admin/nosotros/modificacion_nosotros'] = "admin/Nosotros/modificacion_nosotros"; 
 $route['admin/nosotros/VisualesNosotros'] = "admin/Nosotros/get_visuales_by_id_nosotros";
 $route['admin/nosotros/modificacionTraduccion'] = "admin/Nosotros/modificacion_traduccion";
 $route['admin/nosotros/traduccion'] = "admin/Nosotros/obtener_traduccion";
@@ -111,6 +122,17 @@ $route['admin/usuarios'] = "admin/Usuario/ver_usuarios";
 
 $route['admin/entrevista'] = "admin/Contacto/ver_entrevistas";
 $route['admin/trabaja'] = "admin/Contacto/ver_trabaja_con_nosotros";
+
+$route['admin/zocalos'] = "admin/Zocalo/ver_zocalos";
+$route['admin/zocalo/modificacion'] = "admin/Zocalo/modificacion";
+
+//SHOP
+$route['admin/murvi'] = "admin/Murvi/ver_catalogo";
+$route['admin/shop/murvi/alta_producto'] = "admin/Murvi/alta_producto";
+$route['admin/shop/murvi/modificacion_producto'] = "admin/Murvi/modificacion_producto";
+$route['admin/shop/murvi/modificacion_imagenes'] = "admin/Murvi/modificacion_imagenes";
+$route['admin/shop/murvi/visuales'] = "admin/Murvi/get_visuales_by_id_producto";
+$route['admin/shop/murvi/borrar/(:num)'] = "admin/Murvi/borrar_producto";
 
 
 //ADMIN //

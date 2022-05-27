@@ -75,9 +75,14 @@ $(".acciones").on('click', function(){
 				 $.each(data, function(index, element) {
 					var destacada = 0;
 					var checked = "";
+					var checked_c = "";
 					if(element.es_destacada == 1){
 						destacada = 1;
 						checked = 'checked="checked"';
+					}
+					if(element.es_destacada_cuadrada == 1){
+						destacada_cuadrada = 1;
+						checked_c = 'checked="checked"';
 					}
 
 					contenido = '<div class="eo_image_thumb">';
@@ -89,7 +94,8 @@ $(".acciones").on('click', function(){
 					contenido += '<input type="hidden" name="eo_borrar_foto[]" class="eo_borrar_foto" value="0">';
 					contenido += '<input type="hidden" name="eo_foto_actual[]" class="eo_foto_actual" value="'+element.path+'">';
 					contenido += '<input type="hidden" name="eo_id_foto[]" class="eo_id_foto" value="'+element.id+'">';
-					contenido += '<label class="destacada"><input type="radio" name="eo_foto_destacada" value="'+element.path+'" '+checked+'>Es la imagen destacada<label>';
+					contenido += '<label class="destacada"><input type="radio" name="eo_foto_destacada" value="'+element.path+'" '+checked+'>Destacada<label>';
+					contenido += '<label class="destacada_cuadrada"><input type="radio" name="eo_foto_destacada_cuadrada" value="'+element.path+'" '+checked_c+'>Destacada cuadrada<label>';
 					contenido += '</div>';
 
 					
@@ -100,7 +106,6 @@ $(".acciones").on('click', function(){
 				$('.cargando_ajax').fadeOut(200, function() {}); //oculta animacion cargando
 			},
 			
-			//Funcion que se ejecuta si el request da error. (Opcional)
 			error: function(data) {
 				console.log("ERROR");
 				console.log(data);
@@ -183,7 +188,6 @@ $(".acciones").on('click', function(){
 				$('.cargando_ajax').fadeOut(200, function() {}); //oculta animacion cargando
 			},
 			
-			//Funcion que se ejecuta si el request da error. (Opcional)
 			error: function(data) {
 				console.log("ERROR");
 			},

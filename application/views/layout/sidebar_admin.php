@@ -23,7 +23,7 @@
                       <a href="obras"><i class="fas fa-archway"></i> Obras</a>
                   </li>
                   <li>
-                      <a href="obras_ejecucion"><i class="fas fa-archway"></i> Obras en ejecución</a>
+                      <a href="obras_ejecucion"><i class="fas fa-archway"></i> Obras en ejecuci&oacute;n</a>
                   </li>
                   <li>
                       <a href="proyectos"><i class="fas fa-drafting-compass"></i> Proyectos</a>
@@ -41,7 +41,7 @@
                   <?php endif; ?>
                   <?php if($logged_user['logged_user_tipo'] == 1): ?>
                   <li>
-                      <a href="zocalos"><i class="fas fa-images"></i> Zócalos</a>
+                      <a href="zocalos"><i class="fas fa-images"></i> Z&oacute;calos</a>
                   </li>
                   <?php endif; ?>
                   <li>
@@ -53,6 +53,16 @@
                       <ul class="nav child_menu">
                         <li><a href="entrevista">Entrevistas</a></li>
                         <li><a href="trabaja">Trabaja con nosotros</a></li>
+                    </ul>
+                  </li>
+
+                  <li>
+                      <a>
+                      <i class="fas fa-tags"></i> Shop
+                        <span class="fas fa-chevron-down"></span>
+                      </a>
+                      <ul class="nav child_menu">
+                        <li><a href="murvi">Mosaicos Murvi</a></li>
                     </ul>
                   </li>
                 </ul>

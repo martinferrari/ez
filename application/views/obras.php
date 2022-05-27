@@ -29,8 +29,10 @@ $lw = [1,2,5,6,9,10,13,14,17,18,21,22];
 foreach($posts as $post): 
     if(in_array($i,$lw)):
         $large_width = "large-width";
+        $imagen = $post['path'];
     else:
         $large_width = "";
+        $imagen = $post['cuadrada'];
     endif;
 
     if($post['tipo'] == 1):
@@ -59,7 +61,7 @@ foreach($posts as $post):
                             </span>
                         </span>
                     </a>
-                    <img src="<?php echo base_url(); ?><?php echo $post['path']; ?>" alt="EZ Estudio">
+                    <img src="<?php echo base_url(); ?><?php echo $imagen; ?>" alt="EZ Estudio">
                 </div>
             </div>
             <!-- close gallery item -->

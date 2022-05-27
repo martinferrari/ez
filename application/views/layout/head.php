@@ -75,6 +75,7 @@
                                     $nosotros_label = ($idioma == "es") ? ES_NOSOTROS : EN_NOSOTROS;
                                     $novedades_label = ($idioma == "es") ? ES_NOVEDADES : EN_NOVEDADES;
                                     $contacto_label = ($idioma == "es") ? ES_CONTACTO : EN_CONTACTO;
+                                    $shop_label = ($idioma == "es") ? ES_SHOP : EN_SHOP;
                                  ?>
 
 								<li>
@@ -110,6 +111,11 @@
                                 <li>
                                     <a href="<?php echo base_url();?>contacto">
                                         <?php echo $contacto_label; ?>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>shop">
+                                        <?php echo $shop_label; ?>
                                     </a>
                                 </li>
                                 <li>

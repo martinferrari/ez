@@ -62,7 +62,8 @@ class Visuales_model extends CI_Model {
 		path,
 		es_destacada,
 		tipo,
-		orden
+		orden,
+		es_destacada_cuadrada
 	  FROM visuales
 	  WHERE id_post = $id_post
 	  AND tipo = $tipo
@@ -96,6 +97,16 @@ class Visuales_model extends CI_Model {
 		$res  = $this->db->query($sql);
 	}
 
+	function set_destacada_cuadrada($id_post,$destacada_cuadrada){
+		$sql = "
+		UPDATE visuales 
+		SET es_destacada_cuadrada = 1
+		WHERE id_post = $id_post 
+		AND path = '$destacada_cuadrada' ";
+		$res  = $this->db->query($sql);
+	}
+
+
 	function set_orden($id_foto,$orden){
 		$sql = "
 		UPDATE visuales 
@@ -117,6 +128,15 @@ class Visuales_model extends CI_Model {
 		WHERE id_post = $id_post ";
 		$res  = $this->db->query($sql);
 	}
+
+	function unset_destacada_cuadrada($id_post){
+		$sql = "
+		UPDATE visuales 
+		SET es_destacada_cuadrada = 0
+		WHERE id_post = $id_post ";
+		$res  = $this->db->query($sql);
+	}
+	
 
 
 }//eof

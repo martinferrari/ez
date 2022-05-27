@@ -7,8 +7,8 @@
 	*		- mensaje: cuerpo del mensaje a enviar
 	*		
 	*	Devuelve
-	*		TRUE: si el email se envió
-	*		FALSE: si el email no se envió
+	*		TRUE: si el email se envio
+	*		FALSE: si el email no se envio
 	*
 	*/
 	if ( ! function_exists('enviar_email')){
@@ -26,11 +26,11 @@
 			
 			$config["smtp_host"] = 'c1570807.ferozo.com';
 			$config["smtp_user"] = 'info@ezestudio.com.ar';
-			$config["smtp_pass"] = 'Belgrano1349';
+			$config["smtp_pass"] = 'Salta1349';
 			$from_email = 'info@ezestudio.com.ar';
 			
 			
-			//Cargamos la librería email
+			//Cargamos la librerï¿½a email
 			$CI->load->library('email');
 			$config['protocol']  = 'smtp';
 			//$config['charset']   = 'utf-8';
@@ -41,9 +41,9 @@
 			$config['validate']  = true;
 			$config['mailtype']  = "html";
 			
-			//Establecemos esta configuración
+			//Establecemos esta configuraciï¿½n
 			$CI->email->initialize($config);		
-			//Ponemos la dirección de correo que enviará el email y un nombre
+			//Ponemos la direcciï¿½n de correo que enviarï¿½ el email y un nombre
 			$CI->email->from($from_email, 'EZ Estudio');
 		
 			

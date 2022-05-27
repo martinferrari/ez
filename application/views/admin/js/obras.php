@@ -78,7 +78,6 @@
 
 
 	function cargar_traducciones(id_obra){
-		//$(".cargando_ajax").fadeIn(200);
 		$("#modalTraduccion input.form-control").val('');
 		
 		var url = "<?php echo base_url(); ?>admin/Obras/TraduccionObra";
@@ -95,8 +94,6 @@
 					$("#mt_ubicacion").val(element.ubicacion);
 					$("#mt_tipologia").val(element.tipologia);
 				});
-				
-				//$('.cargando_ajax').fadeOut(200, function() {});
 			},
 			error: function(data) {
 				console.log("ERROR");
@@ -121,9 +118,14 @@
 				 $.each(data, function(index, element) {
 					var destacada = 0;
 					var checked = "";
+					var checked_c = "";
 					if(element.es_destacada == 1){
 						destacada = 1;
 						checked = 'checked="checked"';
+					}
+					if(element.es_destacada_cuadrada == 1){
+						destacada_cuadrada = 1;
+						checked_c = 'checked="checked"';
 					}
 
 					contenido = '<div class="eo_image_thumb">';
@@ -135,7 +137,8 @@
 					contenido += '<input type="hidden" name="eo_borrar_foto[]" class="eo_borrar_foto" value="0">';
 					contenido += '<input type="hidden" name="eo_foto_actual[]" class="eo_foto_actual" value="'+element.path+'">';
 					contenido += '<input type="hidden" name="eo_id_foto[]" class="eo_id_foto" value="'+element.id+'">';
-					contenido += '<label class="destacada"><input type="radio" name="eo_foto_destacada" value="'+element.path+'" '+checked+'>Es la imagen destacada<label>';
+					contenido += '<label class="destacada"><input type="radio" name="eo_foto_destacada" value="'+element.path+'" '+checked+'>Destacada<label>';
+					contenido += '<label class="destacada_cuadrada"><input type="radio" name="eo_foto_destacada_cuadrada" value="'+element.path+'" '+checked_c+'>Destacada cuadrada<label>';
 					contenido += '</div>';
 
 					

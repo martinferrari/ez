@@ -109,11 +109,34 @@ class Obras_model extends CI_Model {
 		return $conf;
 	}
 
+	
+	function get_configuracion_home(){
+		$sql = "SELECT valor FROM configuracion WHERE campo = 'post en home'";
+		$query1 = $this->db->query($sql);
+		$cantidad = $query1->result_array();
+
+		$sql = "SELECT valor FROM configuracion WHERE campo = 'orden home'";
+		$query2 = $this->db->query($sql);
+		$orden = $query2->result_array();
+
+		$conf['cantidad'] = $cantidad[0];
+		$conf['orden'] = $orden[0];
+		return $conf;
+	}
+
 	function guardar_configuracion($cantidad, $orden){
 		$sql = "UPDATE configuracion SET valor = '$cantidad' WHERE campo = 'obras en pagina' ";
 		$query = $this->db->query($sql);
 
 		$sql = "UPDATE configuracion SET valor = '$orden' WHERE campo = 'orden obras' ";
+		$query = $this->db->query($sql);
+	}
+
+	function guardar_configuracion_home($cantidad, $orden){
+		$sql = "UPDATE configuracion SET valor = '$cantidad' WHERE campo = 'post en home' ";
+		$query = $this->db->query($sql);
+
+		$sql = "UPDATE configuracion SET valor = '$orden' WHERE campo = 'orden home' ";
 		$query = $this->db->query($sql);
 	}
 

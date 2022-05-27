@@ -1,0 +1,3 @@
+Faltantes:
+* verificar si la constante NUMERO_WHATSAPP 543704435913 esta bien para la solicitud de cotizacion de murvi por WA
+* contraseña del correo electronico info@ezestudio.com.ar. desde ahi se envian las cotizaciones.

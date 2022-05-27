@@ -100,3 +100,38 @@
 }
 .video_post{width: 100%;}
 
+.btn_solicitar_cotizacion{
+    font-size:12px;
+    margin-left:10px;
+}
+.detalle_cotizacion{
+    width:50%;
+    display:inline-block;
+}
+.detalle_cotizacion img{
+    width: 50px;
+    height: 50px;
+    margin:5px;
+}
+
+
+.nav-tabs.nav-justified > li > a{
+    border-radius: 0 !important;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+    background-color:#9d3c34 !important ;
+    border-color:#9d3c34 !important ;
+    color:#fff !important;
+}
+.nav > li > a:hover, .nav > li > a:focus{
+    background-color: #18191b !important;
+}
+
+.nav-tabs > li > a{
+    border:1px solid #333 !important;
+}
+.contenedor_productos_seleccionados{
+    margin:0px 0 20px 0; 
+    padding: 10px 5px;
+    background-color:#2d2d2d;
+}

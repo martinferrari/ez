@@ -1,3 +1,5 @@
+<?php ob_start(); ?>
+<?php header('Content-Type: text/html; charset=utf-8'); ?>
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Novedades extends CI_Controller {
@@ -65,14 +67,14 @@ class Novedades extends CI_Controller {
 
 					$destacada = ($i==0) ? 1 : 0;
 					
-					$insert_visual = $this->visuales_model->alta_visual($id_novedad, $imagen_subida, $destacada, 1);
+					$insert_visual = $this->visuales_model->alta_visual($id_novedad, $imagen_subida, $destacada, 1, 1);
 					if($insert_visual == 0):
-						establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen.", "error");
+						establecer_mensaje_emergente("Se produjo un error al intentar cargar la imagen.", "error");
 						$errores++;
 					endif;
 				else:
 					$imageError =  $this->upload->display_errors();
-					establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen. Error: ".$imageError, "error");
+					establecer_mensaje_emergente("Se produjo un error al intentar cargar la imagen. Error: ".$imageError, "error");
 					redirect("admin/novedades");
 				endif;				
 			endif;	
@@ -84,7 +86,7 @@ class Novedades extends CI_Controller {
 
 
 		if($errores == 0):
-			establecer_mensaje_emergente("Novedad agregada con �xito", "success");
+			establecer_mensaje_emergente("Novedad agregada", "success");
 		endif;
 
 		$this->novedades_model->alta_traduccion($id_novedad, null, null);
@@ -137,6 +139,7 @@ class Novedades extends CI_Controller {
 		$id_novedad = $this->input->post('mei_id');
 		$imagenes = $_FILES['mei_imagenes'];
 		$destacada = $_POST['en_foto_destacada'];
+		$destacada_cuadrada = $_POST['eo_foto_destacada_cuadrada'];
 		$orden = $_POST['orden'];
 		$id_foto = $_POST['eo_id_foto'];
 
@@ -201,6 +204,9 @@ class Novedades extends CI_Controller {
 
 			$this->visuales_model->unset_destacada($id_novedad);
 			$this->visuales_model->set_destacada($id_novedad,$destacada);
+
+			$this->visuales_model->unset_destacada_cuadrada($id_novedad);
+			$this->visuales_model->set_destacada_cuadrada($id_novedad,$destacada_cuadrada);
 
 			$cantidad_fotos = count($id_foto);
 			for($i=0; $i<$cantidad_fotos; $i++):
@@ -281,14 +287,14 @@ class Novedades extends CI_Controller {
 						$uploadData = $this->upload->data();
 						$imagen_subida = $upload_path."/".$uploadData['file_name'];
 
-						$insert_visual = $this->visuales_model->alta_visual($id_novedad, $imagen_subida, 0, 3);
+						$insert_visual = $this->visuales_model->alta_visual($id_novedad, $imagen_subida, 0, 3, 1);
 						if($insert_visual == 0):
-							establecer_mensaje_emergente("Ocurri� un error al intentar cargar el video.", "error");
+							establecer_mensaje_emergente("Se produjo un error al intentar cargar el video.", "error");
 							$errores++;
 						endif;
 					else:
 						$imageError =  $this->upload->display_errors();
-						establecer_mensaje_emergente("Ocurri� un error al intentar cargar elvideo. Error: ".$imageError, "error");
+						establecer_mensaje_emergente("Se produjo un error al intentar cargar elvideo. Error: ".$imageError, "error");
 						redirect("admin/novedades");
 					endif;
 				endif;

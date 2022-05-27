@@ -35,6 +35,10 @@ background-repeat: no-repeat;
 .nosotros #subheader{background-image:url(../../zocalos/nosotros.jpg), url(../images/background/bg-subheader_nosotros.jpg);}
 /*.proyectos #subheader{background-image:url(../images/background/bg-subheader_proyectos.jpg);}*/
 .proyectos #subheader{background-image:url(../../zocalos/proyectos.jpg), url(../images/background/bg-subheader_proyectos.jpg);}
+
+.murvi #subheader{background-image:url(../../zocalos/murvi.jpg), url(../images/background/bg-subheader_proyectos.jpg);}
+
+
 .page-projects-alt #subheader{background-image:url(../images/background/subheader-1b.jpg);}
 .page-services #subheader{background-image:url(../images/background/subheader-2.jpg);}
 .page-about #subheader{background-image:url(../images/background/subheader-3.jpg);}

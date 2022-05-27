@@ -1,3 +1,5 @@
+<?php ob_start(); ?>
+<?php header('Content-Type: text/html; charset=utf-8'); ?>
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Zocalo extends CI_Controller {
@@ -5,8 +7,6 @@ class Zocalo extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// $this->load->model('admin/obras_model');
-		// $this->load->model('admin/visuales_model');
 	}
 
 
