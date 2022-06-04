@@ -63,6 +63,7 @@
                       </a>
                       <ul class="nav child_menu">
                         <li><a href="murvi">Mosaicos Murvi</a></li>
+                        <li><a href="cotizaciones">Cotizaciones</a></li>
                     </ul>
                   </li>
                 </ul>

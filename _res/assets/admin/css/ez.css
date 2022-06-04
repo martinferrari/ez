@@ -189,3 +189,7 @@ label.destacada input{margin-right: 5px;}
 	background-position:50%;
 	display:none;
 }
+
+hr{
+    border-top:1px solid #ababab !important;
+}

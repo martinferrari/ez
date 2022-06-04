@@ -134,6 +134,11 @@ $route['admin/shop/murvi/modificacion_imagenes'] = "admin/Murvi/modificacion_ima
 $route['admin/shop/murvi/visuales'] = "admin/Murvi/get_visuales_by_id_producto";
 $route['admin/shop/murvi/borrar/(:num)'] = "admin/Murvi/borrar_producto";
 
+$route['admin/cotizaciones'] = "admin/Cotizacion/ver_cotizaciones";
+$route['admin/detalle_cotizaciones'] = "admin/Cotizacion/obtener_detalle";
+$route['admin/modificacion_cotizacion'] = "admin/Cotizacion/modificacion_cotizacion";
+
+
 
 //ADMIN //
 

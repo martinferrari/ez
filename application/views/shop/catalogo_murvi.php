@@ -41,16 +41,24 @@
         if($producto['categoria'] == 1): ?>
             <div class="grid-sizer"></div>
             <div class="grid-item">
-                <label>
-                    <input
-                        type="checkbox" 
-                        class="productos" 
-                        id="producto_<?php echo $producto['id']; ?>"
-                        data-codigo="<?php echo $producto['codigo']; ?>"
-                        data-img="<?php echo $producto['path']; ?>"
-                    > 
-                    Seleccionar para cotizar
-                </label>
+                <div class="campos_cotizacion">
+                    <label>
+                        <input
+                            type="checkbox" 
+                            class="productos" 
+                            id="producto_<?php echo $producto['id']; ?>"
+                            data-id="<?php echo $producto['id']; ?>"
+                            data-codigo="<?php echo $producto['codigo']; ?>"
+                            data-img="<?php echo $producto['path']; ?>"
+                        > 
+                        Seleccionar para cotizar
+                    </label>
+                    <select class="unidad_producto">
+                        <option value="m2">m2</option>
+                        <option value="ml">m lineal</option>
+                    </select>
+                    <input type="number" class="cantidad_producto">
+                </div>
 
                 <div class="item">
                     <div class="picframe">
@@ -62,9 +70,10 @@
                                 <span class="project-name">Formato: <?php echo $producto['formato']; ?></span>
                                 <?php endif; ?>
 
-                                <?php if($producto['espesor'] != ""): ?>
-                                <span class="project-name">Espesor: <?php echo $producto['espesor']; ?></span>
+                                <?php if($producto['detalle'] != ""): ?>
+                                <span class="project-name">Detalle: <?php echo $producto['detalle']; ?></span>
                                 <?php endif; ?>
+
                             </span>
                         </span>
                         <img src="<?php echo base_url(); ?><?php echo $producto['path']; ?>" alt="EZ Estudio">
@@ -83,16 +92,24 @@
         if($producto['categoria'] == 2): ?>
             <div class="grid-sizer"></div>
             <div class="grid-item">
-                <label>
-                    <input
-                        type="checkbox" 
-                        class="productos" 
-                        id="producto_<?php echo $producto['id']; ?>"
-                        data-codigo="<?php echo $producto['codigo']; ?>"
-                        data-img="<?php echo $producto['path']; ?>"
-                    > 
-                    Seleccionar para cotizar
-                </label>
+                <div class="campos_cotizacion">
+                    <label>
+                        <input
+                            type="checkbox" 
+                            class="productos" 
+                            id="producto_<?php echo $producto['id']; ?>"
+                            data-id="<?php echo $producto['id']; ?>"
+                            data-codigo="<?php echo $producto['codigo']; ?>"
+                            data-img="<?php echo $producto['path']; ?>"
+                        > 
+                        Seleccionar para cotizar
+                    </label>
+                    <select class="unidad_producto">
+                        <option value="m2">m2</option>
+                        <option value="ml">m lineal</option>
+                    </select>
+                    <input type="number" class="cantidad_producto">
+                </div>
                 <div class="item">
                     <div class="picframe">
                         <span class="overlay" >
@@ -124,16 +141,25 @@
         if($producto['categoria'] == 3): ?>
             <div class="grid-sizer"></div>
             <div class="grid-item">
-                <label>
-                    <input
-                        type="checkbox" 
-                        class="productos" 
-                        id="producto_<?php echo $producto['id']; ?>"
-                        data-codigo="<?php echo $producto['codigo']; ?>"
-                        data-img="<?php echo $producto['path']; ?>"
-                    > 
-                    Seleccionar para cotizar
-                </label>
+                <div class="campos_cotizacion">
+                    <label>
+                        <input
+                            type="checkbox" 
+                            class="productos" 
+                            id="producto_<?php echo $producto['id']; ?>"
+                            data-id="<?php echo $producto['id']; ?>"
+                            data-codigo="<?php echo $producto['codigo']; ?>"
+                            data-img="<?php echo $producto['path']; ?>"
+                        > 
+                        Seleccionar para cotizar
+                    </label>
+                    <select class="unidad_producto">
+                        <option value="m2">m2</option>
+                        <option value="ml">m lineal</option>
+                    </select>
+                    <input type="number" class="cantidad_producto">
+                </div>
+
                 <div class="item">
                     <div class="picframe">
                         <span class="overlay" >
@@ -165,16 +191,25 @@
         if($producto['categoria'] == 4): ?>
             <div class="grid-sizer"></div>
             <div class="grid-item">
-                <label>
-                    <input
-                        type="checkbox" 
-                        class="productos" 
-                        id="producto_<?php echo $producto['id']; ?>"
-                        data-codigo="<?php echo $producto['codigo']; ?>"
-                        data-img="<?php echo $producto['path']; ?>"
-                    > 
-                    Seleccionar para cotizar
-                </label>
+                <div class="campos_cotizacion">
+                    <label>
+                        <input
+                            type="checkbox" 
+                            class="productos" 
+                            id="producto_<?php echo $producto['id']; ?>"
+                            data-id="<?php echo $producto['id']; ?>"
+                            data-codigo="<?php echo $producto['codigo']; ?>"
+                            data-img="<?php echo $producto['path']; ?>"
+                        > 
+                        Seleccionar para cotizar
+                    </label>
+                    <select class="unidad_producto">
+                        <option value="m2">m2</option>
+                        <option value="ml">m lineal</option>
+                    </select>
+                    <input type="number" class="cantidad_producto">
+                </div>
+
                 <div class="item">
                     <div class="picframe">
                         <span class="overlay" >
@@ -205,9 +240,7 @@
 
 
 
-
-<?php //MODAL Entrevista ?>
-<div class="modal fade" id="modalCotizacion" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalCotizacion" tabindex="-1" role="dialog">
 	<div class="modal-dialog ">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -219,7 +252,7 @@
         		
 			</div>
 			<div class="modal-body">				
-				<form class="" action="<?php echo base_url(); ?>shop/murvi/solicitar_cotizacion" method="POST">
+				<form class="" action="<?php echo base_url(); ?>shop/murvi/solicitar_cotizacion" method="POST" id="form_cotizacion">
 					<div class="panel">
 						<div class="panel-body">
 							<div class="row">
@@ -243,11 +276,14 @@
 					</div> <?php //panel ?>
 					<div class="modal-footer">
 						<button type="button" id="" class="btn btn-sm btn-dark" data-dismiss="modal">Cerrar</button>
-						<button type="submit" class="btn btn-sm btn-primary">Solicitar Cotizaci&oacute;n por email</button>
+						<button 
+                            type="submit" 
+                            class="btn btn-sm btn-primary"
+                            id="btn_cotizacion_email"
+                        >Solicitar Cotizaci&oacute;n por email</button>
                         <a href="#" 
-                        id="btn_wa" 
-                        
-                        class="btn btn-sm btn-primary"
+                            id="btn_wa" 
+                            class="btn btn-sm btn-primary"
                         >Soliticar Cotizaci&oacute;n por WhatsApp</a>
 					</div>
 				</form>

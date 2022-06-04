@@ -20,6 +20,7 @@ class Murvi_model extends CI_Model {
         $color = reg_expresion($data['color']);
         $estado = reg_expresion($data['estado']);
         $categoria = reg_expresion($data['categoria']);
+        $detalle = reg_expresion($data['detalle']);
 
         $sql = "INSERT INTO mosaico(
          codigo,
@@ -31,7 +32,8 @@ class Murvi_model extends CI_Model {
          junta,
          color,
          estado,
-         categoria
+         categoria,
+         detalle
          ) VALUES (
         '$codigo',
         '$formato',
@@ -42,7 +44,8 @@ class Murvi_model extends CI_Model {
         '$junta',
         '$color',
         '$estado',
-        '$categoria' )";
+        '$categoria',
+        '$detalle' )";
 
         $query = $this->db->query($sql);
         $insert = $this->db->affected_rows();
@@ -69,6 +72,7 @@ class Murvi_model extends CI_Model {
         $color = reg_expresion($data['color']);
         $estado = reg_expresion($data['estado']);
         $categoria = reg_expresion($data['categoria']);
+        $detalle = reg_expresion($data['detalle']);
 
         $sql = "UPDATE mosaico
         SET
@@ -81,7 +85,8 @@ class Murvi_model extends CI_Model {
           junta = '$junta',
           color = '$color',
           estado = '$estado',
-          categoria = '$categoria'
+          categoria = '$categoria',
+          detalle = '$detalle'
         WHERE id = $id ";
 
         $query = $this->db->query($sql);
@@ -92,7 +97,7 @@ class Murvi_model extends CI_Model {
 
 
     function obtener_catalogo(){
-        $sql = "SELECT * FROM mosaico m
+        $sql = "SELECT m.*, vm.path  FROM mosaico m
         JOIN visuales_mosaico vm ON vm.id_mosaico = m.id 
         WHERE m.estado = 1 AND vm.es_destacada = 1";
         

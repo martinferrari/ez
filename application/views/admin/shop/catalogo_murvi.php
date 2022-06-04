@@ -121,6 +121,10 @@
 									<h4>C&oacute;digo</h4>
 									<input type="text" class="form-control codigo" name="codigo">
 								</div>
+								<div class="col-md-8">
+									<h4>Detalle</h4>
+									<input type="text" class="form-control" name="detalle">
+								</div>
 								
 								<div class="col-md-4">
 									<h4>Formato</h4>
@@ -210,6 +214,11 @@
 									<input type="hidden" class="form-control id" name="id" id="mp_id">
 
 									<input type="text" class="form-control codigo" name="codigo" id="mp_codigo">
+								</div>
+
+								<div class="col-md-8">
+									<h4>Detalle</h4>
+                                    <input type="text" class="form-control" name="detalle" id="mp_detalle">
 								</div>
 								
 								<div class="col-md-4">

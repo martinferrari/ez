@@ -28,3 +28,36 @@ ALTER TABLE `mosaico`
 
 ALTER TABLE `visuales`   
   ADD COLUMN `es_destacada_cuadrada` TINYINT NULL AFTER `orden`;
+
+
+ALTER TABLE `mosaico`   
+  ADD COLUMN `detalle` TEXT NULL AFTER `categoria`;
+
+
+CREATE TABLE `cotizacion`(  
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre_apellido` VARCHAR(100),
+  `telefono` VARCHAR(25),
+  `email` VARCHAR(50),
+  `estado` TINYINT DEFAULT 1 COMMENT '1-recibida, 2-cotizada, 3-respondida',
+  PRIMARY KEY (`id`) 
+);
+
+CREATE TABLE `cotizacion_detalle`(  
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_cotizacion` INT,
+  `producto` INT,
+  `cantidad` VARCHAR(20),
+  `unidad` VARCHAR(20),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_cotizacion` FOREIGN KEY (`id_cotizacion`) REFERENCES `cotizacion`(`id`)
+);
+ALTER TABLE `cotizacion_detalle`   
+  ADD COLUMN `cantidad_cotizada` VARCHAR(20) NULL AFTER `unidad`,
+  ADD COLUMN `precio_cotizado` VARCHAR(20) NULL AFTER `cantidad_cotizada`,
+  ADD COLUMN `unidad_cotizada` VARCHAR(20) NULL AFTER `precio_cotizado`;
+
+  ALTER TABLE `cotizacion_detalle`   
+  CHANGE `cantidad_cotizada` `cantidad_cotizada` VARCHAR(20) CHARSET utf8 COLLATE utf8_general_ci DEFAULT '0'   NULL,
+  CHANGE `precio_cotizado` `precio_cotizado` VARCHAR(20) CHARSET utf8 COLLATE utf8_general_ci DEFAULT '0'   NULL,
+  CHANGE `unidad_cotizada` `unidad_cotizada` VARCHAR(20) CHARSET utf8 COLLATE utf8_general_ci DEFAULT '0'   NULL;

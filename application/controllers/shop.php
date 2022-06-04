@@ -9,6 +9,7 @@ class Shop extends CI_Controller {
 		parent::__construct();
 		$this->load->model('admin/murvi_model');
 		$this->load->model('admin/visuales_mosaico_model');
+		$this->load->model('admin/cotizacion_model');
 		$this->load->library('session');
 	}
 
@@ -39,12 +40,35 @@ class Shop extends CI_Controller {
 	}
 
 
+	function guardar_cotizacion($datos){
+		$cabecera = $this->cotizacion_model->guardar_cabecera($datos);
+		if($cabecera > 0):
+			$detalles = '';
+			
+			foreach($datos['id'] as $k => $id):
+				$detalles .= "(".$cabecera.','.$id.", '".$datos['cantidad'][$k]."', '".$datos['unidad'][$k]."' ),";	
+			endforeach;
+			$detalles = substr($detalles, 0, -1);
+			$detalle = $this->cotizacion_model->guardar_detalle($detalles);
+			
+		endif;
+	}
+
+
 	function solicitar_cotizacion(){
 		$this->load->helper('ez_email_helper');
 
 		$nombre = preg_replace("/[^a-zA-Z0-9áéíóúñÁÉÍÓÚÑ@._ -]+/", "", $_POST['inputName']);
 		$telefono = preg_replace("/[^0-9]+/", "", $_POST['inputTelefono']);
 		$email = preg_replace("/[^a-zA-Z0-9áéíóúñÁÉÍÓÚÑ@._-]+/", "", $_POST['inputEmail']);
+
+		$datos['nombre'] = $nombre;
+		$datos['telefono'] = $telefono;
+		$datos['email'] = $email;
+		$datos['id'] = $_POST['id'];
+		$datos['productos'] = $_POST['productos'];
+		$datos['cantidad'] = $_POST['cantidad'];
+		$datos['unidad'] = $_POST['unidad'];
 
 		$count_prod = $_POST['productos'];
 		if(count($count_prod) > 0):
@@ -54,12 +78,13 @@ class Shop extends CI_Controller {
 			$mensaje .= "Nombre y apellido: ".$nombre."<br> Telefono: ".$telefono."<br> Email: ".$email;
 			$mensaje .= "<br>Productos: ";
 			$mensaje .= "<ul>";
-			foreach($_POST['productos'] as $producto):
-				$mensaje .= "<li> ".$producto;
+			foreach($_POST['productos'] as $k => $producto):
+				$mensaje .= "<li> ".$producto." - Cantidad: ".$_POST['cantidad'][$k]." ".$_POST['unidad'][$k];
 			endforeach;
 			$mensaje .= "</ul>";
 
 			$data['mensaje'] = $mensaje;
+			$this->guardar_cotizacion($datos);
 
 			$enviar_mail = enviar_email($data); //ez_email_helper
 			redirect('shop/murvi');
