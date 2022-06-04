@@ -50,6 +50,29 @@ class Cotizacion_model extends CI_Model {
 		return ($baja == 1) ? 1 : 0;
     }
 
+
+    function modificacion_cotizacion($id, $nombre, $telefono, $email, $estado){
+        $id = reg_expresion($id);
+        $nombre = reg_expresion($nombre);
+        $telefono = reg_expresion($telefono);
+        $email = reg_expresion($email);
+        $estado = reg_expresion($estado);
+
+        $sql = "UPDATE cotizacion
+        SET 
+          nombre_apellido = '$nombre',
+          telefono = '$telefono',
+          email = '$email',
+          estado = '$estado'
+        WHERE id = '$id' ";
+         $query = $this->db->query($sql);
+         $update = $this->db->affected_rows();
+ 
+         return ($update != 1) ? 0 : 1;
+    }
+
+
+
     function modificacion_detalle_cotizacion($id_detalle, $cantidad, $unidad, $precio){
         $id_detalle = reg_expresion($id_detalle);
         $cantidad = reg_expresion($cantidad);

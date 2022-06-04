@@ -73,7 +73,7 @@ class Shop extends CI_Controller {
 		$count_prod = $_POST['productos'];
 		if(count($count_prod) > 0):
 		
-			$data['titulo'] = "Solicitud de Cotización de Mosaicos Murvi";
+			$data['titulo'] = "Solicitud de Cotizacion de Mosaicos Murvi";
 			$mensaje = "La solicitud fue realizada por: <br>";
 			$mensaje .= "Nombre y apellido: ".$nombre."<br> Telefono: ".$telefono."<br> Email: ".$email;
 			$mensaje .= "<br>Productos: ";

@@ -36,8 +36,9 @@ class Cotizacion extends CI_Controller {
 			endif;
 		endforeach;
 
-		if($cant_cotizada > 0):
-			$modificacion_cotizacion = $this->cotizacion_model->set_cotizacion_cotizada($_POST['id']);
+		$modificacion_cotizacion = $this->cotizacion_model->modificacion_cotizacion($_POST['id'], $_POST['nombre'], $_POST['telefono'], $_POST['email'], $_POST['estado']);
+		
+		if($modificacion_cotizacion > 0 || $cant_cotizada > 0):
 			establecer_mensaje_emergente("Cotizacion modificada", "success");
 		else:
 			//establecer_mensaje_emergente("", "error");

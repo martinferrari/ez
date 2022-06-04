@@ -126,7 +126,8 @@
 									<h4>Estado</h4>
 									<select class="form-control" name="estado" id="ec_estado">
                                         <option value="1">Recibida</option>
-                                        <option value="2">Respondida</option>
+                                        <option value="2">Cotizada</option>
+										<option value="3">Respondida</option>
                                     </select>
 								</div>
 
