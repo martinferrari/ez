@@ -58,9 +58,9 @@
                 $cantidad = count($nosotros); 
                 $i = 1;
                 foreach($nosotros as $n): 
-                    $cargo = utf8_decode($n['cargo']);
-                    if($idioma == 'en' && utf8_decode($n['cargo_traducido']) != ""):
-                        $cargo = utf8_decode($n['cargo_traducido']);
+                    $cargo = $n['cargo'];
+                    if($idioma == 'en' && $n['cargo_traducido'] != ""):
+                        $cargo = $n['cargo_traducido'];
                     endif;
                 ?>
                     <div class="row">

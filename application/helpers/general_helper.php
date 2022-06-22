@@ -34,14 +34,11 @@
 
 	if ( ! function_exists('reg_expresion')):
 		function reg_expresion($variable) {
-			// $variable = utf8_encode(preg_replace("/[^a-zA-Z0-9áéíóúñÁÉÍÓÚÑ \n !#%()$.-@\"\']+/", "", $variable));
-			// return $variable;
-
-			
 			$especial = array("á", "é", "í", "ó", "ú","Á","É","Í","Ó","Ú","Ñ","ñ");
 			$html   = array("&aacute;", "&eacute;", "&iacute;", "&oacute;", "&uacute;","&Aacute;", "&Eacute;", "&Iacute;", "&Oacute;", "&Uacute;","&Ntilde","&ntilde");
 
 			$variable = str_replace($especial, $html, $variable);
+			$variable = utf8_encode($variable);
 			return $variable;
 		}
 

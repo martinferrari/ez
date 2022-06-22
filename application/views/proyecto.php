@@ -55,9 +55,9 @@
 
 
             <div class="col-sm-6 mt40 wow fadeInRight contenido" data-wow-delay=".5s">
-                <h3 class="id-color" ><?php echo utf8_decode($titulo); ?></h3>
-                <h4 class="id-color" ><?php echo utf8_decode($proyecto['anio_proyecto']); ?></h4>
-                <p style="padding-right: 3em"><?php echo utf8_decode($descripcion); ?></p> 
+                <h3 class="id-color" ><?php echo $titulo; ?></h3>
+                <h4 class="id-color" ><?php echo $proyecto['anio_proyecto']; ?></h4>
+                <p style="padding-right: 3em"><?php echo $descripcion; ?></p> 
                 
             </div>
         </div>
@@ -117,73 +117,73 @@
 
                         if($data_adicional['proyecto'] != ''):
                             $proyecto_label = ($idioma == "es") ? ES_PROYECTO : EN_PROYECTO;
-                            $proyecto = '<li><i class="fas fa-drafting-compass"></i><strong>  '.$proyecto_label.': </strong>'.utf8_decode($data_adicional['proyecto']).'  </li>'; 
+                            $proyecto = '<li><i class="fas fa-drafting-compass"></i><strong>  '.$proyecto_label.': </strong>'.$data_adicional['proyecto'].'  </li>'; 
                         endif;
                         if($data_adicional['ejecucion'] != ''):
                             $ejecucion_label = ($idioma == "es") ? ES_EJECUCION : EN_EJECUCION;
-                            $ejecucion = '<li><i class="fas fa-hard-hat"></i><strong>  '.$ejecucion_label.': </strong>'.utf8_decode($data_adicional['ejecucion']).'  </li>'; 
+                            $ejecucion = '<li><i class="fas fa-hard-hat"></i><strong>  '.$ejecucion_label.': </strong>'.$data_adicional['ejecucion'].'  </li>'; 
                         endif;
                         if($data_adicional['construccion_direccion'] != ''):
                             $construccion_direccion_label = ($idioma == "es") ? ES_DIR_CONSTRUC : EN_DIR_CONSTRUC;
-                            $construccion_direccion = '<li><i class="fas fa-compass"></i></i><strong>  '.$construccion_direccion_label.': </strong>'.utf8_decode($data_adicional['construccion_direccion']).'  </li>'; 
+                            $construccion_direccion = '<li><i class="fas fa-compass"></i></i><strong>  '.$construccion_direccion_label.': </strong>'.$data_adicional['construccion_direccion'].'  </li>'; 
                         endif;
                         if($data_adicional['disenio_dim_estruc'] != ''):
                             $disenio_dim_estruc_label = ($idioma == "es") ? ES_DIS_DIM_EST : EN_DIS_DIM_EST;
-                            $disenio_dim_estruc = '<li><i class="fas fa-pencil-ruler"></i><strong>  '.$disenio_dim_estruc_label.': </strong>'.utf8_decode($data_adicional['disenio_dim_estruc']).'  </li>'; 
+                            $disenio_dim_estruc = '<li><i class="fas fa-pencil-ruler"></i><strong>  '.$disenio_dim_estruc_label.': </strong>'.$data_adicional['disenio_dim_estruc'].'  </li>'; 
                         endif;
                         if($data_adicional['tipologia'] != ''):
                             $tipologia_label = ($idioma == "es") ? ES_TIPOLOGIA : EN_TIPOLOGIA;
-                            $tipologia = '<li><i class="fas fa-hard-hat"></i><strong>  '.$tipologia_label.': </strong>'.utf8_decode($data_adicional['tipologia']).'  </li>'; 
+                            $tipologia = '<li><i class="fas fa-hard-hat"></i><strong>  '.$tipologia_label.': </strong>'.$data_adicional['tipologia'].'  </li>'; 
                         endif;
                         if($data_adicional['disenio_dim_clim'] != ''):
                             $disenio_dim_clim_label = ($idioma == "es") ? ES_DIS_DIM_CLI : EN_DIS_DIM_CLI;
-                            $disenio_dim_clim = '<li><i class="fas fa-wind"></i><strong>  '.$disenio_dim_clim_label.': </strong>'.utf8_decode($data_adicional['disenio_dim_clim']).'  </li>'; 
+                            $disenio_dim_clim = '<li><i class="fas fa-wind"></i><strong>  '.$disenio_dim_clim_label.': </strong>'.$data_adicional['disenio_dim_clim'].'  </li>'; 
                         endif;
                         if($data_adicional['area'] != ''):
                             $area_label = ($idioma == "es") ? ES_AREA : EN_AREA;
-                            $area = '<li><i class="fas fa-ruler-combined"></i><strong>  '.$area_label.': </strong>'.utf8_decode($data_adicional['area']).'  </li>'; 
+                            $area = '<li><i class="fas fa-ruler-combined"></i><strong>  '.$area_label.': </strong>'.$data_adicional['area'].'  </li>'; 
                         endif;
 
 
                         if($data_adicional['direccion_tecnica'] != ''):
                             $direccion_tecnica_label = ($idioma == "es") ? ES_DIR_TECNICA : EN_DIR_TECNICA;
-                            $direccion_tecnica = '<li><i class="fas fa-hard-hat"></i><strong>  '.$direccion_tecnica_label.': </strong>'.utf8_decode($data_adicional['direccion_tecnica']).'  </li>'; 
+                            $direccion_tecnica = '<li><i class="fas fa-hard-hat"></i><strong>  '.$direccion_tecnica_label.': </strong>'.$data_adicional['direccion_tecnica'].'  </li>'; 
                         endif;
                         if($data_adicional['asist_tec_obra'] != ''):
                             $asist_tec_obra_label = ($idioma == "es") ? ES_ASIST_TECT_OBRA : EN_ASIST_TECT_OBRA;
-                            $asist_tec_obra = '<li><i class="fas fa-user"></i><strong>  '.$asist_tec_obra_label.': </strong>'.utf8_decode($data_adicional['asist_tec_obra']).'  </li>';
+                            $asist_tec_obra = '<li><i class="fas fa-user"></i><strong>  '.$asist_tec_obra_label.': </strong>'.$data_adicional['asist_tec_obra'].'  </li>';
                         endif;
                         if($data_adicional['estructuras'] != ''):
                             $estructuras_label = ($idioma == "es") ? ES_ESTRUCTURAS : EN_ESTRUCTURAS;
-                            $estructuras = '<li><i class="fas fa-building"></i><strong>  '.$estructuras_label.' :</strong>'.utf8_decode($data_adicional['estructuras']).'  </li>';
+                            $estructuras = '<li><i class="fas fa-building"></i><strong>  '.$estructuras_label.' :</strong>'.$data_adicional['estructuras'].'  </li>';
                         endif;
                         if($data_adicional['instalaciones'] != ''):
                             $instalaciones_label = ($idioma == "es") ? ES_INSTALACIONES : EN_INSTALACIONES;
-                            $instalaciones = '<li><i class="fas fa-broadcast-tower"></i><strong>  '.$instalaciones_label.': </strong>'.utf8_decode($data_adicional['instalaciones']).'  </li>';
+                            $instalaciones = '<li><i class="fas fa-broadcast-tower"></i><strong>  '.$instalaciones_label.': </strong>'.$data_adicional['instalaciones'].'  </li>';
                         endif;
                         if($data_adicional['gestion_documentacion'] != ''):
                             $gestion_documentacion_label = ($idioma == "es") ? ES_GEST_DOCUMENTACION : EN_GEST_DOCUMENTACION;
-                            $gestion_documentacion = '<li><i class="fas fa-file-invoice"></i><strong>   '.$gestion_documentacion_label.': </strong>'.utf8_decode($data_adicional['gestion_documentacion']).'  </li>';
+                            $gestion_documentacion = '<li><i class="fas fa-file-invoice"></i><strong>   '.$gestion_documentacion_label.': </strong>'.$data_adicional['gestion_documentacion'].'  </li>';
                         endif;
                         if($data_adicional['sup_terreno'] != ''):
                             $sup_terreno_label = ($idioma == "es") ? ES_SUP_TERRENO : EN_SUP_TERRENO;
-                            $sup_terreno = '<li><i class="fas fa-ruler-combined"></i><strong>   '.$sup_terreno_label.': </strong>'.utf8_decode($data_adicional['sup_terreno']).'  </li>';
+                            $sup_terreno = '<li><i class="fas fa-ruler-combined"></i><strong>   '.$sup_terreno_label.': </strong>'.$data_adicional['sup_terreno'].'  </li>';
                         endif;
                         if($data_adicional['sup_cubierta'] != ''):
                             $sup_cubierta_label = ($idioma == "es") ? ES_SUP_CUBIERTA : EN_SUP_CUBIERTA;
-                            $sup_cubierta = '<li><i class="fas fa-ruler-combined"></i><strong>   '.$sup_cubierta_label.': </strong>'.utf8_decode($data_adicional['sup_cubierta']).'  </li>';
+                            $sup_cubierta = '<li><i class="fas fa-ruler-combined"></i><strong>   '.$sup_cubierta_label.': </strong>'.$data_adicional['sup_cubierta'].'  </li>';
                         endif;
                         if($data_adicional['ubicacion'] != ''):
                             $ubicacion_label = ($idioma == "es") ? ES_UBICACION : EN_UBICACION;
-                            $ubicacion = '<li><i class="fas fa-map-marker-alt"></i><strong>   '.$ubicacion_label.': </strong>'.utf8_decode($data_adicional['ubicacion']).'  </li>';
+                            $ubicacion = '<li><i class="fas fa-map-marker-alt"></i><strong>   '.$ubicacion_label.': </strong>'.$data_adicional['ubicacion'].'  </li>';
                         endif;
                         if($data_adicional['anio_finalizacion'] != ''):
                             $anio_finalizacion_label = ($idioma == "es") ? ES_ANIO_FINALIZ : EN_ANIO_FINALIZ;
-                            $anio_finalizacion = '<li><i class="fas fa-calendar-alt"></i><strong>   '.$anio_finalizacion_label.':</strong>'.utf8_decode($data_adicional['anio_finalizacion']).'  </li>';
+                            $anio_finalizacion = '<li><i class="fas fa-calendar-alt"></i><strong>   '.$anio_finalizacion_label.':</strong>'.$data_adicional['anio_finalizacion'].'  </li>';
                         endif;
                         if($data_adicional['fotografia'] != ''):
                             $fotografia_label = ($idioma == "es") ? ES_FOTOGRAFIA : EN_FOTOGRAFIA;
-                            $fotografia = '<li><i class="fas fa-camera"></i><strong>   '.$fotografia_label.': </strong>'.utf8_decode($data_adicional['fotografia']).'  </li>';
+                            $fotografia = '<li><i class="fas fa-camera"></i><strong>   '.$fotografia_label.': </strong>'.$data_adicional['fotografia'].'  </li>';
                         endif;
                         
                         echo $proyecto;

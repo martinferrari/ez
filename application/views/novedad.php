@@ -41,8 +41,8 @@
             </div>
 
             <div class="col-sm-6 mt40 wow fadeInRight contenido" data-wow-delay=".5s">
-                <h3 class="id-color" ><?php echo utf8_decode($novedad['titulo']); ?></h3>
-                <p style="padding-right: 3em"><?php echo utf8_decode($novedad['descripcion']); ?></p> 
+                <h3 class="id-color" ><?php echo $novedad['titulo']; ?></h3>
+                <p style="padding-right: 3em"><?php echo $novedad['descripcion']; ?></p> 
                 
             </div>
         </div>

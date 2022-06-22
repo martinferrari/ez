@@ -367,8 +367,7 @@ class Obras extends CI_Controller {
 
 		$id = $this->input->post("me_id");
 		$titulo = reg_expresion($this->input->post("me_titulo"));
-		echo $this->input->post('me_descripcion');
-		echo $descripcion = reg_expresion($this->input->post('me_descripcion'));
+		$descripcion = reg_expresion($this->input->post('me_descripcion'));
 		$anio_proyecto = reg_expresion($this->input->post('me_anio_proyecto'));
 		$area = reg_expresion($this->input->post('me_area'));
 		$proyecto = reg_expresion($this->input->post('me_proyecto'));
