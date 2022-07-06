@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   
     <title>EZ Estudio - Admin</title>
+
+    <link rel="stylesheet" href="<?php echo base_url(); ?>_res/assets/admin/vendors/trumbowyg/trumbowyg.min.css">
     
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>_res/assets/admin/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">

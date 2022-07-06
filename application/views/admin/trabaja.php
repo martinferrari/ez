@@ -1,4 +1,4 @@
-<?php  header('Content-type: text/html; charset=ISO-8859-1'); ?> 
+<?php // header('Content-type: text/html; charset=ISO-8859-1'); ?> 
 
 <div class="right_col" role="main">
     <div class="page-title">
@@ -26,8 +26,8 @@
                                         <th>ID</th>
                                         <th>Nombre</th>
                                         <th>Email</th>
-                                        <th>Profesión</th>
-										<th>Posee Título</th>
+                                        <th>Profesiï¿½n</th>
+										<th>Posee Tï¿½tulo</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -166,7 +166,7 @@
 									<p id="lugar_nac"></p>
 								</div>
                                 <div class="col-md-12">
-									<h4>Dirección</h4>
+									<h4>Direcciï¿½n</h4>
 									<p id="direccion"></p>
 								</div>
                                 <div class="col-md-6">
@@ -186,15 +186,15 @@
 									<p id="email"></p>
 								</div>
                                 <div class="col-md-6">
-									<h4>Profesión</h4>
+									<h4>Profesiï¿½n</h4>
 									<p id="profesion"></p>
 								</div>
                                 <div class="col-md-6">
-									<h4>Posee título universitario</h4>
+									<h4>Posee tï¿½tulo universitario</h4>
 									<p id="posee_titulo_uni"></p>
 								</div>
                                 <div class="col-md-6">
-									<h4>Entidad que otorga el Título</h4>
+									<h4>Entidad que otorga el Tï¿½tulo</h4>
 									<p id="entidad_titulo"></p>
 								</div>
 
@@ -211,7 +211,7 @@
 									<p id="trabajo_anterior"></p>
 								</div>
                                 <div class="col-md-4">
-									<h4>Posee Matrícula</h4>
+									<h4>Posee Matrï¿½cula</h4>
 									<p id="posee_matricula"></p>
 								</div>
                                 <div class="col-md-4">

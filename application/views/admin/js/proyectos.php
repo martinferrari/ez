@@ -17,12 +17,13 @@ $(".acciones").on('click', function(){
 		var area = $(this).parent().siblings(".area").val();
 		var ubicacion = $(this).parent().siblings(".ubicacion").val();
 		var estado = $(this).parent().siblings(".estado").val();
+		var prioridad = $(this).parent().siblings(".prioridad").val();
 		
 		
 		if(accion == "detalle"){
 			$("#modalEdicion #me_id").val(id);
 			$("#modalEdicion #me_titulo").val(titulo);
-			$("#modalEdicion #me_descripcion").val(descripcion);
+			$('#modalEdicion #me_descripcion').trumbowyg('html', descripcion);
 			$("#modalEdicion #me_anio_proyecto").val(anio_proyecto);
 			$("#modalEdicion #me_proyecto").val(proyecto);
 			$("#modalEdicion #me_ejecucion").val(ejecucion);
@@ -33,8 +34,7 @@ $(".acciones").on('click', function(){
 			$("#modalEdicion #me_area").val(area);
 			$("#modalEdicion #me_ubicacion").val(ubicacion);
 			$("#modalEdicion #me_estado").val(estado);
-
-			
+			$("#modalEdicion #me_prioridad").val(prioridad);
 			
 			$("#btn_borrar").attr("href", "<?php echo base_url(); ?>admin/Proyectos/borrar_proyecto/"+parseInt(id));
 
@@ -262,6 +262,15 @@ $(".acciones").on('click', function(){
 				}
 			}
 		}
+	});
+
+
+	$('.editor').trumbowyg({
+		btns: [
+			['viewHTML'],
+			['strong', 'em'],
+		],
+		autogrow: true,
 	});
 
     	

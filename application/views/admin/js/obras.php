@@ -28,12 +28,13 @@
 		var sup_cubierta = $(this).parent().siblings(".sup_cubierta").val();
 		var anio_finalizacion = $(this).parent().siblings(".anio_finalizacion").val();
 		var fotografia = $(this).parent().siblings(".fotografia").val();
+		var prioridad = $(this).parent().siblings(".prioridad").val();
 		
 		
 		if(accion == "detalle"){
 			$("#modalEdicion #me_id").val(id);
 			$("#modalEdicion #me_titulo").val(titulo);
-			$("#modalEdicion #me_descripcion").val(descripcion);
+			$('#modalEdicion #me_descripcion').trumbowyg('html', descripcion);
 			$("#modalEdicion #me_anio_proyecto").val(anio_proyecto);
 			$("#modalEdicion #me_proyecto").val(proyecto);
 			$("#modalEdicion #me_ejecucion").val(ejecucion);
@@ -53,7 +54,8 @@
 			$("#modalEdicion #me_sup_terreno").val(sup_terreno);
 			$("#modalEdicion #me_sup_cubierta").val(sup_cubierta);
 			$("#modalEdicion #me_anio_finalizacion").val(anio_finalizacion);
-			$("#modalEdicion #me_fotografia").val(fotografia);		
+			$("#modalEdicion #me_fotografia").val(fotografia);
+			$("#modalEdicion #me_prioridad").val(prioridad);
 			
 			$("#btn_borrar").attr("href", "<?php echo base_url(); ?>admin/Obras/borrar_obra/"+parseInt(id));
 
@@ -276,6 +278,16 @@
 				}
 			}
 		}
+	});
+
+
+
+	$('.editor').trumbowyg({
+		btns: [
+			['viewHTML'],
+			['strong', 'em'],
+		],
+		autogrow: true,
 	});
 	
 

@@ -8,7 +8,7 @@ class Novedades_model extends CI_Model {
 
 	}
 
-	public function alta_novedad($titulo, $descripcion, $usuario_alta, $fecha_alta, $categoria, $estado){
+	public function alta_novedad($titulo, $descripcion, $usuario_alta, $fecha_alta, $categoria, $estado, $prioridad){
 	
 		$sql = "INSERT INTO `post`
 		(`tipo`,
@@ -17,7 +17,8 @@ class Novedades_model extends CI_Model {
 		 `usuario_alta`,
 		 `fecha_alta`,
 		 `categoria`,
-		 `estado`
+		 `estado`,
+		 `prioridad`
 		 )
 		VALUES ('3',
 			'$titulo',
@@ -25,7 +26,8 @@ class Novedades_model extends CI_Model {
 			'$usuario_alta',
 			'$fecha_alta',
 			'$categoria',
-			'$estado'
+			'$estado',
+			'$prioridad'
 			)";
 
 		$query = $this->db->query($sql);
@@ -81,14 +83,15 @@ class Novedades_model extends CI_Model {
 	}
 	
 
-	public function modificacionNovedad($id, $titulo, $descripcion, $categoria, $estado, $usuario_modif, $fecha_modif){
+	public function modificacionNovedad($id, $titulo, $descripcion, $categoria, $estado, $usuario_modif, $fecha_modif, $prioridad){
 		$sql = "UPDATE post  SET
 		`titulo` = '$titulo',
 		`descripcion` = '$descripcion',
 		`categoria` = '$categoria',
 		`usuario_modificacion` = '$usuario_modif',
 		`fecha_modificacion` = '$fecha_modif',
-		`estado` = $estado
+		`estado` = $estado,
+		`prioridad` = '$prioridad',
 		WHERE `id` = $id";
 		echo $sql;
 		$query = $this->db->query($sql);

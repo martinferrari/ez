@@ -28,11 +28,13 @@ class Proyectos extends CI_Controller {
 		$disenio_dim_clim = reg_expresion($this->input->post('disenio_dim_clim'));
 		$ubicacion = reg_expresion($this->input->post('ubicacion'));
 		$estado = reg_expresion($this->input->post('estado'));
+		$prioridad = reg_expresion($this->input->post('prioridad'));
+		$prioridad = ($prioridad != "") ? $prioridad : "NULL";
 
 		$usuario_alta = $logged_user['logged_user_id'];
 		$fecha_alta = date("Y-m-d H:i:s");
 
-		$insert = $this->proyectos_model->alta_proyecto($titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_alta, $fecha_alta, $estado);
+		$insert = $this->proyectos_model->alta_proyecto($titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_alta, $fecha_alta, $estado,$prioridad);
 
 		
 		if($insert != 0):
@@ -312,12 +314,14 @@ class Proyectos extends CI_Controller {
 		$disenio_dim_clim = reg_expresion($this->input->post('me_disenio_dim_clim'));
 		$ubicacion = reg_expresion($this->input->post('me_ubicacion'));
 		$estado = reg_expresion($this->input->post('me_estado'));
+		$prioridad = reg_expresion($this->input->post('me_prioridad'));
+		$prioridad = ($prioridad != "") ? $prioridad : "NULL";
 
 		$usuario_modif = $logged_user['logged_user_id'];
 		$fecha_modif = date("Y-m-d H:i:s");
 
 		
-		$editado = $this->proyectos_model->modificacionProyecto($id, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_modif, $fecha_modif, $estado);
+		$editado = $this->proyectos_model->modificacionProyecto($id, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_modif, $fecha_modif, $estado, $prioridad);
 
 	
 		if($editado == 1):

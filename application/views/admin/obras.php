@@ -1,4 +1,4 @@
-<?php  header('Content-type: text/html; charset=ISO-8859-1'); ?> 
+<?php // header('Content-type: text/html; charset=ISO-8859-1'); ?> 
 
 <div class="right_col" role="main">
     <div class="page-title">
@@ -100,8 +100,9 @@
                                                 value="<?php echo utf8_decode($o['anio_finalizacion']); ?>">
 												<input type="hidden" name="fotografia" class="fotografia" 
                                                 value="<?php echo utf8_decode($o['fotografia']); ?>">
+												<input type="hidden" name="prioridad" class="prioridad" 
+                                                value="<?php echo $o['prioridad']; ?>">
 												
-
 
                                                 <td><?php echo $o['id']; ?></td>
                                                 <td><?php echo utf8_decode($o['titulo']); ?></td>
@@ -158,21 +159,22 @@
 															data-placement="Top" title="Traducci&oacute;n"></i>
 													</a>
 
+													<?php 
+													if($o['estado'] == 0):
+														$link = base_url()."obras/".$o['id']."/vista_previa";
+													else:
+														$link = base_url()."obras/".$o['id'];
+													endif;
+													?>
 													<a 
-                                                        href="<?php echo base_url(); ?>obras/<?php echo $o['id']; ?>/vista_previa" 
+                                                        href="<?php echo $link; ?>" 
 														target="_blank">
-												
 															<i class="fas fa-eye"
 															data-toggle="tooltip" 
 															data-placement="Top" title="Vista Previa"
 															></i>
 															
 													</a>
-
-											
-
-
-													
 													
                                                 </td>
                                             </tr>
@@ -212,13 +214,13 @@
 								<input type="hidden" class="form-control" name="tipo_post" value="<?php echo $tipo_post; ?>">
 								
 								<div class="col-md-12">
-									<h4>Título</h4>
+									<h4>T&iacute;tulo</h4>
 									<input type="text" class="form-control titulo" name="titulo">
 								</div>
 								
 								<div class="col-md-12">
 									<h4>Descripci&oacute;n</h4>
-                                    <textarea class="form-control" name="descripcion"></textarea>
+                                    <textarea class="form-control editor" name="descripcion"></textarea>
 								</div>
 
                                 <div class="col-md-6">
@@ -304,9 +306,14 @@
                                     </select>
 								</div>
 
-                                <div class="col-md-12">
+                                <div class="col-md-6">
 									<h4>Imagenes</h4>
 									<input name="imagenes[]" type="file" multiple />
+								</div>
+
+								<div class="col-md-6">
+									<h4>Prioridad</h4>
+									<input name="prioridad" type="number" class="form-control" />
 								</div>
 
 							</div>
@@ -351,7 +358,7 @@
 								
 								<div class="col-md-12">
 									<h4>Descripci&oacute;n</h4>
-									<textarea class="form-control" name="me_descripcion" id="me_descripcion"></textarea>
+									<textarea class="form-control editor" name="me_descripcion" id="me_descripcion"></textarea>
 								</div>
 
 								<div class="col-md-6">
@@ -428,16 +435,21 @@
 								</div>
 
 								
-								<div class="col-md-12">
+								<div class="col-md-6">
 									<h4>Ubicaci&oacute;n</h4>
 									<input type="text" class="form-control" name="me_ubicacion" id="me_ubicacion">
 								</div>
-								<div class="col-md-12">
+								<div class="col-md-6">
 									<h4>Estado</h4>
 									<select class="form-control" name="me_estado" id="me_estado">
 										<option value="0">Borrador</option>
 										<option value="1">Publicada</option>
 									</select>
+								</div>
+
+								<div class="col-md-6">
+									<h4>Prioridad</h4>
+									<input name="me_prioridad" type="number" class="form-control" id="me_prioridad"/>
 								</div>
 
 							</div>

@@ -61,3 +61,7 @@ ALTER TABLE `cotizacion_detalle`
   CHANGE `cantidad_cotizada` `cantidad_cotizada` VARCHAR(20) CHARSET utf8 COLLATE utf8_general_ci DEFAULT '0'   NULL,
   CHANGE `precio_cotizado` `precio_cotizado` VARCHAR(20) CHARSET utf8 COLLATE utf8_general_ci DEFAULT '0'   NULL,
   CHANGE `unidad_cotizada` `unidad_cotizada` VARCHAR(20) CHARSET utf8 COLLATE utf8_general_ci DEFAULT '0'   NULL;
+
+
+
+ALTER TABLE `post` ADD COLUMN `prioridad` TINYINT NULL AFTER `fotografia`;

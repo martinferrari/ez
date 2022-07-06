@@ -38,11 +38,13 @@ class Obras extends CI_Controller {
 		$sup_cubierta = reg_expresion($this->input->post('sup_cubierta'));
 		$anio_finalizacion = reg_expresion($this->input->post('anio_finalizacion'));
 		$fotografia = reg_expresion($this->input->post('fotografia'));
-
+		$prioridad = reg_expresion($this->input->post('prioridad'));
+		$prioridad = ($prioridad != "") ? $prioridad : "NULL";
+ 
 		$usuario_alta = $logged_user['logged_user_id'];
 		$fecha_alta = date("Y-m-d H:i:s");
 		
-		$insert = $this->obras_model->alta_obra($tipo_post, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_alta, $fecha_alta, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia);
+		$insert = $this->obras_model->alta_obra($tipo_post, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_alta, $fecha_alta, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia, $prioridad);
 
 		$redirect = ($tipo_post == 1) ? "admin/obras" : "admin/obras_ejecucion";
 
@@ -388,6 +390,8 @@ class Obras extends CI_Controller {
 		$sup_cubierta = reg_expresion($this->input->post('me_sup_cubierta'));
 		$anio_finalizacion = reg_expresion($this->input->post('me_anio_finalizacion'));
 		$fotografia = reg_expresion($this->input->post('me_fotografia'));
+		$prioridad = reg_expresion($this->input->post('me_prioridad'));
+		$prioridad = ($prioridad != "") ? $prioridad : "NULL";
 
 		$tipo_post = $this->input->post('tipo_post');
 		$redirect = ($tipo_post == 1) ? "admin/obras" : "admin/obras_ejecucion";
@@ -395,7 +399,7 @@ class Obras extends CI_Controller {
 		$usuario_modif = $logged_user['logged_user_id'];
 		$fecha_modif = date("Y-m-d H:i:s");
 
-		$editado = $this->obras_model->modificacionObra($id, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_modif, $fecha_modif, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia);
+		$editado = $this->obras_model->modificacionObra($id, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_modif, $fecha_modif, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia, $prioridad);
 	
 		if($editado == 1):
 			establecer_mensaje_emergente("Obra modificada", "success");

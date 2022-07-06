@@ -8,7 +8,7 @@ class Obras_model extends CI_Model {
 
 	}
 
-	public function alta_obra($tipo_post, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_alta, $fecha_alta, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia){
+	public function alta_obra($tipo_post, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_alta, $fecha_alta, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia, $prioridad){
 	
 		$sql = "INSERT INTO `post`
 		(`tipo`,
@@ -34,7 +34,8 @@ class Obras_model extends CI_Model {
 		 `sup_terreno`,
 		 `sup_cubierta`,
 		 `anio_finalizacion`,
-		 `fotografia`)
+		 `fotografia`,
+		 `prioridad`)
 		VALUES ($tipo_post,
 			'$titulo',
 			'$descripcion',
@@ -58,7 +59,8 @@ class Obras_model extends CI_Model {
 			'$sup_terreno',
 			'$sup_cubierta',
 			'$anio_finalizacion',
-			'$fotografia')";
+			'$fotografia',
+			'$prioridad')";
 
 		$query = $this->db->query($sql);
 		$insert = $this->db->affected_rows();
@@ -180,7 +182,7 @@ class Obras_model extends CI_Model {
 	}
 
 
-	public function modificacionObra($id, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_modif, $fecha_modif, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia){
+	public function modificacionObra($id, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_modif, $fecha_modif, $estado, $direccion_tecnica, $asist_tec_obra,$estructuras, $instalaciones,$gestion_documentacion, $sup_terreno,$sup_cubierta, $anio_finalizacion, $fotografia, $prioridad){
 		$sql = "UPDATE post  SET
 		`titulo` = '$titulo',
 		`descripcion` = '$descripcion',
@@ -204,7 +206,8 @@ class Obras_model extends CI_Model {
 		`sup_terreno` = '$sup_terreno',
 		`sup_cubierta` = '$sup_cubierta',
 		`anio_finalizacion` = '$anio_finalizacion',
-		`fotografia` = '$fotografia'
+		`fotografia` = '$fotografia',
+		`prioridad` = $prioridad
 		WHERE `id` = $id";
 		
 		$query = $this->db->query($sql);
@@ -255,7 +258,8 @@ class Obras_model extends CI_Model {
 				sup_terreno,
 				sup_cubierta,
 				anio_finalizacion,
-				fotografia
+				fotografia,
+				prioridad
 			FROM post p
 			WHERE p.tipo = 1
 			ORDER BY p.fecha_alta DESC

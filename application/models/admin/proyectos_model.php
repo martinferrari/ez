@@ -9,7 +9,7 @@ class Proyectos_model extends CI_Model {
 	}
 
 
-	public function alta_proyecto($titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_alta, $fecha_alta, $estado){
+	public function alta_proyecto($titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_alta, $fecha_alta, $estado, $prioridad){
 		
 		$sql = "INSERT INTO `post`
 		(`tipo`,
@@ -26,7 +26,8 @@ class Proyectos_model extends CI_Model {
 		 `ubicacion`,
 		 `usuario_alta`,
 		 `fecha_alta`,
-		 `estado`)
+		 `estado`,
+		 `prioridad`)
 		VALUES ('2',
 			'$titulo',
 			'$descripcion',
@@ -41,7 +42,8 @@ class Proyectos_model extends CI_Model {
 			'$ubicacion',
 			'$usuario_alta',
 			'$fecha_alta',
-			'$estado')";
+			'$estado',
+			'$prioridad')";
 
 		$query = $this->db->query($sql);
 		$insert = $this->db->affected_rows();
@@ -114,7 +116,7 @@ class Proyectos_model extends CI_Model {
 	}
 
 
-	public function modificacionProyecto($id, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_modif, $fecha_modif, $estado){
+	public function modificacionProyecto($id, $titulo, $descripcion, $anio_proyecto, $proyecto, $ejecucion, $construccion_direccion, $disenio_dim_estruc, $tipologia, $disenio_dim_clim, $area, $ubicacion, $usuario_modif, $fecha_modif, $estado, $prioridad){
 		$sql = "UPDATE post  SET
 		`titulo` = '$titulo',
 		`descripcion` = '$descripcion',
@@ -129,7 +131,8 @@ class Proyectos_model extends CI_Model {
 		`ubicacion` = '$ubicacion',
 		`usuario_modificacion` = '$usuario_modif',
 		`fecha_modificacion` = '$fecha_modif',
-		`estado` = $estado
+		`estado` = $estado,
+		`prioridad` = $prioridad
 		WHERE `id` = $id";
 		
 		$query = $this->db->query($sql);

@@ -25,10 +25,14 @@
     
     <script src="<?php echo base_url(); ?>/_res/assets/admin/vendors/toastr/toastr.min.js"></script> 
 
+	<script src="<?php echo base_url(); ?>/_res/assets/admin/vendors/trumbowyg/trumbowyg.min.js"></script> 
+	<script src="<?php echo base_url(); ?>/_res/assets/admin/vendors/trumbowyg/plugins/template.min.js"></script> 
+
 
     <script>
+	$.trumbowyg.svgPath = "<?php echo base_url(); ?>/_res/assets/admin/vendors/trumbowyg/icons.svg";
+
     <?php //Notificaciones ?>
-	
 	<?php if(isset($mensaje_emergente) && $mensaje_emergente['texto'] != ""): ?>
 	
 		toastr.options = {

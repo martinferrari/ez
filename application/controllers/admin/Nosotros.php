@@ -67,12 +67,12 @@ class Nosotros extends CI_Controller {
 					
 					$insert_visual = $this->visuales_model->alta_visual_nosotros($id_nosotros, $imagen_subida);
 					if($insert_visual == 0):
-						establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen.", "error");
+						establecer_mensaje_emergente("Se produjo un error al intentar cargar la imagen.", "error");
 						$errores++;
 					endif;
 				else:
 					$imageError =  $this->upload->display_errors();
-					establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen. Error: ".$imageError, "error");
+					establecer_mensaje_emergente("Se produjo un error al intentar cargar la imagen. Error: ".$imageError, "error");
 					redirect("admin/nosotros");
 				endif;				
 			endif;	
@@ -84,7 +84,7 @@ class Nosotros extends CI_Controller {
 
 
 		if($errores == 0):
-			establecer_mensaje_emergente("Persona agregada con �xito", "success");
+			establecer_mensaje_emergente("Persona agregada", "success");
 		endif;
 		redirect("admin/nosotros");
 	}
@@ -169,12 +169,12 @@ class Nosotros extends CI_Controller {
 
 						$insert_visual = $this->visuales_model->alta_visual_nosotros($id_nosotros, $imagen_subida);
 						if($insert_visual == 0):
-							establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen.", "error");
+							establecer_mensaje_emergente("Se produjo un error al intentar cargar la imagen.", "error");
 							$errores++;
 						endif;
 					else:
 						$imageError =  $this->upload->display_errors();
-						establecer_mensaje_emergente("Ocurri� un error al intentar cargar la imagen. Error: ".$imageError, "error");
+						establecer_mensaje_emergente("Se produjo un error al intentar cargar la imagen. Error: ".$imageError, "error");
 						redirect("admin/nosotros");
 					endif;
 				endif;
@@ -249,10 +249,5 @@ class Nosotros extends CI_Controller {
 		$this->load->view('layout/footer_admin');
 		$this->load->view('admin/js/nosotros',$data);
 	}
-
-
 	
-
- 
-
 }

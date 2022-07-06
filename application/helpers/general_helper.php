@@ -39,6 +39,7 @@
 
 			$variable = str_replace($especial, $html, $variable);
 			$variable = utf8_encode($variable);
+			
 			return $variable;
 		}
 

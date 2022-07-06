@@ -56,7 +56,7 @@ class Post_model extends CI_Model {
 				and p.tipo = 3
 				AND v.es_destacada = 1
 				AND vc.es_destacada_cuadrada = 1
-				ORDER BY $orden
+				ORDER BY -prioridad DESC,$orden
 				LIMIT $cantidad ";
 			$res = $this->db->query($sql);
 			return $res->result_array();
@@ -78,7 +78,7 @@ class Post_model extends CI_Model {
 			and p.tipo = 3
 			AND v.es_destacada = 1
 			AND vc.es_destacada_cuadrada = 1
-			ORDER BY $orden
+			ORDER BY -prioridad DESC,$orden
 			LIMIT $cantidad ";
 			$res = $this->db->query($sql);
 			return $res->result_array();
@@ -135,7 +135,7 @@ class Post_model extends CI_Model {
 			AND p.tipo = $tipo
 			AND v.es_destacada = 1
 			AND vc.es_destacada_cuadrada = 1
-			ORDER BY $orden
+			ORDER BY -prioridad DESC,$orden
 			LIMIT $cantidad ";
 
 			$res = $this->db->query($sql);
@@ -158,7 +158,7 @@ class Post_model extends CI_Model {
 			and p.tipo = $tipo
 			AND v.es_destacada = 1
 			AND vc.es_destacada_cuadrada = 1
-			ORDER BY $orden
+			ORDER BY -prioridad DESC,$orden
 			LIMIT $cantidad ";
 			$res = $this->db->query($sql);
 			return $res->result_array();
@@ -168,7 +168,6 @@ class Post_model extends CI_Model {
 
 	public function obtener_post_home($cantidad, $orden, $idioma){
 		
-
 		if($idioma == "es"):
 			$sql = "SELECT 
 					p.id,
@@ -182,7 +181,7 @@ class Post_model extends CI_Model {
 				WHERE p.estado = 1 
 				AND v.es_destacada = 1
 				AND vc.es_destacada_cuadrada = 1
-				ORDER BY $orden
+				ORDER BY -prioridad DESC,$orden
 				LIMIT $cantidad ";
 		endif;
 
@@ -201,7 +200,7 @@ class Post_model extends CI_Model {
 			WHERE p.estado = 1 
 			AND v.es_destacada = 1
 			AND vc.es_destacada_cuadrada = 1
-			ORDER BY $orden
+			ORDER BY -prioridad DESC,$orden
 			LIMIT $cantidad ";
 		endif;
 
@@ -226,7 +225,7 @@ class Post_model extends CI_Model {
 				and p.tipo = 2
 				AND v.es_destacada = 1
 				AND vc.es_destacada_cuadrada = 1
-				ORDER BY $orden
+				ORDER BY -prioridad DESC,$orden
 				LIMIT $cantidad ";
 			$res = $this->db->query($sql);
 			return $res->result_array();
@@ -248,7 +247,7 @@ class Post_model extends CI_Model {
 			and p.tipo = 2
 			AND v.es_destacada = 1
 			AND vc.es_destacada_cuadrada = 1
-			ORDER BY $orden
+			ORDER BY -prioridad DESC,$orden
 			LIMIT $cantidad ";
 			$res = $this->db->query($sql);
 			return $res->result_array();

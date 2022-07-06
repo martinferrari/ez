@@ -1,4 +1,4 @@
-<?php  header('Content-type: text/html; charset=ISO-8859-1'); ?> 
+<?php // header('Content-type: text/html; charset=ISO-8859-1'); ?> 
 
 <div class="right_col" role="main">
     <div class="page-title">
