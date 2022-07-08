@@ -91,7 +91,7 @@ class Novedades_model extends CI_Model {
 		`usuario_modificacion` = '$usuario_modif',
 		`fecha_modificacion` = '$fecha_modif',
 		`estado` = $estado,
-		`prioridad` = '$prioridad',
+		`prioridad` = '$prioridad'
 		WHERE `id` = $id";
 		echo $sql;
 		$query = $this->db->query($sql);

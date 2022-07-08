@@ -19,11 +19,12 @@ class Novedades extends CI_Controller {
 		$descripcion = reg_expresion($this->input->post('descripcion'));
 		$categoria = $this->input->post('categoria');
 		$estado = $this->input->post('estado');
+		$prioridad = $this->input->post('prioridad');
 
 		$usuario_alta = $logged_user['logged_user_id'];
 		$fecha_alta = date("Y-m-d H:i:s");
 
-		$insert = $this->novedades_model->alta_novedad($titulo, $descripcion, $usuario_alta, $fecha_alta, $categoria, $estado);
+		$insert = $this->novedades_model->alta_novedad($titulo, $descripcion, $usuario_alta, $fecha_alta, $categoria, $estado, $prioridad);
 
 		if($insert != 0):
 			$id_novedad = $insert;

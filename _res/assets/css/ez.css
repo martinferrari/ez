@@ -155,3 +155,10 @@ input, select, textarea{
 }
 
 
+body{
+    line-height: 1.5em !important;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img{
+    min-height: 500px;
+}

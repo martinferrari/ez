@@ -63,6 +63,9 @@
 												<input type="hidden" name="categoria" class="categoria" 
                                                 value="<?php echo utf8_decode($n['categoria']); ?>">
 
+												<input type="hidden" name="prioridad" class="prioridad" 
+                                                value="<?php echo utf8_decode($n['prioridad']); ?>">
+
                                                 <td><?php echo $n['id']; ?></td>
                                                 <td><?php echo utf8_decode($n['titulo']); ?></td>
                                                 <td><?php echo $n['fecha_alta']; ?></td>
@@ -179,6 +182,7 @@
                                             echo '<option value="'.$c['id'].'">'.$c['descripcion'].'</option>';
                                         endforeach; ?>
                                     </select>
+								</div>
 
                                 <div class="col-md-6">
 									<h4>Estado</h4>
@@ -188,7 +192,12 @@
                                     </select>
 								</div>
 
-                                <div class="col-md-12">
+								<div class="col-md-6">
+									<h4>Prioridad</h4>
+									<input name="prioridad" type="number" class="form-control"/>
+								</div>
+
+                                <div class="col-md-6">
 									<h4>Imagenes</h4>
 									<input name="imagenes[]" type="file" multiple />
 								</div>
@@ -251,6 +260,11 @@
                                         <option value="0">Borrador</option>
                                         <option value="1">Publicada</option>
                                     </select>
+								</div>
+
+								<div class="col-md-6">
+									<h4>Prioridad</h4>
+									<input name="en_prioridad" type="number" class="form-control"/>
 								</div>
 							</div>
 						</div> <?php //panel-body ?>

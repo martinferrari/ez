@@ -58,5 +58,9 @@ foreach($posts as $post):
     <?php 
     $i++;
     endforeach; ?>
+
 </div>
+<button type="button">Ver mas</button>
+
 </section>
+

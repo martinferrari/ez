@@ -7,6 +7,7 @@ $(".acciones").on('click', function(){
 		var descripcion = $(this).parent().siblings(".descripcion").val();
 		var categoria = $(this).parent().siblings(".categoria").val();
 		var estado = $(this).parent().siblings(".estado").val();
+		var prioridad = $(this).parent().siblings(".prioridad").val();
 
 		if(accion == "detalle"){
 			$("input[name=en_id]").val(id);
@@ -14,6 +15,7 @@ $(".acciones").on('click', function(){
 			$("textarea[name=en_descripcion]").val(descripcion);
 			$("select[name=en_categoria]").val(categoria);
 			$("select[name=en_estado]").val(estado);
+			$("input[name=en_prioridad]").val(prioridad);
 		
 			$("#btn_borrar").attr("href", "<?php echo base_url(); ?>admin/Novedades/borrar_novedad/"+parseInt(id));
 

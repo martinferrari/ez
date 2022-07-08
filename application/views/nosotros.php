@@ -12,24 +12,18 @@
 </section>
 <!-- subheader -->
 <div id="content" class="no-top no-bottom">
-     <!-- section Foto + Info version tablet pc-->
      <div class="hidden-sm1">
          <div class="hidden-xs1">
              <div class="containter">
 
                  <div class="row">
                      <!-- PRIMERA FOTO -->
-
                      <div class="col-md-4" m style="padding-right: 0em">
                          <img src="<?php echo base_url(); ?>_res/assets/images/nosotros1.jpg" width="100%" class="img-thumbnail">
                      </div>
-
                      <!-- PRIMERA FOTO -->
 
                      <!-- SEGUNDA FOTO ARRIBA Y ABAJO -->
-                     <?php 
-                     
-                     ?>
                      <div class="col-md-8" style="padding-left: 0em">
                          <div class="row-fluid">
                              <div class="col-md-12" style="padding-right: 0em; padding-left:0em;">

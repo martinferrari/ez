@@ -62,7 +62,7 @@ endif;
             ?>
 
 
-            <div class="col-sm-6 mt40 wow fadeInRight contenido" data-wow-delay=".5s">
+            <div class="col-sm-6 mt20 wow fadeInRight contenido" data-wow-delay=".5s">
                 <h3 class="id-color" ><?php echo $titulo; ?></h3>
                 <h4 class="id-color" ><?php echo $obra['anio_proyecto']; ?></h4>
                 <p style="padding-right: 3em"><?php echo $descripcion; ?></p> 

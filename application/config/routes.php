@@ -105,11 +105,12 @@ $route['admin/novedades'] = "admin/Novedades/ver_novedades";
 $route['admin/Novedades'] = "admin/Novedades/ver_novedades";
 $route['admin/Novedades/VisualesNovedad'] = "admin/Novedades/get_visuales_by_id_novedad";
 $route['admin/Novedades/borrar_novedad'] = "admin/Novedades/borrar_novedades";
-$route['admin/Novedades/modificacion_novedad'] = "admin/Novedades/modificacion_novedad";
+$route['admin/novedades/modificacion_novedad'] = "admin/Novedades/modificacion_novedad";
 $route['admin/Novedades/modificacionImagenesNovedad'] = "admin/Novedades/modificacion_imagenes_novedad";
 $route['admin/Novedades/modificacionVideosNovedad'] = "admin/Novedades/modificacion_videos_novedad";
 $route['admin/Novedades/modificacionIdiomaNovedad'] = "admin/Novedades/modificacion_traduccion";
 $route['admin/Novedades/TraduccionNovedad'] = "admin/Novedades/obtener_traduccion";
+$route['admin/novedades/altaNovedad'] = "admin/Novedades/altaNovedad";
 
 $route['admin/nosotros'] = "admin/Nosotros/ver_nosotros";
 $route['admin/nosotros/altaNosotros'] = "admin/Nosotros/altaNosotros"; 

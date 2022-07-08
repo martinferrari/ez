@@ -134,8 +134,16 @@
 															data-placement="Top" title="Traducci&oacute;n"></i>
 													</a>
 
+													<?php 
+													if($p['estado'] == 0):
+														$link = base_url()."proyectos/".$p['id']."/vista_previa";
+													else:
+														$link = base_url()."proyectos/".$p['id'];
+													endif;
+													?>
+
 													<a 
-                                                        href="<?php echo base_url(); ?>proyectos/<?php echo $p['id']; ?>/vista_previa" 
+                                                        href="<?php echo $link; ?>" 
 														target="_blank">
 												
 															<i class="fas fa-eye"
