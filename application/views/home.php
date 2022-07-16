@@ -79,15 +79,16 @@ foreach($posts as $post):
 </div>
 <!-- FIN RENGLON -->
 
-<div class="container">
-<div class="row">
-    <div class="col-md-12">
-    <input type="hidden" value="<?php echo $cantidad+1; ?>" id="desde" data-cantidad_para_agregar="<?php echo $cantidad; ?>">
-    <button type="button" id="btn_ver_mas" class="btn btn-primary">Ver mas</button>
-    </div>
-</div>
-</div>
+
 
 
 </section>
 
+<div class="container" id="container_btn">
+<div class="row">
+    <div class="col-md-12">
+    <input type="hidden" value="5" id="desde" data-cantidad_para_agregar="4">
+    <button type="button" id="btn_ver_mas" class="btn btn-primary">Ver mas</button>
+    </div>
+</div>
+</div>

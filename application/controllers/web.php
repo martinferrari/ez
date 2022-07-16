@@ -78,13 +78,11 @@ class Web extends CI_Controller {
 		//$desde = 4; ////test
 
 		$conf = $this->obras_model->get_configuracion_home();
-		// $cantidad = ($conf['cantidad']['valor'] != '') ? $conf['cantidad']['valor'] : 10;
+		//$cantidad = ($conf['cantidad']['valor'] != '') ? $conf['cantidad']['valor'] : 10;
 		$orden = ($conf['orden']['valor'] != '') ? $conf['orden']['valor'] : 'id desc';
 
 		$limit = $desde.", 4";
 		$posts = $this->post_model->obtener_post_home($orden, $idioma, $limit);
-
-
 
 
 		$i = $desde;

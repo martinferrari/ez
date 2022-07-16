@@ -34,7 +34,6 @@
 
             //misma altura para todos
             var altura_para_todos = $("#numero_1").height();
-        console.log(altura_para_todos);
 
             jQuery('.grid-item').each(function () {
 
@@ -49,7 +48,6 @@
                 var w = (($(document).width() - (this_gridspace * this_col + 1)) / this_col) - (this_gridspace / this_col);
                 var gi = $(this);
                 var h = w * this_ratio;
-                // var h = altura_para_todos;
                 
                 altura_item = h;
 
@@ -102,9 +100,9 @@
                     }
 
                     posicion_top = position.top + altura_item;
+                    posicion_top = posicion_top + 10;
                     $(this).css("top",posicion_top+"px");
 
-                    // $(".picframe img").css("max-height",altura_item+"px");
                 }
                 nuevo++;
             });
@@ -114,6 +112,10 @@
             altura = altura + (altura_item * cantidad_para_agregar);
             $(".grid").css("height",altura+"px");
 
+            var margin_top = parseInt($("#container_btn").css('marginTop'));
+            margin_top = margin_top + 20;
+            $("#container_btn").css("margin-top",margin_top+"px");
+            
 
 
         }
