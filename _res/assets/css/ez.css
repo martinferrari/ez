@@ -162,3 +162,22 @@ body{
 .carousel-inner > .item > img, .carousel-inner > .item > a > img{
     min-height: 500px;
 }
+
+
+.picframe .loading{
+    position: absolute;
+    left:50%;
+    top:50%;
+}
+
+.grid-item{
+    background-image:url('../images/loading.gif');
+    background-position:center;
+    background-size: 50px 50px !important;
+    background-repeat:no-repeat;
+}
+
+#btn_ver_mas{
+    margin: 0 auto;
+    display: block;
+}

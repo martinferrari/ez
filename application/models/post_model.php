@@ -166,7 +166,7 @@ class Post_model extends CI_Model {
 	}
 
 
-	public function obtener_post_home($cantidad, $orden, $idioma){
+	public function obtener_post_home($orden, $idioma, $limit){
 		
 		if($idioma == "es"):
 			$sql = "SELECT 
@@ -181,8 +181,9 @@ class Post_model extends CI_Model {
 				WHERE p.estado = 1 
 				AND v.es_destacada = 1
 				AND vc.es_destacada_cuadrada = 1
+				AND p.tipo IN (1,2,4) /*no mostrar novedades*/
 				ORDER BY -prioridad DESC,$orden
-				LIMIT $cantidad ";
+				LIMIT $limit ";
 		endif;
 
 		if($idioma == "en"):
@@ -200,8 +201,9 @@ class Post_model extends CI_Model {
 			WHERE p.estado = 1 
 			AND v.es_destacada = 1
 			AND vc.es_destacada_cuadrada = 1
-			ORDER BY -prioridad DESC,$orden
-			LIMIT $cantidad ";
+			AND p.tipo IN (1,2,4) /*no mostrar novedades*/
+			ORDER BY -prioridad DESC, $orden
+			LIMIT $limit ";
 		endif;
 
 		$res = $this->db->query($sql);

@@ -57,6 +57,7 @@ $route['idioma/(:any)'] = "web/idioma";
 $route['web/Contacto/Entrevista'] = "Contacto/entrevista";
 $route['web/Contacto/Trabaja'] = "Contacto/trabaja";
 
+$route['web/ver_mas_post_home'] = "web/ver_mas_post_home";
 
 $route['obras/:num'] = "web/ver_obra";
 $route['proyectos/:num'] = "web/ver_proyecto";

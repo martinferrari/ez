@@ -55,12 +55,84 @@ class Web extends CI_Controller {
 		$conf = $this->obras_model->get_configuracion_home();
 		$cantidad = ($conf['cantidad']['valor'] != '') ? $conf['cantidad']['valor'] : 10;
 		$orden = ($conf['orden']['valor'] != '') ? $conf['orden']['valor'] : 'id desc';
+		$data['cantidad'] = $cantidad;
 
-		$data['posts'] = $this->post_model->obtener_post_home($cantidad, $orden, $idioma);
+		$cantidad = 100; //test
+		$limit = "0,".$cantidad;
+		//$data['posts'] = $this->post_model->obtener_post_home($cantidad, $orden, $idioma);
+		$data['posts'] = $this->post_model->obtener_post_home($orden, $idioma, $limit);
 		
 		$this->load->view('layout/head', $data);
 		$this->load->view('home', $data);
 		$this->load->view('layout/footer', $data);
+		$this->load->view('js/home', $data);
+	}
+
+
+	public function ver_mas_post_home()
+	{
+		$idioma = $this->ver_idioma();
+		$data['idioma'] = $idioma;
+		$this->load->model('admin/obras_model');
+		$desde = $this->input->post("desde");
+		//$desde = 4; ////test
+
+		$conf = $this->obras_model->get_configuracion_home();
+		// $cantidad = ($conf['cantidad']['valor'] != '') ? $conf['cantidad']['valor'] : 10;
+		$orden = ($conf['orden']['valor'] != '') ? $conf['orden']['valor'] : 'id desc';
+
+		$limit = $desde.", 4";
+		$posts = $this->post_model->obtener_post_home($orden, $idioma, $limit);
+
+
+
+
+		$i = $desde;
+		$lw = [1,2,5,6,9,10,13,14,17,18,21,22,25,26,29,30,33,34,37,38,41,42,45,46,49,50,53,54,57,58,61,62,65,66,69,70,73,74,77,78,81,82,85,86,89,90,93,94,97,98];
+		foreach($posts as $post): 
+			if(in_array($i,$lw)):
+				$large_width = "large-width";
+				$imagen = $post['path'];
+			else:
+				$large_width = "";
+				$imagen = $post['cuadrada'];
+			endif;
+
+			if($post['tipo'] == 1):
+				$url = base_url()."obras/".$post['id'];
+			elseif($post['tipo'] == 2):
+				$url = base_url()."proyectos/".$post['id'];
+			elseif($post['tipo'] == 3):
+				$url = base_url()."novedades/".$post['id'];
+			endif;
+			?>
+				<div class="grid-sizer"></div>
+				
+				<div class="grid-item <?php echo $large_width; ?>">
+					<!-- gallery item -->
+					<div class="item">
+						<div class="picframe">
+							<a href="<?php echo $url; ?>">
+								<span class="overlay" >
+									<span class="pf_title">
+										<span class="project-name"><?php echo $post['titulo']; ?></span>
+									</span>
+								</span>
+							</a>
+							<img src="<?php echo base_url(); ?><?php echo $imagen; ?>" alt="EZ Estudio">
+						</div>
+					</div>
+					<!-- close gallery item -->
+				</div>
+			<?php 
+			$i++;
+			//echo $post;
+			endforeach; 
+
+
+
+
+		//var_dump($posts);
 	}
 
 
