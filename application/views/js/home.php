@@ -6,7 +6,7 @@
     //en vez de cargar mas posts, carga las imagenes de mas post
     $("#btn_ver_mas").on("click", function(){
         var desde = $("#desde").val();
-        var hasta = desde + 4;
+        var hasta = parseInt(desde) + 4;
 
         for(var i=0; i<4; i++){
             $("#numero_"+desde+" img").attr('src', $("#numero_"+desde).data("imagen") );
@@ -16,6 +16,11 @@
         
         $("#desde").val(parseInt(desde));
         grid_gallery();
+
+        var cantidad_de_posts_publicados = <?php echo $cantidad_de_posts_publicados; ?>;
+        if(hasta >= cantidad_de_posts_publicados){
+            $("#btn_ver_mas").hide();
+        }
 
     });
 

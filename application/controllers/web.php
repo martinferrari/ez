@@ -57,10 +57,11 @@ class Web extends CI_Controller {
 		$orden = ($conf['orden']['valor'] != '') ? $conf['orden']['valor'] : 'id desc';
 		$data['cantidad'] = $cantidad;
 
-		$cantidad = 100; //test
+		$cantidad = 100; 
 		$limit = "0,".$cantidad;
 		//$data['posts'] = $this->post_model->obtener_post_home($cantidad, $orden, $idioma);
 		$data['posts'] = $this->post_model->obtener_post_home($orden, $idioma, $limit);
+		$data['cantidad_de_posts_publicados'] = count($data['posts']);
 		
 		$this->load->view('layout/head', $data);
 		$this->load->view('home', $data);
