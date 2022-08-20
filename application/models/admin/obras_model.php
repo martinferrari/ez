@@ -60,7 +60,7 @@ class Obras_model extends CI_Model {
 			'$sup_cubierta',
 			'$anio_finalizacion',
 			'$fotografia',
-			'$prioridad')";
+			$prioridad)";
 
 		$query = $this->db->query($sql);
 		$insert = $this->db->affected_rows();

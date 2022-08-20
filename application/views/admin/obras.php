@@ -52,7 +52,7 @@
                                                 value="<?php echo utf8_decode($o['titulo']); ?>">
 
                                                 <input type="hidden" name="descripcion" class="descripcion" 
-                                                value="<?php echo utf8_decode($o['descripcion']); ?>">
+                                                value='<?php echo utf8_decode($o['descripcion']); ?>'>
 
 												<input type="hidden" name="anio_proyecto" class="anio_proyecto" 
                                                 value="<?php echo utf8_decode($o['anio_proyecto']); ?>">
@@ -241,7 +241,7 @@
 								</div>
                                 <div class="col-md-12">
 									<h4>Proyecto</h4>
-									<input type="text" class="form-control" name="proyecto">
+									<input type="text" class="form-control" name="proyecto" value="Arq. Pietro Ezio Zucchet">
 								</div>
                                 <div class="col-md-12">
 									<h4>Ejecuci&oacute;n</h4>
@@ -296,7 +296,7 @@
 								
                                 <div class="col-md-6">
 									<h4>Ubicaci&oacute;n</h4>
-									<input type="text" class="form-control" name="ubicacion">
+									<input type="text" class="form-control" name="ubicacion" value="Formosa Argentina">
 								</div>
                                 <div class="col-md-6">
 									<h4>Estado</h4>

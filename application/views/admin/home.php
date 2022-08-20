@@ -93,6 +93,7 @@
                                                     <option value="id desc" <?php echo $s = ($oh == 'id desc') ? "selected" : ""; ?>>Ultimo primero</option>
                                                     <option value="rand()" <?php echo $s = ($oh == 'rand()') ? "selected" : ""; ?>>Aleatorio</option>
                                                     <option value="titulo asc" <?php echo $s = ($oh == 'titulo asc') ? "selected" : ""; ?>>Por nombre</option>
+                                                    <option value="-prioridad desc" <?php echo $s = ($oh == '-prioridad desc') ? "selected" : ""; ?>>Por Prioridad</option>
                                                 </select>
 
                                                 <input type="submit" class="btn btn-sm btn-primary" value="Guardar">
@@ -129,6 +130,7 @@
                                                     <option value="id desc" <?php echo $s = ($oo == 'id desc') ? "selected" : ""; ?>>Ultimo primero</option>
                                                     <option value="rand()" <?php echo $s = ($oo == 'rand()') ? "selected" : ""; ?>>Aleatorio</option>
                                                     <option value="titulo asc" <?php echo $s = ($oo == 'titulo asc') ? "selected" : ""; ?>>Por nombre</option>
+                                                    <option value="-prioridad desc" <?php echo $s = ($oo == '-prioridad desc') ? "selected" : ""; ?>>Por Prioridad</option>
                                                 </select>
 
                                                 <input type="submit" class="btn btn-sm btn-primary" value="Guardar">
@@ -164,6 +166,7 @@
                                                     <option value="id desc" <?php echo $s = ($op == 'id desc') ? "selected" : ""; ?>>Ultimo primero</option>
                                                     <option value="rand()" <?php echo $s = ($op == 'rand()') ? "selected" : ""; ?>>Aleatorio</option>
                                                     <option value="titulo asc" <?php echo $s = ($op == 'titulo asc') ? "selected" : ""; ?>>Por nombre</option>
+                                                    <option value="-prioridad desc" <?php echo $s = ($op == '-prioridad desc') ? "selected" : ""; ?>>Por Prioridad</option>
                                                 </select>
 
                                                 <input type="submit" class="btn btn-sm btn-primary" value="Guardar">
@@ -199,6 +202,7 @@
                                                     <option value="id desc" <?php echo $s = ($on == 'id desc') ? "selected" : ""; ?>>Ultimo primero</option>
                                                     <option value="rand()" <?php echo $s = ($on == 'rand()') ? "selected" : ""; ?>>Aleatorio</option>
                                                     <option value="titulo asc" <?php echo $s = ($on == 'titulo asc') ? "selected" : ""; ?>>Por nombre</option>
+                                                    <option value="-prioridad desc" <?php echo $s = ($on == '-prioridad desc') ? "selected" : ""; ?>>Por Prioridad</option>
                                                 </select>
 
                                                 <input type="submit" class="btn btn-sm btn-primary" value="Guardar">

@@ -58,6 +58,22 @@
                 <h3 class="id-color" ><?php echo $titulo; ?></h3>
                 <h4 class="id-color" ><?php echo $proyecto['anio_proyecto']; ?></h4>
                 <p style="padding-right: 3em"><?php echo $descripcion; ?></p> 
+
+                <?php if(isset($videos)):
+                    $qty_videos = count($videos);
+                    $hasta = ($qty_videos >= 3) ? 3 : $qty_videos;
+
+                    for($i=0;$i<$hasta;$i++): ?>
+                    <div class="col-md-4">
+                        <div class="wrapper_thumbnail_video btn_video" data-toggle="modal" data-target="#modalVideo" data-video="<?php echo base_url().$videos[$i]; ?>">
+                            <i class="far fa-play-circle"></i>
+                            <span>Ver video</span>
+                        </div>
+                        
+                    </div>
+
+                    <?php endfor; ?>
+                <?php endif; ?>
                 
             </div>
         </div>
@@ -209,15 +225,6 @@
                   </div>
               </div>
               
-              
-              <!-- 16:9 aspect ratio vVIDEO -->
-              <div class="embed-responsive embed-responsive-16by9">
-                <?php if(isset($videos[0])): ?>
-                    <video controls loop playsinline muted class="embed-responsive-item" style="max-width:100%; height:auto mt20">
-                        <source src="<?php echo base_url().$videos[0]; ?>" type="video/mp4">
-                    </video>
-                <?php endif; ?>
-            </div> 
             <?php endif; ?>
              
         </div>

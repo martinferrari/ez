@@ -34,7 +34,9 @@ foreach($posts as $post):
 
     /**/
     $imagen_path = $imagen;
-    if($j < 5):
+    $cantidad = 11;
+
+    if($j < $cantidad):
         $visible = "";
     else:
         $visible = "style='display:none;'";
@@ -48,6 +50,8 @@ foreach($posts as $post):
         $url = base_url()."proyectos/".$post['id'];
     elseif($post['tipo'] == 3):
         $url = base_url()."novedades/".$post['id'];
+    elseif($post['tipo'] == 4):
+        $url = base_url()."obras/".$post['id'];
     endif;
     ?>
         <div class="grid-sizer"></div>
@@ -87,8 +91,8 @@ foreach($posts as $post):
 <div class="container" id="container_btn">
 <div class="row">
     <div class="col-md-12">
-    <input type="hidden" value="5" id="desde" data-cantidad_para_agregar="4">
-    <button type="button" id="btn_ver_mas" class="btn btn-primary">Ver mas</button>
+    <input type="hidden" value="<?php echo $cantidad; ?>" id="desde" data-cantidad_para_agregar="4">
+    <?php //<button type="button" id="btn_ver_mas" class="btn btn-primary">Ver mas</button> ?>
     </div>
 </div>
 </div>

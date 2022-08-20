@@ -43,7 +43,7 @@ class Proyectos_model extends CI_Model {
 			'$usuario_alta',
 			'$fecha_alta',
 			'$estado',
-			'$prioridad')";
+			$prioridad)";
 
 		$query = $this->db->query($sql);
 		$insert = $this->db->affected_rows();
@@ -204,7 +204,8 @@ class Proyectos_model extends CI_Model {
 				fecha_alta,
 				usuario_modificacion,
 				fecha_modificacion,
-				estado
+				estado,
+				prioridad
 			FROM post p
 			WHERE  p.tipo = 2
 			ORDER BY p.fecha_alta DESC

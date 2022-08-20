@@ -2,13 +2,37 @@
 
 //carga mas posts
 
+<?php
     //al cargar la pagina, se traen 50 posts pero solo se muestran algunos. al presionar ver mas, se cargan las imagenes de los posts nuevos a mostrar y se muestran los posts
     //en vez de cargar mas posts, carga las imagenes de mas post
+    ?>
     $("#btn_ver_mas").on("click", function(){
-        var desde = $("#desde").val();
-        var hasta = parseInt(desde) + 4;
+        ver_mas();
+    });
 
-        for(var i=0; i<4; i++){
+
+    $(window).scroll(function() {
+        var cantidad = 4;
+        var desde = $("#desde").val();
+        var hasta = parseInt(desde) + cantidad;
+
+        //if ( ($(window).scrollTop() ) == $(document).height() - $(window).height() ) {
+        if ( ($(window).scrollTop() + $(window).height()) >= $(document).height() - $(window).height() ) {
+
+            var cantidad_de_posts_publicados = <?php echo $cantidad_de_posts_publicados; ?>;
+            if(hasta < cantidad_de_posts_publicados){
+                ver_mas(cantidad,desde);
+            }
+        }
+    });
+
+
+    function ver_mas(cantidad,desde){
+        // var cantidad = 4;
+        // var desde = $("#desde").val();
+        // var hasta = parseInt(desde) + cantidad;
+
+        for(var i=0; i<cantidad; i++){
             $("#numero_"+desde+" img").attr('src', $("#numero_"+desde).data("imagen") );
             $("#numero_"+desde).show();
             desde++;
@@ -17,13 +41,11 @@
         $("#desde").val(parseInt(desde));
         grid_gallery();
 
-        var cantidad_de_posts_publicados = <?php echo $cantidad_de_posts_publicados; ?>;
-        if(hasta >= cantidad_de_posts_publicados){
-            $("#btn_ver_mas").hide();
-        }
-
-    });
-
+        // var cantidad_de_posts_publicados = <?php echo $cantidad_de_posts_publicados; ?>;
+        // if(hasta >= cantidad_de_posts_publicados){
+        //     $("#btn_ver_mas").hide();
+        // }
+    }
 
 
 
@@ -37,7 +59,7 @@
             
             var nuevo = 1;
 
-            //misma altura para todos
+            <?php //misma altura para todos ?>
             var altura_para_todos = $("#numero_1").height();
 
             jQuery('.grid-item').each(function () {

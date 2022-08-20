@@ -56,7 +56,7 @@ class Post_model extends CI_Model {
 				and p.tipo = 3
 				AND v.es_destacada = 1
 				AND vc.es_destacada_cuadrada = 1
-				ORDER BY -prioridad DESC,$orden
+				ORDER BY $orden
 				LIMIT $cantidad ";
 			$res = $this->db->query($sql);
 			return $res->result_array();
@@ -78,7 +78,7 @@ class Post_model extends CI_Model {
 			and p.tipo = 3
 			AND v.es_destacada = 1
 			AND vc.es_destacada_cuadrada = 1
-			ORDER BY -prioridad DESC,$orden
+			ORDER BY $orden
 			LIMIT $cantidad ";
 			$res = $this->db->query($sql);
 			return $res->result_array();
@@ -135,7 +135,7 @@ class Post_model extends CI_Model {
 			AND p.tipo = $tipo
 			AND v.es_destacada = 1
 			AND vc.es_destacada_cuadrada = 1
-			ORDER BY -prioridad DESC,$orden
+			ORDER BY $orden
 			LIMIT $cantidad ";
 
 			$res = $this->db->query($sql);
@@ -158,7 +158,7 @@ class Post_model extends CI_Model {
 			and p.tipo = $tipo
 			AND v.es_destacada = 1
 			AND vc.es_destacada_cuadrada = 1
-			ORDER BY -prioridad DESC,$orden
+			ORDER BY $orden
 			LIMIT $cantidad ";
 			$res = $this->db->query($sql);
 			return $res->result_array();
@@ -182,7 +182,7 @@ class Post_model extends CI_Model {
 				AND v.es_destacada = 1
 				AND vc.es_destacada_cuadrada = 1
 				AND p.tipo IN (1,2,4) /*no mostrar novedades*/
-				ORDER BY -prioridad DESC,$orden
+				ORDER BY $orden
 				LIMIT $limit ";
 		endif;
 
@@ -202,7 +202,7 @@ class Post_model extends CI_Model {
 			AND v.es_destacada = 1
 			AND vc.es_destacada_cuadrada = 1
 			AND p.tipo IN (1,2,4) /*no mostrar novedades*/
-			ORDER BY -prioridad DESC, $orden
+			ORDER BY $orden
 			LIMIT $limit ";
 		endif;
 
@@ -227,7 +227,7 @@ class Post_model extends CI_Model {
 				and p.tipo = 2
 				AND v.es_destacada = 1
 				AND vc.es_destacada_cuadrada = 1
-				ORDER BY -prioridad DESC,$orden
+				ORDER BY $orden
 				LIMIT $cantidad ";
 			$res = $this->db->query($sql);
 			return $res->result_array();
@@ -249,7 +249,7 @@ class Post_model extends CI_Model {
 			and p.tipo = 2
 			AND v.es_destacada = 1
 			AND vc.es_destacada_cuadrada = 1
-			ORDER BY -prioridad DESC,$orden
+			ORDER BY $orden
 			LIMIT $cantidad ";
 			$res = $this->db->query($sql);
 			return $res->result_array();

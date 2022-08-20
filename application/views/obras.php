@@ -41,6 +41,8 @@ foreach($posts as $post):
         $url = base_url()."proyectos/".$post['id'];
     elseif($post['tipo'] == 3):
         $url = base_url()."novedades/".$post['id'];
+    elseif($post['tipo'] == 4):
+        $url = base_url()."obras/".$post['id'];
     endif;
 
     $titulo = $post['titulo'];

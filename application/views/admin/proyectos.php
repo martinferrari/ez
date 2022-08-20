@@ -79,6 +79,8 @@
 
                                                 <input type="hidden" name="fecha_alta" class="fecha_alta" 
                                                 value="<?php echo $p['fecha_alta']; ?>">
+												<input type="hidden" name="prioridad" class="prioridad" 
+                                                value="<?php echo $p['prioridad']; ?>">
 
 
                                                 <td><?php echo $p['id']; ?></td>
@@ -214,7 +216,7 @@
 								</div>
                                 <div class="col-md-12">
 									<h4>Proyecto</h4>
-									<input type="text" class="form-control" name="proyecto">
+									<input type="text" class="form-control" name="proyecto" value="Arq. Pietro Ezio Zucchet">
 								</div>
                                 <div class="col-md-12">
 									<h4>Ejecuci&oacute;n</h4>
@@ -238,7 +240,7 @@
 								</div>
                                 <div class="col-md-6">
 									<h4>Ubicaci&oacute;n</h4>
-									<input type="text" class="form-control" name="ubicacion">
+									<input type="text" class="form-control" name="ubicacion" value="Formosa Argentina">
 								</div>
                                 <div class="col-md-6">
 									<h4>Estado</h4>
