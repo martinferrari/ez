@@ -238,7 +238,7 @@ class Proyectos extends CI_Controller {
 			foreach($videos_a_borrar as $k => $v):
 				if($a_borrar[$k] == 1):
 					unlink($v);
-					$this->proyectos_model->borrar_foto($id_proyecto, $v);
+					$this->visuales_model->borrar_foto($id_proyecto, $v);
 				endif;
 			endforeach;
 		endif;

@@ -1,4 +1,4 @@
-<?php  header('Content-type: text/html; charset=ISO-8859-1'); ?> 
+<?php // header('Content-type: text/html; charset=ISO-8859-1'); ?> 
 
 <div class="right_col" role="main">
     <div class="page-title">
@@ -53,11 +53,11 @@
 
                                                 <td><?php echo $p['id']; ?></td>
                                                 <td><?php echo utf8_decode($p['codigo']); ?></td>
-                                                <td><?php echo $p['formato']; ?></td>
-                                                <td><?php echo $p['espesor']; ?></td>
-                                                <td><?php echo $p['m2_por_caja']; ?></td>
-                                                <td><?php echo $categoria[$p['categoria']]; ?></td>
-												<td><?php echo $estado; ?></td>
+                                                <td><?php echo utf8_decode($p['formato']); ?></td>
+                                                <td><?php echo utf8_decode($p['espesor']); ?></td>
+                                                <td><?php echo utf8_decode($p['m2_por_caja']); ?></td>
+                                                <td><?php echo utf8_decode($categoria[$p['categoria']]); ?></td>
+												<td><?php echo utf8_decode($estado); ?></td>
                                                 <td>
 												
                                                     <a 
@@ -216,12 +216,12 @@
 									<input type="text" class="form-control codigo" name="codigo" id="mp_codigo">
 								</div>
 
-								<div class="col-md-8">
+								<div class="col-md-12">
 									<h4>Detalle</h4>
                                     <input type="text" class="form-control" name="detalle" id="mp_detalle">
 								</div>
 								
-								<div class="col-md-4">
+								<div class="col-md-12">
 									<h4>Formato</h4>
                                     <input type="text" class="form-control" name="formato" id="mp_formato">
 								</div>

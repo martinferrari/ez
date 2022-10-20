@@ -159,9 +159,7 @@ body{
     line-height: 1.5em !important;
 }
 
-.carousel-inner > .item > img, .carousel-inner > .item > a > img{
-    min-height: 500px;
-}
+
 
 
 .picframe .loading{
@@ -182,3 +180,21 @@ body{
     margin: 0 auto;
     display: block;
 }
+
+.contenido p{
+    padding-right: 3em ;
+}
+
+
+
+@media (max-width: 768px) {
+    .carousel-inner > .item > img, .carousel-inner > .item > a > img{
+        max-height: 300px;
+    }
+}
+
+@media (min-width: 769px) {
+    .carousel-inner > .item > img, .carousel-inner > .item > a > img{
+        min-height: 500px;
+    }
+  }
