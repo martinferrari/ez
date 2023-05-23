@@ -21,24 +21,36 @@ $(".acciones").on('click', function(){
 		
 		
 		if(accion == "detalle"){
-			$("#modalEdicion #me_id").val(id);
-			$("#modalEdicion #me_titulo").val(titulo);
-			$('#modalEdicion #me_descripcion').trumbowyg('html', descripcion);
-			$("#modalEdicion #me_anio_proyecto").val(anio_proyecto);
-			$("#modalEdicion #me_proyecto").val(proyecto);
-			$("#modalEdicion #me_ejecucion").val(ejecucion);
-			$("#modalEdicion #me_construccion_direccion").val(construccion_direccion);
-			$("#modalEdicion #me_disenio_dim_estruc").val(disenio_dim_estruc);
-			$("#modalEdicion #me_tipologia").val(tipologia);
-			$("#modalEdicion #me_disenio_dim_clim").val(disenio_dim_clim);
-			$("#modalEdicion #me_area").val(area);
-			$("#modalEdicion #me_ubicacion").val(ubicacion);
-			$("#modalEdicion #me_estado").val(estado);
-			$("#modalEdicion #me_prioridad").val(prioridad);
+			// $("#modalEdicion #me_id").val(id);
+			// $("#modalEdicion #me_titulo").val(titulo);
+			// $('#modalEdicion #me_descripcion').trumbowyg('html', descripcion);
+			// $("#modalEdicion #me_anio_proyecto").val(anio_proyecto);
+			// $("#modalEdicion #me_proyecto").val(proyecto);
+			// $("#modalEdicion #me_ejecucion").val(ejecucion);
+			// $("#modalEdicion #me_construccion_direccion").val(construccion_direccion);
+			// $("#modalEdicion #me_disenio_dim_estruc").val(disenio_dim_estruc);
+			// $("#modalEdicion #me_tipologia").val(tipologia);
+			// $("#modalEdicion #me_disenio_dim_clim").val(disenio_dim_clim);
+			// $("#modalEdicion #me_area").val(area);
+			// $("#modalEdicion #me_ubicacion").val(ubicacion);
+			// $("#modalEdicion #me_estado").val(estado);
+			// $("#modalEdicion #me_prioridad").val(prioridad);
 			
 			$("#btn_borrar").attr("href", "<?php echo base_url(); ?>admin/Proyectos/borrar_proyecto/"+parseInt(id));
 
 			
+
+
+			var string_json = $(this).parent().siblings(".datos").val();
+			const datos = JSON.parse(string_json);
+			var accion = $(this).data("accion");
+
+			if(accion == "detalle"){
+				jQuery.each(datos, function(i, val) {
+						$("#me_"+i).val( val );
+				});
+			}
+
 
 		} //detalle	
 

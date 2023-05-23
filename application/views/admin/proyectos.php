@@ -27,11 +27,14 @@
                                         <th>T&iacute;tulo</th>
                                         <th>Fecha de Alta</th>
                                         <th>Estado</th>
-										<th>Acciones</th>
+																				<th>Acciones</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                         <?php foreach($proyectos as $p): ?>
+
+																					
+
 											<?php 
 												if($p['estado'] == 0):
 													$estado = '<i class="fas fa-cloud-upload-alt borrador" data-toggle="tooltip" 
@@ -44,7 +47,11 @@
 											<?php $destacada = ($p['tiene_destacada'] == 0) ? '<i class="fas fa-exclamation-triangle sin_destacada" data-toggle="tooltip" 
 															data-placement="Top" title="No tiene imagen destacada"></i>' : ""; ?>
                                             <tr>
-                                                <input type="hidden" name="id" class="id" 
+
+																						<input type="hidden" class="datos" 
+                                   				 value='<?php echo json_encode ((array) $p); ?>'>
+
+                                                <?php /* <input type="hidden" name="id" class="id" 
                                                 value="<?php echo $p['id']; ?>">
 
                                                 <input type="hidden" name="titulo" class="titulo" 
@@ -81,6 +88,7 @@
                                                 value="<?php echo $p['fecha_alta']; ?>">
 												<input type="hidden" name="prioridad" class="prioridad" 
                                                 value="<?php echo $p['prioridad']; ?>">
+																								*/ ?>
 
 
                                                 <td><?php echo $p['id']; ?></td>

@@ -13,7 +13,7 @@ class Usuario extends CI_Controller {
 
 	function altaUsuario(){
 		$nombre = $this->input->post("nombre");
-		$pass = $this->input->post("pass");
+		$pass = md5($this->input->post("pass"));
 		$tipo = $this->input->post("tipo");
 		$estado = $this->input->post("estado");
 
