@@ -20,7 +20,7 @@ class Usuario extends CI_Controller {
 		$insert = $this->usuarios_model->alta_usuario($nombre, $pass, $tipo, $estado);
 
 		if($insert != 0):
-			establecer_mensaje_emergente("Usuario agregado con �xito", "success");
+			establecer_mensaje_emergente("Usuario dado de alta correctamente.", "success");
 		else:
 			establecer_mensaje_emergente("Se produjo un error", "error");
 		endif;
@@ -65,7 +65,7 @@ class Usuario extends CI_Controller {
 				redirect("admin/home");
 			else:
 				//el usuario esta inactivo
-				$this->session->set_userdata(array('usuario_inactivo' => "El usuario no est� activo"));
+				$this->session->set_userdata(array('usuario_inactivo' => "Usuario inactivo"));
 				redirect("admin");
 			endif; 
 			
@@ -93,7 +93,7 @@ class Usuario extends CI_Controller {
 		$pass2 = $this->input->post("mp_pass2");
 		
 		if($pass != $pass2):
-			establecer_mensaje_emergente("Las contrase�as no coinciden", "error");
+			establecer_mensaje_emergente("Los passwords no coinciden", "error");
 			redirect("admin/usuarios");
 		endif;
 		
@@ -102,7 +102,7 @@ class Usuario extends CI_Controller {
 		$update = $this->usuarios_model->modificacion_password($id, $pass);
 
 		if($update != 0):
-			establecer_mensaje_emergente("Usuario modificado con �xito", "success");
+			establecer_mensaje_emergente("Usuario modificado correctamente.", "success");
 		else:
 			establecer_mensaje_emergente("Se produjo un error", "error");
 		endif;
@@ -120,7 +120,7 @@ class Usuario extends CI_Controller {
 		$update = $this->usuarios_model->modificacion_usuario($id, $nombre, $pass, $tipo, $estado);
 
 		if($update != 0):
-			establecer_mensaje_emergente("Usuario modificado con �xito", "success");
+			establecer_mensaje_emergente("Usuario modificado correctamente", "success");
 		else:
 			establecer_mensaje_emergente("Se produjo un error", "error");
 		endif;
